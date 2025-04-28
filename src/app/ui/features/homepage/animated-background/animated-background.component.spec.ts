@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BubblesBackgroundComponent } from './bubbles-background.component';
+import { AnimatedBackgroundComponent } from './animated-background.component';
 
 describe('BubblesBackgroundComponent', () => {
-  let component: BubblesBackgroundComponent;
-  let fixture: ComponentFixture<BubblesBackgroundComponent>;
+  let component: AnimatedBackgroundComponent;
+  let fixture: ComponentFixture<AnimatedBackgroundComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BubblesBackgroundComponent]
+      imports: [AnimatedBackgroundComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BubblesBackgroundComponent);
+    fixture = TestBed.createComponent(AnimatedBackgroundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
