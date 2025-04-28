@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import flags from "../../../../data/countries_flags.json";
 
 @Component({
-  selector: 'app-bubbles-background',
+  selector: 'app-animated-background',
   imports: [],
   templateUrl: './animated-background.component.html',
   styleUrl: './animated-background.component.scss',
@@ -12,5 +11,4 @@ import flags from "../../../../data/countries_flags.json";
 })
 
 export class AnimatedBackgroundComponent {
-  flags: any = flags;
 }

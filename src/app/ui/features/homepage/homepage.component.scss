@@ -18,11 +18,12 @@ app-homepage {
         text-align: center;
         background-color: var(--color-dark);
         padding: 2rem 4rem;
-        border-radius: 8rem;
-        border: .5rem solid var(--border-color);
+        border-top: .5rem solid var(--border-color);
+        border-bottom: .5rem solid var(--border-color);
         height: min-content;
         text-transform: uppercase;
         z-index: 3;
+        width: 100vw;
     }
 
 
