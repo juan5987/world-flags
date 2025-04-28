@@ -22,6 +22,7 @@ app-homepage {
         border: .5rem solid var(--border-color);
         height: min-content;
         text-transform: uppercase;
+        z-index: 3;
     }
 
 
@@ -31,5 +32,6 @@ app-homepage {
         justify-content: center;
         align-items: center;
         margin-top: 5rem;
+        z-index: 3;
     }
 }
