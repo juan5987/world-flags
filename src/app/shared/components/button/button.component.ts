@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,6 +6,9 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent {
   @Input() buttonText: string = 'Button';

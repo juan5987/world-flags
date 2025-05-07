@@ -1,8 +1,8 @@
-import { Component, inject, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@angular/core';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { AnimatedBackgroundComponent } from './animated-background/animated-background.component';
 import { Router } from '@angular/router';
-import { NotLoggedModalComponent } from '../../../shared/notLoggedModal/notLoggedModal.component';
+import { NotLoggedModalComponent } from '../../../shared/components/notLoggedModal/notLoggedModal.component';
 import { NotLoggedModalService } from '../../../data/services/notLoggedModal.service';
 
 @Component({
@@ -15,6 +15,7 @@ import { NotLoggedModalService } from '../../../data/services/notLoggedModal.ser
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
 export class HomepageComponent {

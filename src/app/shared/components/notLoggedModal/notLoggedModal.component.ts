@@ -5,8 +5,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { ButtonComponent } from '../components/button/button.component';
-import { NotLoggedModalService } from '../../data/services/notLoggedModal.service';
+import { ButtonComponent } from '../button/button.component';
+import { NotLoggedModalService } from '../../../data/services/notLoggedModal.service';
 
 @Component({
   selector: 'app-not-logged-modal',
