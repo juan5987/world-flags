@@ -1,2 +1,2 @@
-@import './app/ui/styles/variables.scss';
-@import './app/ui/styles/reset.scss';
+@use './app/ui/styles/variables.scss' as *;
+@use './app/ui/styles/reset.scss' as *;
