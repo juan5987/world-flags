@@ -1,1 +1,6 @@
-<button class="button">{{buttonText}}</button>
+<button 
+class="button" 
+[ngStyle]="{'background-color': secondaryColor, 'color': mainColor}"
+>
+    {{buttonText}}
+</button>

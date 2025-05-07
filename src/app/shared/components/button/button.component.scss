@@ -8,11 +8,12 @@
     transition: all .5s ease;
     margin-bottom: 1rem;
     width: 300px;
-    cursor: pointer;
     color: var(--color-dark);
+    background-color: var(--border-color);
+    cursor: pointer;
     
     &:hover {
-        background-color: var(--primary-color);
-        color: var(--text-color);
+        background-color: var(--color-dark)!important;
+        color: var(--text-color)!important;
     }
 }
