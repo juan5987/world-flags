@@ -1,7 +1,18 @@
 import { Routes } from '@angular/router';
-import { HomepageComponent } from './ui/features/homepage/homepage.component';
 
-export const routes: Routes = [{
+export const routes: Routes = [
+  {
     path: '',
-    loadChildren: () => import('./ui/features/homepage/homepage.component').then(mod => mod.HomepageComponent),
-  }];
+    loadComponent: () =>
+      import('./ui/features/homepage/homepage.component').then(
+        (mod) => mod.HomepageComponent
+      ),
+  },
+  {
+    path: 'launch',
+    loadComponent: () =>
+      import('./ui/features/launch/launch.component').then(
+        (mod) => mod.LaunchComponent
+      ),
+  },
+];

@@ -1,6 +1,7 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { AnimatedBackgroundComponent } from './animated-background/animated-background.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -11,5 +12,6 @@ import { AnimatedBackgroundComponent } from './animated-background/animated-back
   standalone: true,
 })
 export class HomepageComponent {
-
+  protected router = inject(Router);
+  protected launchGame() {}
 }
