@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonComponent } from '../components/button/button.component';
+import { NotLoggedModalService } from '../../data/services/notLoggedModal.service';
 
 @Component({
   selector: 'app-not-logged-modal',
@@ -15,11 +16,18 @@ import { ButtonComponent } from '../components/button/button.component';
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '(click)': 'closeModal()',
+  },
+  
 })
 export class NotLoggedModalComponent {
   protected router = inject(Router);
+  protected modalService = inject(NotLoggedModalService);
 
-  protected closeModal() {}
+  protected closeModal() {
+    this.modalService.closeModal()
+  }
 
   protected navigateToPlay() {
     this.router.navigate(['/play']);
