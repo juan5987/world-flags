@@ -11,11 +11,13 @@ export class ButtonComponent {
   @Input() buttonText: string = 'Button';
   @Input() mainColor: string = '#363636';
   @Input() secondaryColor: string = '#fff';
+  @Input() fontSize: string = '1.5rem';
 
   protected get buttonStyles() {
     return { 
       'background-color': this.secondaryColor, 
-      color: this.mainColor 
+      'color': this.mainColor,
+      'font-size': this.fontSize,
     };
   }
 }

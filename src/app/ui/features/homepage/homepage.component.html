@@ -1,9 +1,13 @@
 <app-animated-background></app-animated-background>
 <h1 id="homepage__title">World Flags</h1>
 <div id="homepage__buttons">
-    <app-button id="homepage__buttons__play" buttonText="Jouer" (click)="router.navigateByUrl('/launch')">Jouer</app-button>
-    <app-button id="homepage__buttons__training" buttonText="Entrainement">Entrainement</app-button>
-    <app-button id="homepage__buttons__ranking" buttonText="Classement">Classement</app-button>
-    <app-button id="homepage__buttons__ranking" buttonText="Règles">Règles</app-button>
-    <app-button id="homepage__buttons__login" buttonText="Connexion" mainColor="white" secondaryColor="orange">Connexion</app-button>
+    <app-button id="homepage__buttons__play" buttonText="Jouer" fontSize="2rem" (click)="checkIfLoggedIn()">Jouer</app-button>
+    <app-button id="homepage__buttons__training" buttonText="Entrainement" fontSize="2rem">Entrainement</app-button>
+    <app-button id="homepage__buttons__ranking" buttonText="Classement" fontSize="2rem">Classement</app-button>
+    <app-button id="homepage__buttons__ranking" buttonText="Règles" fontSize="2rem">Règles</app-button>
+    <app-button id="homepage__buttons__login" buttonText="Connexion" mainColor="white" secondaryColor="orange" fontSize="2rem">Connexion</app-button>
 </div>
+
+@if (isNotLoggedModalOpen) {
+    <app-not-logged-modal></app-not-logged-modal>
+}
