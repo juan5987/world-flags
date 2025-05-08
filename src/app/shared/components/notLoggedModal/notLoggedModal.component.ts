@@ -30,10 +30,12 @@ export class NotLoggedModalComponent {
   }
 
   protected navigateToPlay() {
+    this.modalService.closeModal()
     this.router.navigate(['/play']);
   }
 
   protected navigateToLogin() {
+    this.modalService.closeModal()
     this.router.navigate(['/login']);
   }
 }

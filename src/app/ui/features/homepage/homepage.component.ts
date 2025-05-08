@@ -27,6 +27,10 @@ export class HomepageComponent {
     this.router.navigate(['/play']);
   }
 
+  protected navigateToLogin() {
+    this.router.navigate(['/login']);
+  }
+
   protected checkIfLoggedIn() {
     if (this.isLoggedIn) {
       this.navigateToPlay();
