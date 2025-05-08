@@ -9,10 +9,17 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'launch',
+    path: 'play',
     loadComponent: () =>
-      import('./ui/features/launch/launch.component').then(
-        (mod) => mod.LaunchComponent
+      import('./ui/features/play/play.component').then(
+        (mod) => mod.PlayComponent
+      ),
+  },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./ui/features/login/login.component').then(
+        (mod) => mod.LoginComponent
       ),
   },
 ];
