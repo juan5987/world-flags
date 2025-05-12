@@ -1,23 +1,22 @@
-import { Injectable } from '@angular/core';
+import { computed, effect, inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { GoogleAuthService } from './google-auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private googleAuthService = inject(GoogleAuthService);
+  private _isLoggedIn = computed(() => !!this.googleAuthService.getProfile());
 
-  private isLoggedIn = false;
-
-  constructor() { }
-
-  public login() {
-    this.isLoggedIn = true;
+  public login(): void {
+    this.googleAuthService.login();
   }
 
-  public logout() {
-    this.isLoggedIn = false;
+  public logout(): void {
+    this.googleAuthService.logout();
   }
 
-  public isUserLoggedIn() {
-    return this.isLoggedIn;
+  public isUserLoggedIn(): boolean {
+    return this._isLoggedIn();
   }
 }

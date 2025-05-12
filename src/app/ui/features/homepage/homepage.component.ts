@@ -24,7 +24,9 @@ export class HomepageComponent {
   protected modalService = inject(NotLoggedModalService);
   protected userService = inject(UserService);
 
-  protected isLoggedIn = this.userService.isUserLoggedIn();
+  protected get isLoggedIn(): boolean {
+    return this.userService.isUserLoggedIn();
+  }
 
   private navigateToPlay() {
     this.router.navigate(['/play']);
@@ -32,6 +34,11 @@ export class HomepageComponent {
 
   protected navigateToLogin() {
     this.router.navigate(['/login']);
+  }
+
+  protected logout() {
+    this.userService.logout();
+    this.router.navigate(['/']);
   }
 
   protected checkIfLoggedIn() {

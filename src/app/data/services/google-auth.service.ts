@@ -1,5 +1,4 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { authConfig } from '../../config/auth-config';
 
@@ -7,57 +6,35 @@ import { authConfig } from '../../config/auth-config';
   providedIn: 'root'
 })
 export class GoogleAuthService {
-
   private oAuthService = inject(OAuthService);
-
-  private router = inject(Router);
-
-  profile = signal<any>(null);
+  private profile = signal<any>(null);
 
   constructor() {
-
     this.initConfiguration();
-
   }
 
-  initConfiguration() {
-
+  private initConfiguration() {
     this.oAuthService.configure(authConfig);
-
     this.oAuthService.setupAutomaticSilentRefresh();
-
     this.oAuthService.loadDiscoveryDocumentAndTryLogin().then(() => {
 
       if (this.oAuthService.hasValidIdToken()) {
-
         this.profile.set(this.oAuthService.getIdentityClaims());
-
       }
-
     });
-
   }
 
-  login() {
-
+  public login() {
     this.oAuthService.initImplicitFlow();
-
   }
 
-  logout() {
-
+  public logout() {
     this.oAuthService.revokeTokenAndLogout();
-
     this.oAuthService.logOut();
-
     this.profile.set(null);
-
   }
 
-  getProfile() {
-
+  public getProfile() {
     return this.profile();
-
   }
-
 }
