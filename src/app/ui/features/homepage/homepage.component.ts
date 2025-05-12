@@ -4,6 +4,7 @@ import { AnimatedBackgroundComponent } from './animated-background/animated-back
 import { Router } from '@angular/router';
 import { NotLoggedModalComponent } from '../../../shared/components/notLoggedModal/notLoggedModal.component';
 import { NotLoggedModalService } from '../../../data/services/notLoggedModal.service';
+import { UserService } from '../../../data/services/user.service';
 
 @Component({
   selector: 'app-homepage',
@@ -21,7 +22,9 @@ import { NotLoggedModalService } from '../../../data/services/notLoggedModal.ser
 export class HomepageComponent {
   protected router = inject(Router);
   protected modalService = inject(NotLoggedModalService);
-  protected isLoggedIn = false; // This wil be replaced with authentication service
+  protected userService = inject(UserService);
+
+  protected isLoggedIn = this.userService.isUserLoggedIn();
 
   private navigateToPlay() {
     this.router.navigate(['/play']);

@@ -6,11 +6,11 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
 export class NotLoggedModalService {
   public isModalOpen: WritableSignal<boolean> = signal(false);
 
-  openModal() {
+  public openModal() {
     this.isModalOpen.set(true);
   }
 
-  closeModal() {
+  public closeModal() {
     this.isModalOpen.set(false);
   }
 }
