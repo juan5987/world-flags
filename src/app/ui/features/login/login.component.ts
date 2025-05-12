@@ -1,21 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@angular/core';
 import { GoogleAuthService } from '../../../data/services/google-auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 
-const MODULES: any[] = [
-  MatButtonModule,
-  MatIconModule,
-  MatFormFieldModule,
-  FormsModule,
-  ReactiveFormsModule,
-];
 
 @Component({
   selector: 'app-login',
-  imports: [MODULES],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

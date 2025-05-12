@@ -19,6 +19,7 @@ import { UserService } from '../../../data/services/user.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
+
 export class HomepageComponent {
   protected router = inject(Router);
   protected modalService = inject(NotLoggedModalService);
