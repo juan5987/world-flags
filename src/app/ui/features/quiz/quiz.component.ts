@@ -38,7 +38,7 @@ export class QuizComponent {
   }
 
   protected checkAnswer() {
-    if (this.userInput() === this.answer()) {
+    if (this.normalizeString(this.userInput()) === this.normalizeString(this.answer())) {
       this.answerResult.set(true);
       this.actualScore.set(this.actualScore() + 1);
       this.excludedCountries.set([...this.excludedCountries(), this.answer()]);
@@ -54,8 +54,8 @@ export class QuizComponent {
 
   protected getRandomFlag() {
     // TODO: get random flag from api until it's not in the excludedCountries
-    this.flag.set('https://flagcdn.com/cn.svg');
-    this.answer.set('chine');
+    this.flag.set('https://flagcdn.com/us.svg');
+    this.answer.set('états-unis');
   }
 
   protected getBestScore() {
@@ -74,5 +74,13 @@ export class QuizComponent {
 
   private resetAnswerInput() {
     this.answerInput.setValue('');
+  }
+
+  private normalizeString(str: string): string {
+    return str
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]/g, '');
   }
 }
