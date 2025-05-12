@@ -1,12 +1,14 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { OAuthService } from 'angular-oauth2-oidc';
+import { authConfig } from '../../config/auth-config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GoogleAuthService {
 
-  private oAuthService = inject(OAuthService); // import OAuthService when created
+  private oAuthService = inject(OAuthService);
 
   private router = inject(Router);
 
