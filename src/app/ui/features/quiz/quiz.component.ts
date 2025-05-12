@@ -54,8 +54,8 @@ export class QuizComponent {
 
   protected getRandomFlag() {
     // TODO: get random flag from api until it's not in the excludedCountries
-    this.flag.set('https://flagcdn.com/us.svg');
-    this.answer.set('états-unis');
+    this.flag.set('https://flagcdn.com/jp.svg');
+    this.answer.set('japon');
   }
 
   protected getBestScore() {
@@ -64,6 +64,12 @@ export class QuizComponent {
 
   protected getTimer() {
     // TODO: get timer from api
+  }
+
+  private nextQuestion() {
+    this.getRandomFlag();
+    this.resetAnswerResult();
+    this.resetAnswerInput();
   }
 
   private resetAnswerResult() {
