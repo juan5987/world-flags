@@ -17,12 +17,10 @@ type QuizForm = FormGroup<{
   encapsulation: ViewEncapsulation.None,
 })
 export class QuizComponent {
-  protected readonly userInput = computed(() => this.form.controls.userInput.value);
   protected readonly bestScore = computed(() => this.#playService.bestScore);
   protected readonly timer = computed(() => this.#playService.timer);
   protected readonly actualScore = computed(() => this.#playService.actualScore);
   protected readonly flag = computed(() => this.#playService.currentFlag);
-  protected readonly answer = computed(() => this.#playService.currentAnswer);
   protected readonly answerResult = computed(() => this.#playService.answerResult);
 
   readonly #playService = inject(PlayService);
