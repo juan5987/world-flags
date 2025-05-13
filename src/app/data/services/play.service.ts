@@ -15,7 +15,7 @@ export class PlayService {
     #actualScore = signal(0);
 
     // Game state signals
-    #timer = signal(59);
+    #timer = signal(60);
     #currentFlag = signal<Flag | null>(null);
     #currentAnswer = signal('');
     #userInput = signal('');
@@ -23,9 +23,7 @@ export class PlayService {
     #excludedCountries = signal<string[]>([]);
     #allFlags = signal<Flag[]>([]);
 
-    constructor() {
-        this.initializeGame();
-    }
+    constructor() { }
 
     get bestScore(): number {
         return this.#bestScore();
@@ -59,7 +57,50 @@ export class PlayService {
         return this.#excludedCountries();
     }
 
-    private initializeGame(): void {
+    public checkAnswer(answer: string): boolean {
+        const isCorrect = this.normalizeString(answer) === this.normalizeString(this.#currentAnswer());
+        this.#answerResult.set(isCorrect);
+
+        if (isCorrect) {
+            this.#actualScore.update(score => score + 1);
+            this.selectNewRandomFlag();
+        } else {
+            this.#actualScore.update(score => score - 1);
+        }
+
+        return isCorrect;
+    }
+
+    public selectNewRandomFlag(): void {
+        const flags = this.#allFlags();
+        const filteredFlags = this.removeExcludedCountries(flags);
+
+        // if all flags have been used, reset the game
+        if (filteredFlags.length === 0) {
+            this.#excludedCountries.set([]);
+            return this.selectNewRandomFlag();
+        }
+
+        const randomIndex = Math.floor(Math.random() * filteredFlags.length);
+        const randomFlag = filteredFlags[randomIndex];
+
+        this.#currentFlag.set(randomFlag);
+        this.#currentAnswer.set(randomFlag.name);
+        this.#excludedCountries.update(excluded => [...excluded, randomFlag.name]);
+    }
+
+
+    public skipFlag(): void {
+        this.selectNewRandomFlag();
+    }
+
+    public resetGame(): void {
+        this.#actualScore.set(0);
+        this.#excludedCountries.set([]);
+        this.#timer.set(60);
+    }
+
+    public initializeGame(): void {
         this.#flagService.getAllFlags()
             .pipe(takeUntilDestroyed(this.#destroyRef))
             .subscribe({
@@ -79,47 +120,11 @@ export class PlayService {
         return flags.filter(flag => !this.#excludedCountries().includes(flag.name));
     }
 
-    private selectNewRandomFlag(): void {
-        const flags = this.#allFlags();
-        const filteredFlags = this.removeExcludedCountries(flags);
-        
-        // if all flags have been used, reset the game
-        if (filteredFlags.length === 0) {
-            this.#excludedCountries.set([]);
-            this.#actualScore.set(0);
-            return this.selectNewRandomFlag();
-        }
-
-        const randomIndex = Math.floor(Math.random() * filteredFlags.length);
-        const randomFlag = filteredFlags[randomIndex];
-        
-        this.#currentFlag.set(randomFlag);
-        this.#currentAnswer.set(randomFlag.name);
-        this.#excludedCountries.update(excluded => [...excluded, randomFlag.name]);
-    }
-
     private normalizeString(str: string): string {
         return str
-          .toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
-          .replace(/[^a-z0-9]/g, '');
-      }
-    
-
-    public checkAnswer(answer: string): boolean {
-        const isCorrect = answer.toLowerCase() === this.#currentAnswer().toLowerCase();
-        this.#answerResult.set(isCorrect);
-        
-        if (isCorrect) {
-            this.#actualScore.update(score => score + 1);
-            this.selectNewRandomFlag();
-        }
-        
-        return isCorrect;
-    }
-
-    public skipFlag(): void {
-        this.selectNewRandomFlag();
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9]/g, '');
     }
 }

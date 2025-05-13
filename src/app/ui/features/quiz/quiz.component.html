@@ -1,20 +1,20 @@
 <header>
     <div class="best-score">
         <span class="best-score__label">Meilleur score</span>
-        <span>{{ bestScore() }}</span>
+        <span>{{ bestScore }}</span>
     </div>
     <div class="timer">
         <span class="timer__label">Temps</span>
-        <span>{{ timer() }}</span>
+        <span>{{ timer }}</span>
     </div>
     <div class="score">
         <span class="score__label">Score actuel</span>
-        <span>{{ actualScore() }}</span>
+        <span>{{ actualScore }}</span>
     </div>
 </header>
 <main>
     <div class="question">
-        <img [src]="flag()" class="flag"> <!-- TODO: get random flag from api -->
+        <img [src]="flag?.flag" class="flag"> <!-- TODO: get random flag from api -->
     </div>
     @if(answerResult() !== undefined){
         @if(!answerResult()){
