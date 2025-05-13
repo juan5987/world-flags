@@ -1,5 +1,25 @@
 {
-  "flags":[
+  "users": [
+    {
+      "userId": "1",
+      "bestScore": 145,
+      "bestScoreDate": "2025-05-13",
+      "username": "John Doe",
+      "createdAt": "2025-05-13",
+      "updatedAt": "2025-05-13",
+      "isActive": true
+    },
+    {
+      "userId": "2",
+      "bestScore": 112,
+      "bestScoreDate": "2025-05-13",
+      "username": "Jane Doe",
+      "createdAt": "2025-05-13",
+      "updatedAt": "2025-05-13",
+      "isActive": true
+    }
+  ],
+  "flags": [
     {
       "name_fr": "Botswana",
       "name": "Botswana",
@@ -981,5 +1001,4 @@
       "flag": "https://flagcdn.com/cd.svg"
     }
   ]
-  
 }
