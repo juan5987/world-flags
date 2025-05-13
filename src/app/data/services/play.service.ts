@@ -59,8 +59,6 @@ export class PlayService {
 
     public checkAnswer(answer: string): boolean {
         const isCorrect = this.normalizeString(answer) === this.normalizeString(this.#currentAnswer());
-        console.log(answer, this.#currentAnswer());
-        console.log(isCorrect);
         this.#answerResult.set(isCorrect);
 
         if (isCorrect) {
