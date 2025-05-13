@@ -1,7 +1,11 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, inject, signal, ViewEncapsulation, WritableSignal } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, computed, inject, ViewEncapsulation } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, NonNullableFormBuilder } from '@angular/forms';
 import { PlayService } from '../../../data/services/play.service';
 import { Flag } from '../../../models/flag.model';
+
+type QuizForm = FormGroup<{
+  userInput: FormControl<string>;
+}>;
 
 @Component({
   selector: 'app-quiz',
@@ -13,44 +17,31 @@ import { Flag } from '../../../models/flag.model';
   encapsulation: ViewEncapsulation.None,
 })
 export class QuizComponent {
-  protected answerResult: WritableSignal<boolean | undefined> = signal(undefined);
-  #bestScore = signal(0);
-  #timer = signal(59);
-  #actualScore = signal(0);
-  #flag = signal<Flag | null>(null);
-  #answer = signal('');
-  protected userInput = signal('');
-  protected answerInput = new FormControl('');
-  protected excludedCountries = signal<string[]>([]);
-  protected form = new FormGroup({
-    userInput: this.answerInput,
-  });
-  protected enterKey = new EventEmitter<KeyboardEvent>();
+  protected readonly userInput = computed(() => this.form.controls.userInput.value);
+  protected readonly bestScore = computed(() => this.#playService.bestScore);
+  protected readonly timer = computed(() => this.#playService.timer);
+  protected readonly actualScore = computed(() => this.#playService.actualScore);
+  protected readonly flag = computed(() => this.#playService.currentFlag);
+  protected readonly answer = computed(() => this.#playService.currentAnswer);
+  protected readonly answerResult = computed(() => this.#playService.answerResult);
 
-  #playService = inject(PlayService);
+  readonly #playService = inject(PlayService);
+  readonly #fb = inject(NonNullableFormBuilder);
+  readonly form = this.#fb.group({
+    userInput: this.#fb.control('')
+  });
 
   constructor() {
     this.#playService.initializeGame();
   }
 
-  protected get bestScore(): number {
-    return this.#playService.bestScore;
+  protected handleKeydown(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      const currentInput = this.form.controls?.userInput?.value;
+      if (currentInput) {
+        this.#playService.checkAnswer(currentInput);
+        this.form.reset();
+      }
+    }
   }
-
-  protected get timer(): number {
-    return this.#playService.timer;
-  }
-
-  protected get actualScore(): number {
-    return this.#playService.actualScore;
-  }
-
-  protected get flag(): Flag | null {
-    return this.#playService.currentFlag;
-  }
-
-  protected get answer(): string {
-    return this.#playService.currentAnswer;
-  }
-
 }

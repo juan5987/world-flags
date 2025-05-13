@@ -59,15 +59,18 @@ export class PlayService {
 
     public checkAnswer(answer: string): boolean {
         const isCorrect = this.normalizeString(answer) === this.normalizeString(this.#currentAnswer());
+        console.log(answer, this.#currentAnswer());
+        console.log(isCorrect);
         this.#answerResult.set(isCorrect);
 
         if (isCorrect) {
             this.#actualScore.update(score => score + 1);
-            this.selectNewRandomFlag();
         } else {
-            this.#actualScore.update(score => score - 1);
+            if (this.#actualScore() > 0) {
+                this.#actualScore.update(score => score - 1);
+            }
         }
-
+        this.selectNewRandomFlag();
         return isCorrect;
     }
 
@@ -85,8 +88,8 @@ export class PlayService {
         const randomFlag = filteredFlags[randomIndex];
 
         this.#currentFlag.set(randomFlag);
-        this.#currentAnswer.set(randomFlag.name);
-        this.#excludedCountries.update(excluded => [...excluded, randomFlag.name]);
+        this.#currentAnswer.set(randomFlag.name_fr);
+        this.#excludedCountries.update(excluded => [...excluded, randomFlag.name_fr]);
     }
 
 
@@ -117,7 +120,7 @@ export class PlayService {
     }
 
     private removeExcludedCountries(flags: Flag[]): Flag[] {
-        return flags.filter(flag => !this.#excludedCountries().includes(flag.name));
+        return flags.filter(flag => !this.#excludedCountries().includes(flag.name_fr));
     }
 
     private normalizeString(str: string): string {
