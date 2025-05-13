@@ -65,16 +65,12 @@ export class PlayService {
             .subscribe({
                 next: (flags) => {
                     this.#allFlags.set(flags);
-                    const randomFlag = this.getRandomFlag(flags);
-                    if (randomFlag) {
-                        this.#currentFlag.set(randomFlag);
-                        this.#currentAnswer.set(randomFlag.name);
-                    } else {
-                        console.error('Error loading flags');
+                    if (flags.length) {
+                        this.selectNewRandomFlag();
                     }
                 },
                 error: (error) => {
-                    console.error('Error loading flags:', error);
+                    console.error('Error fetching flags:', error);
                 }
             });
     }
@@ -83,13 +79,38 @@ export class PlayService {
         return flags.filter(flag => !this.#excludedCountries().includes(flag.name));
     }
 
-    private getRandomFlag(flags: Flag[]): Flag | null {
-        if (flags.length === 0) return null;
-        const randomIndex = Math.floor(Math.random() * flags.length);
-        const randomFlag = flags[randomIndex];
-        if (randomFlag) {
-            this.#excludedCountries.update(excluded => [...excluded, randomFlag.name]);
+    private selectNewRandomFlag(): void {
+        const flags = this.#allFlags();
+        const filteredFlags = this.removeExcludedCountries(flags);
+        
+        // if all flags have been used, reset the game
+        if (filteredFlags.length === 0) {
+            this.#excludedCountries.set([]);
+            this.#actualScore.set(0);
+            return this.selectNewRandomFlag();
         }
-        return randomFlag;
+
+        const randomIndex = Math.floor(Math.random() * filteredFlags.length);
+        const randomFlag = filteredFlags[randomIndex];
+        
+        this.#currentFlag.set(randomFlag);
+        this.#currentAnswer.set(randomFlag.name);
+        this.#excludedCountries.update(excluded => [...excluded, randomFlag.name]);
+    }
+
+    public checkAnswer(answer: string): boolean {
+        const isCorrect = answer.toLowerCase() === this.#currentAnswer().toLowerCase();
+        this.#answerResult.set(isCorrect);
+        
+        if (isCorrect) {
+            this.#actualScore.update(score => score + 1);
+            this.selectNewRandomFlag();
+        }
+        
+        return isCorrect;
+    }
+
+    public skipFlag(): void {
+        this.selectNewRandomFlag();
     }
 }
