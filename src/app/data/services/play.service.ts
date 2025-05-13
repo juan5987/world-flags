@@ -98,6 +98,15 @@ export class PlayService {
         this.#excludedCountries.update(excluded => [...excluded, randomFlag.name]);
     }
 
+    private normalizeString(str: string): string {
+        return str
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9]/g, '');
+      }
+    
+
     public checkAnswer(answer: string): boolean {
         const isCorrect = answer.toLowerCase() === this.#currentAnswer().toLowerCase();
         this.#answerResult.set(isCorrect);
