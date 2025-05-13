@@ -28,7 +28,7 @@ export class GoogleAuthService {
         this.#userService.getUserByGoogleId(this.#profile()?.sub).subscribe({
           next: (user: User | null) => {
             if (user) {
-              console.log('GoogleAuthService - User found:', user);
+              console.log('GoogleAuthService - User found');
               this.#showUsernameModal.set(false);
             } else {
               console.log('GoogleAuthService - First time login, user must create a username');
