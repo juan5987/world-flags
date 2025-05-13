@@ -1,8 +1,9 @@
 export interface User {
-  userId?: string;
+  userId: string;
   bestScore: number;
   bestScoreDate: Date;
   username: string;
+  password?: string;
   createdAt: Date;
   updatedAt: Date;
   isActive: boolean;

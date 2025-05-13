@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { map, Observable } from "rxjs";
 import { User } from "../../models/user.model";
 
 @Injectable({
@@ -13,8 +13,10 @@ export class UserService {
         return this.http.get<User>(`api/users/${id}`);
     }
 
-    public getUserByGoogleId(googleId: string): Observable<User> {
-        return this.http.get<User>(`api/users/google/${googleId}`);
+    public getUserByGoogleId(googleId: string): Observable<User | null> {
+        return this.http.get<User[]>(`api/users?userId=${googleId}`).pipe(
+            map(users => users[0] || null)
+        );
     }
 
     public createUser(user: User): Observable<User> {

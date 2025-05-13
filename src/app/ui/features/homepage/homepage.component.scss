@@ -35,4 +35,69 @@ app-homepage {
         margin-top: 5rem;
         z-index: 3;
     }
+
+    
+  .username-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: var(--color-dark);
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: var(--font-family);
+  
+    .username-modal__form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-dark);
+      padding: 1rem;
+      border-radius: .5rem;
+      width: 350px;
+
+      .username-modal__title{
+        font-size: 1.5rem;
+        color: orange;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .username-modal__text{
+        font-size: 1rem;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .username-modal__form__label{
+        width: 100%;
+        font-size: 1rem;
+        color: orange;
+        text-transform: uppercase;
+        margin-bottom: .5rem;
+      }
+
+      .username-modal__form__input{
+        width: 100%;
+        padding: .5em 1em;
+        border-radius: .5em;
+        border: 1px solid var(--border-color);
+        color: var(--color-dark);
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+
+        &::placeholder{
+          color: rgb(220, 220, 220);
+        }
+      }
+    }
+  }
 }

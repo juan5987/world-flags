@@ -1,10 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, ViewEncapsulation } from '@angular/core';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { AnimatedBackgroundComponent } from './animated-background/animated-background.component';
 import { Router } from '@angular/router';
 import { NotLoggedModalComponent } from '../../../shared/components/notLoggedModal/notLoggedModal.component';
 import { NotLoggedModalService } from '../../../data/services/notLoggedModal.service';
 import { AuthService } from '../../../data/services/auth.service';
+import { GoogleAuthService } from '../../../data/services/google-auth.service';
+import { NonNullableFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-homepage',
@@ -12,6 +14,7 @@ import { AuthService } from '../../../data/services/auth.service';
     ButtonComponent,
     AnimatedBackgroundComponent,
     NotLoggedModalComponent,
+    ReactiveFormsModule
   ],
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss'],
@@ -19,15 +22,23 @@ import { AuthService } from '../../../data/services/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-
 export class HomepageComponent {
   protected router = inject(Router);
   protected modalService = inject(NotLoggedModalService);
   protected userService = inject(AuthService);
-
+  protected authService = inject(GoogleAuthService);
+  
+  protected readonly shouldDisplayUsernameModal = computed(() => {
+    return this.authService.showUsernameModal();
+  });
+  
   protected get isLoggedIn(): boolean {
     return this.userService.isUserLoggedIn();
   }
+  readonly #usernameForm = inject(NonNullableFormBuilder);
+  protected usernameForm = this.#usernameForm.group({
+    username: this.#usernameForm.control('', [Validators.required]),
+  });
 
   private navigateToPlay() {
     this.router.navigate(['/play']);
@@ -48,5 +59,9 @@ export class HomepageComponent {
     } else {
       this.modalService.openModal();
     }
+  }
+
+  protected createUser() {
+    this.authService.createUser(this.usernameForm.controls?.username?.value);
   }
 }

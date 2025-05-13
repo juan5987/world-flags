@@ -7,13 +7,3 @@
         <span class="login-button__button__text">Connexion avec Google</span>
     </button>
 </div>
-@if(shouldDisplayUsernameModal){
-<div class="username-modal">
-    <form class="username-modal__form" [formGroup]="usernameForm">
-        <h2 class="username-modal__title">Bienvenue sur World Flags</h2>
-        <p class="username-modal__text">Il s'agit de votre première connexion, veuillez entrer un nom d'utilisateur</p>
-        <input class="username-modal__form__input" type="text" formControlName="username" placeholder="saisissez votre nom d'utilisateur" />
-        <app-button class="username-modal__form__button" buttonText="valider" mainColor="white" secondaryColor="orange" fontSize="1.25rem" width="100%" (click)="createUser()"></app-button>
-    </form>
-</div>
-}
