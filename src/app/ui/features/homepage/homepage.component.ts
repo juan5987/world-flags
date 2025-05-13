@@ -4,7 +4,7 @@ import { AnimatedBackgroundComponent } from './animated-background/animated-back
 import { Router } from '@angular/router';
 import { NotLoggedModalComponent } from '../../../shared/components/notLoggedModal/notLoggedModal.component';
 import { NotLoggedModalService } from '../../../data/services/notLoggedModal.service';
-import { UserService } from '../../../data/services/user.service';
+import { UserService } from '../../../data/services/auth.service';
 
 @Component({
   selector: 'app-homepage',

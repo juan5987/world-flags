@@ -2,21 +2,155 @@
   "users": [
     {
       "userId": "1",
-      "bestScore": 145,
-      "bestScoreDate": "2025-05-13",
-      "username": "John Doe",
-      "createdAt": "2025-05-13",
-      "updatedAt": "2025-05-13",
+      "bestScore": 47,
+      "bestScoreDate": "2024-03-15",
+      "username": "Cloud Strife",
+      "createdAt": "2024-01-10",
+      "updatedAt": "2024-03-15",
       "isActive": true
     },
     {
       "userId": "2",
-      "bestScore": 112,
-      "bestScoreDate": "2025-05-13",
-      "username": "Jane Doe",
-      "createdAt": "2025-05-13",
-      "updatedAt": "2025-05-13",
+      "bestScore": 35,
+      "bestScoreDate": "2024-03-12",
+      "username": "Tifa Lockhart",
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-03-12",
       "isActive": true
+    },
+    {
+      "userId": "3",
+      "bestScore": 42,
+      "bestScoreDate": "2024-03-10",
+      "username": "Squall Leonhart",
+      "createdAt": "2024-02-01",
+      "updatedAt": "2024-03-10",
+      "isActive": true
+    },
+    {
+      "userId": "4",
+      "bestScore": 28,
+      "bestScoreDate": "2024-03-08",
+      "username": "Aerith Gainsborough",
+      "createdAt": "2024-01-20",
+      "updatedAt": "2024-03-08",
+      "isActive": false
+    },
+    {
+      "userId": "5",
+      "bestScore": 50,
+      "bestScoreDate": "2024-03-14",
+      "username": "Zidane Tribal",
+      "createdAt": "2024-02-15",
+      "updatedAt": "2024-03-14",
+      "isActive": true
+    },
+    {
+      "userId": "6",
+      "bestScore": 31,
+      "bestScoreDate": "2024-03-11",
+      "username": "Yuna",
+      "createdAt": "2024-02-10",
+      "updatedAt": "2024-03-11",
+      "isActive": true
+    },
+    {
+      "userId": "7",
+      "bestScore": 45,
+      "bestScoreDate": "2024-03-13",
+      "username": "Lightning",
+      "createdAt": "2024-01-25",
+      "updatedAt": "2024-03-13",
+      "isActive": true
+    },
+    {
+      "userId": "8",
+      "bestScore": 39,
+      "bestScoreDate": "2024-03-09",
+      "username": "Vivi Ornitier",
+      "createdAt": "2024-02-05",
+      "updatedAt": "2024-03-09",
+      "isActive": true
+    },
+    {
+      "userId": "9",
+      "bestScore": 33,
+      "bestScoreDate": "2024-03-07",
+      "username": "Tidus",
+      "createdAt": "2024-01-30",
+      "updatedAt": "2024-03-07",
+      "isActive": true
+    },
+    {
+      "userId": "10",
+      "bestScore": 44,
+      "bestScoreDate": "2024-03-06",
+      "username": "Rinoa Heartilly",
+      "createdAt": "2024-02-20",
+      "updatedAt": "2024-03-06",
+      "isActive": true
+    }
+  ],
+  "top10": [
+    {
+      "userId": "5",
+      "bestScore": 50,
+      "bestScoreDate": "2024-03-14",
+      "username": "Zidane Tribal"
+    },
+    {
+      "userId": "1",
+      "bestScore": 47,
+      "bestScoreDate": "2024-03-15",
+      "username": "Cloud Strife"
+    },
+    {
+      "userId": "7",
+      "bestScore": 45,
+      "bestScoreDate": "2024-03-13",
+      "username": "Lightning"
+    },
+    {
+      "userId": "10",
+      "bestScore": 44,
+      "bestScoreDate": "2024-03-06",
+      "username": "Rinoa Heartilly"
+    },
+    {
+      "userId": "3",
+      "bestScore": 42,
+      "bestScoreDate": "2024-03-10",
+      "username": "Squall Leonhart"
+    },
+    {
+      "userId": "8",
+      "bestScore": 39,
+      "bestScoreDate": "2024-03-09",
+      "username": "Vivi Ornitier"
+    },
+    {
+      "userId": "2",
+      "bestScore": 35,
+      "bestScoreDate": "2024-03-12",
+      "username": "Tifa Lockhart"
+    },
+    {
+      "userId": "9",
+      "bestScore": 33,
+      "bestScoreDate": "2024-03-07",
+      "username": "Tidus"
+    },
+    {
+      "userId": "6",
+      "bestScore": 31,
+      "bestScoreDate": "2024-03-11",
+      "username": "Yuna"
+    },
+    {
+      "userId": "4",
+      "bestScore": 28,
+      "bestScoreDate": "2024-03-08",
+      "username": "Aerith Gainsborough"
     }
   ],
   "flags": [
