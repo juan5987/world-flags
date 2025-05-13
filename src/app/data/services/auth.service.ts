@@ -4,7 +4,7 @@ import { GoogleAuthService } from './google-auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class AuthService {
   private googleAuthService = inject(GoogleAuthService);
   private _isLoggedIn = computed(() => !!this.googleAuthService.getProfile());
 

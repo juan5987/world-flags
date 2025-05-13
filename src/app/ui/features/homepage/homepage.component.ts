@@ -4,7 +4,7 @@ import { AnimatedBackgroundComponent } from './animated-background/animated-back
 import { Router } from '@angular/router';
 import { NotLoggedModalComponent } from '../../../shared/components/notLoggedModal/notLoggedModal.component';
 import { NotLoggedModalService } from '../../../data/services/notLoggedModal.service';
-import { UserService } from '../../../data/services/auth.service';
+import { AuthService } from '../../../data/services/auth.service';
 
 @Component({
   selector: 'app-homepage',
@@ -23,7 +23,7 @@ import { UserService } from '../../../data/services/auth.service';
 export class HomepageComponent {
   protected router = inject(Router);
   protected modalService = inject(NotLoggedModalService);
-  protected userService = inject(UserService);
+  protected userService = inject(AuthService);
 
   protected get isLoggedIn(): boolean {
     return this.userService.isUserLoggedIn();

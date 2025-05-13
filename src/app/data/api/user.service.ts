@@ -7,10 +7,14 @@ import { User } from "../../models/user.model";
     providedIn: 'root'
 })
 export class UserService {
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     public getUser(id: string): Observable<User> {
         return this.http.get<User>(`api/users/${id}`);
+    }
+
+    public getUserByGoogleId(googleId: string): Observable<User> {
+        return this.http.get<User>(`api/users/google/${googleId}`);
     }
 
     public createUser(user: User): Observable<User> {

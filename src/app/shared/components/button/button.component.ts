@@ -15,12 +15,14 @@ export class ButtonComponent {
   @Input() mainColor: string = '#363636';
   @Input() secondaryColor: string = '#fff';
   @Input() fontSize: string = '1.5rem';
+  @Input() width: string = '300px';
 
   protected get buttonStyles() {
     return { 
       'background-color': this.secondaryColor, 
       'color': this.mainColor,
       'font-size': this.fontSize,
+      'width': this.width,
     };
   }
 }
