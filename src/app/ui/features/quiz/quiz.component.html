@@ -16,13 +16,11 @@
   <div class="question">
     <img [src]="flag()?.flag" class="flag" />
   </div>
-  @if(answerResult() !== undefined){ @if(!answerResult()){
-  <span class="answer-result red">INCORRECT</span>
-  }@else{
-  <span class="answer-result green">CORRECT</span>
-  } }@else{
-  <span class="answer-result"></span>
-  }
+  @if(showResult()){ @if(answerResult() === false){
+  <span class="answer-result red">Faux: {{ lastAnswer() }}</span>
+  }@else if(answerResult() === true){
+  <span class="answer-result green">Correct: {{ lastAnswer() }}</span>
+  } }
 </main>
 <footer>
   <div class="answer">

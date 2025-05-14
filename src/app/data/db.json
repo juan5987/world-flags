@@ -1115,7 +1115,7 @@
       "id": "fe6a"
     },
     {
-      "name_fr": "Bolivia",
+      "name_fr": "Bolivie",
       "name": "Bolivia",
       "flag": "https://flagcdn.com/bo.svg",
       "id": "6e76"
@@ -1139,7 +1139,7 @@
       "id": "c8c2"
     },
     {
-      "name_fr": "Niue",
+      "name_fr": "Niué",
       "name": "Niue",
       "flag": "https://flagcdn.com/nu.svg",
       "id": "0e62"
@@ -1181,7 +1181,7 @@
       "id": "c45d"
     },
     {
-      "name_fr": "Îles Falkland",
+      "name_fr": "Îles Malouines",
       "name": "Falkland Islands",
       "flag": "https://flagcdn.com/fk.svg",
       "id": "496f"
@@ -1205,7 +1205,7 @@
       "id": "db2e"
     },
     {
-      "name_fr": "BelBelgiquegium",
+      "name_fr": "Belgique",
       "name": "Belgium",
       "flag": "https://flagcdn.com/be.svg",
       "id": "fc85"
@@ -1294,6 +1294,7 @@
       "flag": "https://flagcdn.com/ae.svg",
       "id": "eea7"
     },
+    {
     {
       "name_fr": "Namibie",
       "name": "Namibia",

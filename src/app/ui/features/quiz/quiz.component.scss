@@ -55,13 +55,17 @@ app-quiz {
     }
 
     .answer-result {
-      font-size: 2rem;
+      position: absolute;
+      left: 50%;
+      bottom: 150px;
+      transform: translateX(-50%);
+      background-color: #fff;
+      border-radius: 1em;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
       text-align: center;
-      margin-bottom: 2rem;
-      text-shadow: 0 0 5px black;
       text-transform: uppercase;
       font-weight: bold;
-      height: 32px;
     }
 
     .red {

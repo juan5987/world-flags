@@ -3,20 +3,14 @@ import {
   Component,
   computed,
   inject,
+  signal,
   ViewEncapsulation,
 } from '@angular/core';
 import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
   NonNullableFormBuilder,
+  ReactiveFormsModule
 } from '@angular/forms';
 import { PlayService } from '../../../data/services/play.service';
-import { Flag } from '../../../models/flag.model';
-
-type QuizForm = FormGroup<{
-  userInput: FormControl<string>;
-}>;
 
 @Component({
   selector: 'app-quiz',
@@ -37,7 +31,10 @@ export class QuizComponent {
   protected readonly answerResult = computed(
     () => this.#playService.answerResult
   );
-
+  protected readonly lastAnswer = computed(
+    () => this.#playService.excludedCountries[this.#playService.excludedCountries.length - 2]
+  );
+  protected showResult = signal(false);
   readonly #playService = inject(PlayService);
   readonly #fb = inject(NonNullableFormBuilder);
   readonly form = this.#fb.group({
@@ -54,7 +51,15 @@ export class QuizComponent {
       if (currentInput) {
         this.#playService.checkAnswer(currentInput);
         this.form.reset();
+        this.showAnswerResult();
       }
     }
+  }
+
+  private showAnswerResult(): void {
+    this.showResult.set(true);
+    setTimeout(() => {
+      this.showResult.set(false);
+    }, 1000);
   }
 }
