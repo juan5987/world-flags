@@ -5,9 +5,8 @@ import { UserService } from '../api/user.service';
 import { User } from '../../models/user.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class GoogleAuthService {
   readonly #showUsernameModal = signal(false);
   readonly showUsernameModal = computed(() => this.#showUsernameModal());
@@ -31,14 +30,16 @@ export class GoogleAuthService {
               console.log('GoogleAuthService - User found');
               this.#showUsernameModal.set(false);
             } else {
-              console.log('GoogleAuthService - First time login, user must create a username');
+              console.log(
+                'GoogleAuthService - First time login, user must create a username'
+              );
               this.#showUsernameModal.set(true);
             }
           },
           error: (error) => {
             console.error('GoogleAuthService - Error fetching user:', error);
             this.#showUsernameModal.set(true);
-          }
+          },
         });
       } else {
         console.error('GoogleAuthService - No valid token');
@@ -61,24 +62,26 @@ export class GoogleAuthService {
   }
 
   public createUser(username: string) {
-    this.#userService.createUser({
-      userId: this.getProfile()?.sub,
-      bestScore: 0,
-      bestScoreDate: new Date(),
-      username: username,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      isActive: true,
-      googleId: this.getProfile()?.sub,
-      email: this.getProfile()?.email,
-    }).subscribe({
-      next: () => {
-        this.setShowUsernameModal(false);
-      },
-      error: (error) => {
-        console.error('GoogleAuthService - Error creating user:', error);
-      }
-    });
+    this.#userService
+      .createUser({
+        userId: this.getProfile()?.sub,
+        bestScore: 0,
+        bestScoreDate: new Date(),
+        username: username,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        isActive: true,
+        googleId: this.getProfile()?.sub,
+        email: this.getProfile()?.email,
+      })
+      .subscribe({
+        next: () => {
+          this.setShowUsernameModal(false);
+        },
+        error: (error) => {
+          console.error('GoogleAuthService - Error creating user:', error);
+        },
+      });
   }
 
   public setShowUsernameModal(value: boolean) {
@@ -89,7 +92,6 @@ export class GoogleAuthService {
     this.#oAuthService.configure(authConfig);
     this.#oAuthService.setupAutomaticSilentRefresh();
     this.#oAuthService.loadDiscoveryDocumentAndTryLogin().then(() => {
-
       if (this.#oAuthService.hasValidIdToken()) {
         this.#profile.set(this.#oAuthService.getIdentityClaims());
       }

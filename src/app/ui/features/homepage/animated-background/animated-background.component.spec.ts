@@ -8,9 +8,8 @@ describe('BubblesBackgroundComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AnimatedBackgroundComponent]
-    })
-    .compileComponents();
+      imports: [AnimatedBackgroundComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AnimatedBackgroundComponent);
     component = fixture.componentInstance;

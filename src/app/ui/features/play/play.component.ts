@@ -1,7 +1,12 @@
-import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
-import { LoadingGameComponent } from "./loading-game/loading-game.component";
-import { AnimatedBackgroundComponent } from "../homepage/animated-background/animated-background.component";
-import { QuizComponent } from "../quiz/quiz.component";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  signal,
+  ViewEncapsulation,
+} from '@angular/core';
+import { LoadingGameComponent } from './loading-game/loading-game.component';
+import { AnimatedBackgroundComponent } from '../homepage/animated-background/animated-background.component';
+import { QuizComponent } from '../quiz/quiz.component';
 
 @Component({
   selector: 'app-play',
@@ -12,7 +17,7 @@ import { QuizComponent } from "../quiz/quiz.component";
   standalone: true,
   encapsulation: ViewEncapsulation.None,
 })
-export class PlayComponent { 
+export class PlayComponent {
   protected loadingGame = signal(false);
 
   protected startGame() {

@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewEncapsulation,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -18,11 +23,11 @@ export class ButtonComponent {
   @Input() width: string = '300px';
 
   protected get buttonStyles() {
-    return { 
-      'background-color': this.secondaryColor, 
-      'color': this.mainColor,
+    return {
+      'background-color': this.secondaryColor,
+      color: this.mainColor,
       'font-size': this.fontSize,
-      'width': this.width,
+      width: this.width,
     };
   }
 }

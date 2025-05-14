@@ -1,4 +1,10 @@
-@use './app/ui/styles/variables.scss' as *;
-@use './app/ui/styles/reset.scss' as *;
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@use "./app/ui/styles/variables.scss" as *;
+@use "./app/ui/styles/reset.scss" as *;
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

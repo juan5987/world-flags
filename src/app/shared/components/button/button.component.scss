@@ -1,18 +1,18 @@
-app-button{
-    .button{
-        padding: .5em 1em;
-        font-family: var(--font-family);
-        text-align: center;
-        border: .25em solid var(--border-color);
-        border-radius: 1em;
-        transition: all .5s ease;
-        margin-bottom: 1rem;
-        max-width: 300px;
-        cursor: pointer;
-        
-        &:hover {
-            background-color: var(--color-dark)!important;
-            color: var(--text-color)!important;
-        }
+app-button {
+  .button {
+    padding: 0.5em 1em;
+    font-family: var(--font-family);
+    text-align: center;
+    border: 0.25em solid var(--border-color);
+    border-radius: 1em;
+    transition: all 0.5s ease;
+    margin-bottom: 1rem;
+    max-width: 300px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-dark) !important;
+      color: var(--text-color) !important;
     }
+  }
 }

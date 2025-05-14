@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, computed, effect, inject, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  inject,
+  ViewEncapsulation,
+} from '@angular/core';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { AnimatedBackgroundComponent } from './animated-background/animated-background.component';
 import { Router } from '@angular/router';
@@ -6,7 +13,11 @@ import { NotLoggedModalComponent } from '../../../shared/components/notLoggedMod
 import { NotLoggedModalService } from '../../../data/services/notLoggedModal.service';
 import { AuthService } from '../../../data/services/auth.service';
 import { GoogleAuthService } from '../../../data/services/google-auth.service';
-import { NonNullableFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  NonNullableFormBuilder,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-homepage',
@@ -14,7 +25,7 @@ import { NonNullableFormBuilder, Validators, ReactiveFormsModule } from '@angula
     ButtonComponent,
     AnimatedBackgroundComponent,
     NotLoggedModalComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss'],
@@ -27,11 +38,11 @@ export class HomepageComponent {
   protected modalService = inject(NotLoggedModalService);
   protected userService = inject(AuthService);
   protected authService = inject(GoogleAuthService);
-  
+
   protected readonly shouldDisplayUsernameModal = computed(() => {
     return this.authService.showUsernameModal();
   });
-  
+
   protected get isLoggedIn(): boolean {
     return this.userService.isUserLoggedIn();
   }

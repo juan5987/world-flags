@@ -1,7 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  ViewEncapsulation,
+} from '@angular/core';
 import { GoogleAuthService } from '../../../data/services/google-auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AnimatedBackgroundComponent } from "../homepage/animated-background/animated-background.component";
+import { AnimatedBackgroundComponent } from '../homepage/animated-background/animated-background.component';
 
 @Component({
   selector: 'app-login',

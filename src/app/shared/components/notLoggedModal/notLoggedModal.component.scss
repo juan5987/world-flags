@@ -8,27 +8,27 @@ app-not-logged-modal {
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.9);
 
-  .not-logged-modal-wrapper{
+  .not-logged-modal-wrapper {
     position: fixed;
     background-color: var(--color-dark);
     color: var(--text-color);
     padding: 2rem;
-    border: .5rem solid var(--border-color);
+    border: 0.5rem solid var(--border-color);
     border-radius: 1rem;
     font-size: 2rem;
     font-family: var(--font-family);
     text-align: center;
 
-    .not-logged-modal-wrapper__title{
+    .not-logged-modal-wrapper__title {
       font-size: 2.5rem;
       margin-bottom: 2rem;
       color: orange;
     }
-    .not-logged-modal-wrapper__text{
+    .not-logged-modal-wrapper__text {
       font-size: 1.5rem;
       margin-bottom: 2rem;
     }
-    .not-logged-modal-wrapper__buttons{
+    .not-logged-modal-wrapper__buttons {
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;

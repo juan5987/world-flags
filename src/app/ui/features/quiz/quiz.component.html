@@ -1,36 +1,42 @@
 <header>
-    <div class="best-score">
-        <span class="best-score__label">Meilleur score</span>
-        <span>{{ bestScore() }}</span>
-    </div>
-    <div class="timer">
-        <span class="timer__label">Temps</span>
-        <span>{{ timer() }}</span>
-    </div>
-    <div class="score">
-        <span class="score__label">Score actuel</span>
-        <span>{{ actualScore() }}</span>
-    </div>
+  <div class="best-score">
+    <span class="best-score__label">Meilleur score</span>
+    <span>{{ bestScore() }}</span>
+  </div>
+  <div class="timer">
+    <span class="timer__label">Temps</span>
+    <span>{{ timer() }}</span>
+  </div>
+  <div class="score">
+    <span class="score__label">Score actuel</span>
+    <span>{{ actualScore() }}</span>
+  </div>
 </header>
 <main>
-    <div class="question">
-        <img [src]="flag()?.flag" class="flag">
-    </div>
-    @if(answerResult() !== undefined){
-        @if(!answerResult()){
-            <span class="answer-result red">INCORRECT</span>
-        }@else{
-            <span class="answer-result green">CORRECT</span> 
-        }
-    }@else{
-        <span class="answer-result"></span>
-    }
+  <div class="question">
+    <img [src]="flag()?.flag" class="flag" />
+  </div>
+  @if(answerResult() !== undefined){ @if(!answerResult()){
+  <span class="answer-result red">INCORRECT</span>
+  }@else{
+  <span class="answer-result green">CORRECT</span>
+  } }@else{
+  <span class="answer-result"></span>
+  }
 </main>
 <footer>
-    <div class="answer">
-        <span class="answer-instruction">Appuyer sur la touche Entrée pour valider</span>
-        <form [formGroup]="form">
-            <input type="text" placeholder="saisissez votre réponse" class="answer-input" formControlName="userInput" (keydown)="handleKeydown($event)" />
-        </form>
-    </div>
+  <div class="answer">
+    <span class="answer-instruction"
+      >Appuyer sur la touche Entrée pour valider</span
+    >
+    <form [formGroup]="form">
+      <input
+        type="text"
+        placeholder="saisissez votre réponse"
+        class="answer-input"
+        formControlName="userInput"
+        (keydown)="handleKeydown($event)"
+      />
+    </form>
+  </div>
 </footer>

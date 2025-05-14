@@ -1,13 +1,25 @@
 <div class="not-logged-modal-wrapper">
-    <div class="not-logged-modal-wrapper__content" (click)="$event.stopPropagation()">
-        <h2 class="not-logged-modal-wrapper__title">Vous n'êtes pas connecté</h2>
-        <p class="not-logged-modal-wrapper__text">Votre score ne sera pas sauvegardé et ne figurera pas dans le
-            classement</p>
-        <div class="not-logged-modal-wrapper__buttons">
-            <app-button class="not-logged-modal-wrapper__buttons__play" buttonText="Ignorer et jouer"
-                (click)="navigateToPlay()"></app-button>
-            <app-button class="not-logged-modal-wrapper__buttons__login" buttonText="Connexion" mainColor="white"
-                secondaryColor="orange" (click)="navigateToLogin()"></app-button>
-        </div>
+  <div
+    class="not-logged-modal-wrapper__content"
+    (click)="$event.stopPropagation()"
+  >
+    <h2 class="not-logged-modal-wrapper__title">Vous n'êtes pas connecté</h2>
+    <p class="not-logged-modal-wrapper__text">
+      Votre score ne sera pas sauvegardé et ne figurera pas dans le classement
+    </p>
+    <div class="not-logged-modal-wrapper__buttons">
+      <app-button
+        class="not-logged-modal-wrapper__buttons__play"
+        buttonText="Ignorer et jouer"
+        (click)="navigateToPlay()"
+      ></app-button>
+      <app-button
+        class="not-logged-modal-wrapper__buttons__login"
+        buttonText="Connexion"
+        mainColor="white"
+        secondaryColor="orange"
+        (click)="navigateToLogin()"
+      ></app-button>
     </div>
+  </div>
 </div>

@@ -4,30 +4,29 @@ app-login {
   align-items: center;
   height: 100vh;
 
-  .login-button{
+  .login-button {
     z-index: 3;
-    
+
     .login-button__button {
       display: flex;
       align-items: center;
       background-color: var(--color-dark);
-      padding: .5em 1em;
+      padding: 0.5em 1em;
       border-radius: 1rem;
       border: 1px solid var(--border-color);
 
-      .google-icon{
+      .google-icon {
         display: block;
-        margin-right: .5rem;
+        margin-right: 0.5rem;
       }
 
-      .login-button__button__text{
+      .login-button__button__text {
         font-family: var(--font-family);
         font-size: 1.2rem;
         color: var(--text-color);
-  
       }
 
-      &:hover{
+      &:hover {
         background-color: var(--color-dark-light);
         cursor: pointer;
       }

@@ -1,43 +1,41 @@
 app-homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+
+  #homepage__title {
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 20px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 5rem;
+    text-align: center;
+    background-color: var(--color-dark);
+    padding: 2rem 4rem;
+    border-top: 0.5rem solid var(--border-color);
+    border-bottom: 0.5rem solid var(--border-color);
+    height: min-content;
+    text-transform: uppercase;
+    z-index: 3;
+    width: 100vw;
+  }
+
+  #homepage__buttons {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--background-color);
-    width: 100vw;
-    height: 100vh;
-    padding: 1rem;
+    margin-top: 5rem;
+    z-index: 3;
+  }
 
-    #homepage__title {
-        color: var(--text-color);
-        text-align: center;
-        margin-top: 20px;
-        font-family: var(--font-family);
-        font-weight: 400;
-        font-size: 5rem;
-        text-align: center;
-        background-color: var(--color-dark);
-        padding: 2rem 4rem;
-        border-top: .5rem solid var(--border-color);
-        border-bottom: .5rem solid var(--border-color);
-        height: min-content;
-        text-transform: uppercase;
-        z-index: 3;
-        width: 100vw;
-    }
-
-
-    #homepage__buttons {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 5rem;
-        z-index: 3;
-    }
-
-    
-  .username-modal{
+  .username-modal {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,50 +49,50 @@ app-homepage {
     color: var(--color-dark);
     background-color: rgba(0, 0, 0, 0.5);
     font-family: var(--font-family);
-  
-    .username-modal__form{
+
+    .username-modal__form {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       background-color: var(--color-dark);
       padding: 1rem;
-      border-radius: .5rem;
+      border-radius: 0.5rem;
       width: 350px;
 
-      .username-modal__title{
+      .username-modal__title {
         font-size: 1.5rem;
         color: orange;
         text-align: center;
         margin-bottom: 2rem;
       }
 
-      .username-modal__text{
+      .username-modal__text {
         font-size: 1rem;
         color: var(--text-color);
         text-align: center;
         margin-bottom: 2rem;
       }
 
-      .username-modal__form__label{
+      .username-modal__form__label {
         width: 100%;
         font-size: 1rem;
         color: orange;
         text-transform: uppercase;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
       }
 
-      .username-modal__form__input{
+      .username-modal__form__input {
         width: 100%;
-        padding: .5em 1em;
-        border-radius: .5em;
+        padding: 0.5em 1em;
+        border-radius: 0.5em;
         border: 1px solid var(--border-color);
         color: var(--color-dark);
         text-align: center;
         text-transform: uppercase;
         margin-bottom: 1rem;
 
-        &::placeholder{
+        &::placeholder {
           color: rgb(220, 220, 220);
         }
       }

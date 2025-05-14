@@ -1,8 +1,15 @@
-import { computed, effect, inject, Injectable, signal, WritableSignal } from '@angular/core';
+import {
+  computed,
+  effect,
+  inject,
+  Injectable,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { GoogleAuthService } from './google-auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private googleAuthService = inject(GoogleAuthService);

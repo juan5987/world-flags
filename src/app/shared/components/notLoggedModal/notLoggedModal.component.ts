@@ -19,23 +19,22 @@ import { NotLoggedModalService } from '../../../data/services/notLoggedModal.ser
   host: {
     '(click)': 'closeModal()',
   },
-  
 })
 export class NotLoggedModalComponent {
   protected router = inject(Router);
   protected modalService = inject(NotLoggedModalService);
 
   protected closeModal() {
-    this.modalService.closeModal()
+    this.modalService.closeModal();
   }
 
   protected navigateToPlay() {
-    this.modalService.closeModal()
+    this.modalService.closeModal();
     this.router.navigate(['/play']);
   }
 
   protected navigateToLogin() {
-    this.modalService.closeModal()
+    this.modalService.closeModal();
     this.router.navigate(['/login']);
   }
 }
