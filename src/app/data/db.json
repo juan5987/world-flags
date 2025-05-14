@@ -200,1178 +200,1373 @@
       "name_fr": "Botswana",
       "name": "Botswana",
       "flag": "https://flagcdn.com/bw.svg",
-      "id": "ed5b"
+      "id": "ed5b",
+      "level": 2
     },
     {
       "name_fr": "Tonga",
       "name": "Tonga",
       "flag": "https://flagcdn.com/to.svg",
-      "id": "3cca"
+      "id": "3cca",
+      "level": 2
     },
     {
       "name_fr": "Grèce",
       "name": "Greece",
       "flag": "https://flagcdn.com/gr.svg",
-      "id": "74ea"
+      "id": "74ea",
+      "level": 1
     },
     {
       "name_fr": "Îles Marshall",
       "name": "Marshall Islands",
       "flag": "https://flagcdn.com/mh.svg",
-      "id": "9a6d"
+      "id": "9a6d",
+      "level": 3
     },
     {
       "name_fr": "Biélorussie",
       "name": "Belarus",
       "flag": "https://flagcdn.com/by.svg",
-      "id": "b630"
+      "id": "b630",
+      "level": 1
     },
     {
       "name_fr": "République du Congo",
       "name": "Republic of the Congo",
       "flag": "https://flagcdn.com/cg.svg",
-      "id": "1ada"
+      "id": "1ada",
+      "level": 2
     },
     {
       "name_fr": "Tanzanie",
       "name": "Tanzania",
       "flag": "https://flagcdn.com/tz.svg",
-      "id": "4f5f"
+      "id": "4f5f",
+      "level": 2
     },
     {
       "name_fr": "Liechtenstein",
       "name": "Liechtenstein",
       "flag": "https://flagcdn.com/li.svg",
-      "id": "3fa0"
+      "id": "3fa0",
+      "level": 2
     },
     {
       "name_fr": "Saint Martin",
       "name": "Sint Maarten",
       "flag": "https://flagcdn.com/sx.svg",
-      "id": "9524"
+      "id": "9524",
+      "level": 2
     },
     {
       "name_fr": "Bosnie-Herzégovine",
       "name": "Bosnia and Herzegovina",
       "flag": "https://flagcdn.com/ba.svg",
-      "id": "f81f"
+      "id": "f81f",
+      "level": 2
     },
     {
       "name_fr": "Bahreïn",
       "name": "Bahrain",
       "flag": "https://flagcdn.com/bh.svg",
-      "id": "31f1"
+      "id": "31f1",
+      "level": 2
     },
     {
       "name_fr": "Kenya",
       "name": "Kenya",
       "flag": "https://flagcdn.com/ke.svg",
-      "id": "9a51"
+      "id": "9a51",
+      "level": 1
     },
     {
       "name_fr": "Estonie",
       "name": "Estonia",
       "flag": "https://flagcdn.com/ee.svg",
-      "id": "ac09"
+      "id": "ac09",
+      "level": 1
     },
     {
       "name_fr": "Qatar",
       "name": "Qatar",
       "flag": "https://flagcdn.com/qa.svg",
-      "id": "fece"
+      "id": "fece",
+      "level": 1
     },
     {
       "name_fr": "Pologne",
       "name": "Poland",
       "flag": "https://flagcdn.com/pl.svg",
-      "id": "294b"
+      "id": "294b",
+      "level": 1
     },
     {
       "name_fr": "Moldavie",
       "name": "Moldova",
       "flag": "https://flagcdn.com/md.svg",
-      "id": "cd52"
+      "id": "cd52",
+      "level": 1
     },
     {
       "name_fr": "Jordanie",
       "name": "Jordan",
       "flag": "https://flagcdn.com/jo.svg",
-      "id": "1761"
+      "id": "1761",
+      "level": 1
     },
     {
       "name_fr": "Tunisie",
       "name": "Tunisia",
       "flag": "https://flagcdn.com/tn.svg",
-      "id": "dacd"
+      "id": "dacd",
+      "level": 1
     },
     {
       "name_fr": "Paraguay",
       "name": "Paraguay",
       "flag": "https://flagcdn.com/py.svg",
-      "id": "36e5"
+      "id": "36e5",
+      "level": 1
     },
     {
       "name_fr": "Malaisie",
       "name": "Malaysia",
       "flag": "https://flagcdn.com/my.svg",
-      "id": "0e14"
+      "id": "0e14",
+      "level": 1
     },
     {
       "name_fr": "Cameroun",
       "name": "Cameroon",
       "flag": "https://flagcdn.com/cm.svg",
-      "id": "571e"
+      "id": "571e",
+      "level": 1
     },
     {
       "name_fr": "Îles Salomon",
       "name": "Solomon Islands",
       "flag": "https://flagcdn.com/sb.svg",
-      "id": "72be"
+      "id": "72be",
+      "level": 3
     },
     {
       "name_fr": "Mongolie",
       "name": "Mongolia",
       "flag": "https://flagcdn.com/mn.svg",
-      "id": "8db9"
+      "id": "8db9",
+      "level": 1
     },
     {
       "name_fr": "Vanuatu",
       "name": "Vanuatu",
       "flag": "https://flagcdn.com/vu.svg",
-      "id": "fc28"
+      "id": "fc28",
+      "level": 2
     },
     {
       "name_fr": "Népal",
       "name": "Nepal",
       "flag": "https://flagcdn.com/np.svg",
-      "id": "094d"
+      "id": "094d",
+      "level": 1
     },
     {
       "name_fr": "Guam",
       "name": "Guam",
       "flag": "https://flagcdn.com/gu.svg",
-      "id": "efcb"
+      "id": "efcb",
+      "level": 2
     },
     {
       "name_fr": "Liban",
       "name": "Lebanon",
       "flag": "https://flagcdn.com/lb.svg",
-      "id": "12b0"
+      "id": "12b0",
+      "level": 1
     },
     {
       "name_fr": "Côte d'Ivoire",
       "name": "Ivory Coast",
       "flag": "https://flagcdn.com/ci.svg",
-      "id": "c739"
+      "id": "c739",
+      "level": 1
     },
     {
       "name_fr": "Équateur",
       "name": "Ecuador",
       "flag": "https://flagcdn.com/ec.svg",
-      "id": "4830"
+      "id": "4830",
+      "level": 2
     },
     {
       "name_fr": "Palaos",
       "name": "Palau",
       "flag": "https://flagcdn.com/pw.svg",
-      "id": "003a"
+      "id": "003a",
+      "level": 2
     },
     {
       "name_fr": "Kirghizistan",
       "name": "Kyrgyzstan",
       "flag": "https://flagcdn.com/kg.svg",
-      "id": "3e38"
+      "id": "3e38",
+      "level": 2
     },
     {
       "name_fr": "Égypte",
       "name": "Egypt",
       "flag": "https://flagcdn.com/eg.svg",
-      "id": "aa46"
+      "id": "aa46",
+      "level": 1
     },
     {
       "name_fr": "Corée du Nord",
       "name": "North Korea",
       "flag": "https://flagcdn.com/kp.svg",
-      "id": "c8a1"
+      "id": "c8a1",
+      "level": 1
     },
     {
       "name_fr": "Sénégal",
       "name": "Senegal",
       "flag": "https://flagcdn.com/sn.svg",
-      "id": "f74b"
+      "id": "f74b",
+      "level": 1
     },
     {
       "name_fr": "Îles Vierges britanniques",
       "name": "British Virgin Islands",
       "flag": "https://flagcdn.com/vg.svg",
-      "id": "e4e5"
+      "id": "e4e5",
+      "level": 3
     },
     {
       "name_fr": "Costa Rica",
       "name": "Costa Rica",
       "flag": "https://flagcdn.com/cr.svg",
-      "id": "7952"
+      "id": "7952",
+      "level": 1
     },
     {
       "name_fr": "Guatemala",
       "name": "Guatemala",
       "flag": "https://flagcdn.com/gt.svg",
-      "id": "013f"
+      "id": "013f",
+      "level": 1
     },
     {
       "name_fr": "Chine",
       "name": "China",
       "flag": "https://flagcdn.com/cn.svg",
-      "id": "a38c"
+      "id": "a38c",
+      "level": 1
     },
     {
       "name_fr": "Kazakhstan",
       "name": "Kazakhstan",
       "flag": "https://flagcdn.com/kz.svg",
-      "id": "411d"
+      "id": "411d",
+      "level": 2
     },
     {
       "name_fr": "Cap-Vert",
       "name": "Cape Verde",
       "flag": "https://flagcdn.com/cv.svg",
-      "id": "ac76"
+      "id": "ac76",
+      "level": 2
     },
     {
       "name_fr": "Vatican",
       "name": "Vatican City",
       "flag": "https://flagcdn.com/va.svg",
-      "id": "db21"
+      "id": "db21",
+      "level": 2
     },
     {
       "name_fr": "Bhoutan",
       "name": "Bhutan",
       "flag": "https://flagcdn.com/bt.svg",
-      "id": "313f"
+      "id": "313f",
+      "level": 1
     },
     {
       "name_fr": "Colombie",
       "name": "Colombia",
       "flag": "https://flagcdn.com/co.svg",
-      "id": "0cb8"
+      "id": "0cb8",
+      "level": 1
     },
     {
       "name_fr": "Grenade",
       "name": "Grenada",
       "flag": "https://flagcdn.com/gd.svg",
-      "id": "7ee7"
+      "id": "7ee7",
+      "level": 2
     },
     {
       "name_fr": "Îles Mariannes du Nord",
       "name": "Northern Mariana Islands",
       "flag": "https://flagcdn.com/mp.svg",
-      "id": "7a7b"
+      "id": "7a7b",
+      "level": 3
     },
     {
       "name_fr": "Papouasie-Nouvelle-Guinée",
       "name": "Papua New Guinea",
       "flag": "https://flagcdn.com/pg.svg",
-      "id": "56c4"
+      "id": "56c4",
+      "level": 2
     },
     {
       "name_fr": "Antarctique",
       "name": "Antarctica",
       "flag": "https://flagcdn.com/aq.svg",
-      "id": "37ac"
+      "id": "37ac",
+      "level": 2
     },
     {
       "name_fr": "Afrique du Sud",
       "name": "South Africa",
       "flag": "https://flagcdn.com/za.svg",
-      "id": "a2f3"
+      "id": "a2f3",
+      "level": 1
     },
     {
       "name_fr": "Guinée",
       "name": "Guinea",
       "flag": "https://flagcdn.com/gn.svg",
-      "id": "a8bd"
+      "id": "a8bd",
+      "level": 1
     },
     {
       "name_fr": "Hong Kong",
       "name": "Hong Kong",
       "flag": "https://flagcdn.com/hk.svg",
-      "id": "c0ea"
+      "id": "c0ea",
+      "level": 1
     },
     {
       "name_fr": "Tchad",
       "name": "Chad",
       "flag": "https://flagcdn.com/td.svg",
-      "id": "d74b"
+      "id": "d74b",
+      "level": 2
     },
     {
       "name_fr": "Sainte-Hélène",
       "name": "Saint Helena, Ascension and Tristan da Cunha",
       "flag": "https://flagcdn.com/sh.svg",
-      "id": "3ce0"
+      "id": "3ce0",
+      "level": 2
     },
     {
       "name_fr": "Honduras",
       "name": "Honduras",
       "flag": "https://flagcdn.com/hn.svg",
-      "id": "012e"
+      "id": "012e",
+      "level": 1
     },
     {
       "name_fr": "Monténégro",
       "name": "Montenegro",
       "flag": "https://flagcdn.com/me.svg",
-      "id": "4ed8"
+      "id": "4ed8",
+      "level": 1
     },
     {
       "name_fr": "Maroc",
       "name": "Morocco",
       "flag": "https://flagcdn.com/ma.svg",
-      "id": "d0f4"
+      "id": "d0f4",
+      "level": 1
     },
     {
       "name_fr": "Nicaragua",
       "name": "Nicaragua",
       "flag": "https://flagcdn.com/ni.svg",
-      "id": "8295"
+      "id": "8295",
+      "level": 1
     },
     {
       "name_fr": "Îles Caïmans",
       "name": "Cayman Islands",
       "flag": "https://flagcdn.com/ky.svg",
-      "id": "3dab"
+      "id": "3dab",
+      "level": 2
     },
     {
       "name_fr": "Luxembourg",
       "name": "Luxembourg",
       "flag": "https://flagcdn.com/lu.svg",
-      "id": "32e9"
+      "id": "32e9",
+      "level": 1
     },
     {
       "name_fr": "Guyane",
       "name": "Guyana",
       "flag": "https://flagcdn.com/gy.svg",
-      "id": "2c9e"
+      "id": "2c9e",
+      "level": 1
     },
     {
       "name_fr": "Bulgarie",
       "name": "Bulgaria",
       "flag": "https://flagcdn.com/bg.svg",
-      "id": "176b"
+      "id": "176b",
+      "level": 1
     },
     {
       "name_fr": "Ghana",
       "name": "Ghana",
       "flag": "https://flagcdn.com/gh.svg",
-      "id": "786e"
+      "id": "786e",
+      "level": 1
     },
     {
       "name_fr": "Finlande",
       "name": "Finland",
       "flag": "https://flagcdn.com/fi.svg",
-      "id": "0558"
+      "id": "0558",
+      "level": 1
     },
     {
       "name_fr": "Seychelles",
       "name": "Seychelles",
       "flag": "https://flagcdn.com/sc.svg",
-      "id": "effb"
+      "id": "effb",
+      "level": 2
     },
     {
       "name_fr": "Éthiopie",
       "name": "Ethiopia",
       "flag": "https://flagcdn.com/et.svg",
-      "id": "a60e"
+      "id": "a60e",
+      "level": 1
     },
     {
       "name_fr": "Mauritanie",
       "name": "Mauritania",
       "flag": "https://flagcdn.com/mr.svg",
-      "id": "b4c1"
+      "id": "b4c1",
+      "level": 1
     },
     {
       "name_fr": "Islande",
       "name": "Iceland",
       "flag": "https://flagcdn.com/is.svg",
-      "id": "0b21"
+      "id": "0b21",
+      "level": 1
     },
     {
       "name_fr": "La Réunion",
       "name": "Réunion",
       "flag": "https://flagcdn.com/re.svg",
-      "id": "ea94"
+      "id": "ea94",
+      "level": 2
     },
     {
       "name_fr": "Tajikistan",
       "name": "Tajikistan",
       "flag": "https://flagcdn.com/tj.svg",
-      "id": "45dd"
+      "id": "45dd",
+      "level": 2
     },
     {
       "name_fr": "Cuba",
       "name": "Cuba",
       "flag": "https://flagcdn.com/cu.svg",
-      "id": "57e8"
+      "id": "57e8",
+      "level": 1
     },
     {
       "name_fr": "Somalie",
       "name": "Somalia",
       "flag": "https://flagcdn.com/so.svg",
-      "id": "cec9"
+      "id": "cec9",
+      "level": 1
     },
     {
       "name_fr": "Suisse",
       "name": "Switzerland",
       "flag": "https://flagcdn.com/ch.svg",
-      "id": "4f83"
+      "id": "4f83",
+      "level": 1
     },
     {
       "name_fr": "Île Christmas",
       "name": "Christmas Island",
       "flag": "https://flagcdn.com/cx.svg",
-      "id": "20bf"
+      "id": "20bf",
+      "level": 3
     },
     {
       "name_fr": "Martinique",
       "name": "Martinique",
       "flag": "https://flagcdn.com/mq.svg",
-      "id": "06ef"
+      "id": "06ef",
+      "level": 2
     },
     {
       "name_fr": "Australie",
       "name": "Australia",
       "flag": "https://flagcdn.com/au.svg",
-      "id": "4e46"
+      "id": "4e46",
+      "level": 1
     },
     {
       "name_fr": "Bénin",
       "name": "Benin",
       "flag": "https://flagcdn.com/bj.svg",
-      "id": "1bed"
+      "id": "1bed",
+      "level": 1
     },
     {
       "name_fr": "Laos",
       "name": "Laos",
       "flag": "https://flagcdn.com/la.svg",
-      "id": "6279"
+      "id": "6279",
+      "level": 1
     },
     {
       "name_fr": "Soudan",
       "name": "Sudan",
       "flag": "https://flagcdn.com/sd.svg",
-      "id": "bd69"
+      "id": "bd69",
+      "level": 1
     },
     {
       "name_fr": "Libye",
       "name": "Libya",
       "flag": "https://flagcdn.com/ly.svg",
-      "id": "db59"
+      "id": "db59",
+      "level": 1
     },
     {
       "name_fr": "Mali",
       "name": "Mali",
       "flag": "https://flagcdn.com/ml.svg",
-      "id": "d953"
+      "id": "d953",
+      "level": 1
     },
     {
       "name_fr": "Pérou",
       "name": "Peru",
       "flag": "https://flagcdn.com/pe.svg",
-      "id": "0abf"
+      "id": "0abf",
+      "level": 1
     },
     {
       "name_fr": "Hongrie",
       "name": "Hungary",
       "flag": "https://flagcdn.com/hu.svg",
-      "id": "3c3e"
+      "id": "3c3e",
+      "level": 1
     },
     {
       "name_fr": "Bermudes",
       "name": "Bermuda",
       "flag": "https://flagcdn.com/bm.svg",
-      "id": "1c7b"
+      "id": "1c7b",
+      "level": 2
     },
     {
       "name_fr": "Fiji",
       "name": "Fiji",
       "flag": "https://flagcdn.com/fj.svg",
-      "id": "f7c1"
+      "id": "f7c1",
+      "level": 2
     },
     {
       "name_fr": "Pays-Bas",
       "name": "Netherlands",
       "flag": "https://flagcdn.com/nl.svg",
-      "id": "5085"
+      "id": "5085",
+      "level": 1
     },
     {
       "name_fr": "Nigeria",
       "name": "Nigeria",
       "flag": "https://flagcdn.com/ng.svg",
-      "id": "1eaf"
+      "id": "1eaf",
+      "level": 1
     },
     {
       "name_fr": "Portugal",
       "name": "Portugal",
       "flag": "https://flagcdn.com/pt.svg",
-      "id": "ead3"
+      "id": "ead3",
+      "level": 1
     },
     {
       "name_fr": "Inde",
       "name": "India",
       "flag": "https://flagcdn.com/in.svg",
-      "id": "9069"
+      "id": "9069",
+      "level": 1
     },
     {
       "name_fr": "Géorgie du Sud",
       "name": "South Georgia",
       "flag": "https://flagcdn.com/gs.svg",
-      "id": "4654"
+      "id": "4654",
+      "level": 2
     },
     {
       "name_fr": "Lesotho",
       "name": "Lesotho",
       "flag": "https://flagcdn.com/ls.svg",
-      "id": "8803"
+      "id": "8803",
+      "level": 2
     },
     {
       "name_fr": "Zambie",
       "name": "Zambia",
       "flag": "https://flagcdn.com/zm.svg",
-      "id": "5582"
+      "id": "5582",
+      "level": 1
     },
     {
       "name_fr": "Tokelau",
       "name": "Tokelau",
       "flag": "https://flagcdn.com/tk.svg",
-      "id": "50dd"
+      "id": "50dd",
+      "level": 3
     },
     {
       "name_fr": "Gambie",
       "name": "Gambia",
       "flag": "https://flagcdn.com/gm.svg",
-      "id": "c37b"
+      "id": "c37b",
+      "level": 2
     },
     {
       "name_fr": "Sierra Leone",
       "name": "Sierra Leone",
       "flag": "https://flagcdn.com/sl.svg",
-      "id": "625b"
+      "id": "625b",
+      "level": 2
     },
     {
       "name_fr": "Kiribati",
       "name": "Kiribati",
       "flag": "https://flagcdn.com/ki.svg",
-      "id": "be94"
+      "id": "be94",
+      "level": 2
     },
     {
       "name_fr": "Norvège",
       "name": "Norway",
       "flag": "https://flagcdn.com/no.svg",
-      "id": "4137"
+      "id": "4137",
+      "level": 1
     },
     {
       "name_fr": "Irlande",
       "name": "Ireland",
       "flag": "https://flagcdn.com/ie.svg",
-      "id": "0dbc"
+      "id": "0dbc",
+      "level": 1
     },
     {
       "name_fr": "Groenland",
       "name": "Greenland",
       "flag": "https://flagcdn.com/gl.svg",
-      "id": "552a"
+      "id": "552a",
+      "level": 1
     },
     {
       "name_fr": "Territoire britannique de l'océan Indien",
       "name": "British Indian Ocean Territory",
       "flag": "https://flagcdn.com/io.svg",
-      "id": "e81b"
+      "id": "e81b",
+      "level": 3
     },
     {
       "name_fr": "Mozambique",
       "name": "Mozambique",
       "flag": "https://flagcdn.com/mz.svg",
-      "id": "a052"
+      "id": "a052",
+      "level": 1
     },
     {
       "name_fr": "Panama",
       "name": "Panama",
       "flag": "https://flagcdn.com/pa.svg",
-      "id": "3812"
+      "id": "3812",
+      "level": 1
     },
     {
       "name_fr": "Ukraine",
       "name": "Ukraine",
       "flag": "https://flagcdn.com/ua.svg",
-      "id": "64ec"
+      "id": "64ec",
+      "level": 1
     },
     {
       "name_fr": "Uruguay",
       "name": "Uruguay",
       "flag": "https://flagcdn.com/uy.svg",
-      "id": "95ad"
+      "id": "95ad",
+      "level": 1
     },
     {
       "name_fr": "Aruba",
       "name": "Aruba",
       "flag": "https://flagcdn.com/aw.svg",
-      "id": "0d0e"
+      "id": "0d0e",
+      "level": 2
     },
     {
       "name_fr": "Iran",
       "name": "Iran",
       "flag": "https://flagcdn.com/ir.svg",
-      "id": "aa84"
+      "id": "aa84",
+      "level": 1
     },
     {
       "name_fr": "Île de Man",
       "name": "Isle of Man",
       "flag": "https://flagcdn.com/im.svg",
-      "id": "f47a"
+      "id": "f47a",
+      "level": 2
     },
     {
       "name_fr": "Îles Aland",
       "name": "Åland Islands",
       "flag": "https://flagcdn.com/ax.svg",
-      "id": "1bb2"
+      "id": "1bb2",
+      "level": 2
     },
     {
       "name_fr": "Arabie Saoudite",
       "name": "Saudi Arabia",
       "flag": "https://flagcdn.com/sa.svg",
-      "id": "9a33"
+      "id": "9a33",
+      "level": 1
     },
     {
       "name_fr": "Djibouti",
       "name": "Djibouti",
       "flag": "https://flagcdn.com/dj.svg",
-      "id": "583a"
+      "id": "583a",
+      "level": 2
     },
     {
       "name_fr": "Italie",
       "name": "Italy",
       "flag": "https://flagcdn.com/it.svg",
-      "id": "cebe"
+      "id": "cebe",
+      "level": 1
     },
     {
       "name_fr": "Canada",
       "name": "Canada",
       "flag": "https://flagcdn.com/ca.svg",
-      "id": "fd10"
+      "id": "fd10",
+      "level": 1
     },
     {
       "name_fr": "Jamaïque",
       "name": "Jamaica",
       "flag": "https://flagcdn.com/jm.svg",
-      "id": "bd95"
+      "id": "bd95",
+      "level": 1
     },
     {
       "name_fr": "Niger",
       "name": "Niger",
       "flag": "https://flagcdn.com/ne.svg",
-      "id": "5327"
+      "id": "5327",
+      "level": 1
     },
     {
       "name_fr": "Afghanistan",
       "name": "Afghanistan",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg",
-      "id": "2089"
+      "id": "2089",
+      "level": 1
     },
     {
       "name_fr": "Croatie",
       "name": "Croatia",
       "flag": "https://flagcdn.com/hr.svg",
-      "id": "5b25"
+      "id": "5b25",
+      "level": 1
     },
     {
       "name_fr": "Lettonie",
       "name": "Latvia",
       "flag": "https://flagcdn.com/lv.svg",
-      "id": "c419"
+      "id": "c419",
+      "level": 1
     },
     {
       "name_fr": "Samoa",
       "name": "Samoa",
       "flag": "https://flagcdn.com/ws.svg",
-      "id": "1f92"
+      "id": "1f92",
+      "level": 2
     },
     {
       "name_fr": "Curaçao",
       "name": "Curaçao",
       "flag": "https://flagcdn.com/cw.svg",
-      "id": "22f2"
+      "id": "22f2",
+      "level": 2
     },
     {
       "name_fr": "Chypre",
       "name": "Cyprus",
       "flag": "https://flagcdn.com/cy.svg",
-      "id": "156c"
+      "id": "156c",
+      "level": 2
     },
     {
       "name_fr": "Madagascar",
       "name": "Madagascar",
       "flag": "https://flagcdn.com/mg.svg",
-      "id": "3507"
+      "id": "3507",
+      "level": 1
     },
     {
       "name_fr": "Ouzbékistan",
       "name": "Uzbekistan",
       "flag": "https://flagcdn.com/uz.svg",
-      "id": "f220"
+      "id": "f220",
+      "level": 2
     },
     {
       "name_fr": "Macau",
       "name": "Macau",
       "flag": "https://flagcdn.com/mo.svg",
-      "id": "95f7"
+      "id": "95f7",
+      "level": 2
     },
     {
       "name_fr": "Micronésie",
       "name": "Micronesia",
       "flag": "https://flagcdn.com/fm.svg",
-      "id": "2aa8"
+      "id": "2aa8",
+      "level": 2
     },
     {
       "name_fr": "Maldives",
       "name": "Maldives",
       "flag": "https://flagcdn.com/mv.svg",
-      "id": "7f8b"
+      "id": "7f8b",
+      "level": 2
     },
     {
       "name_fr": "Slovénie",
       "name": "Slovenia",
       "flag": "https://flagcdn.com/si.svg",
-      "id": "bef8"
+      "id": "bef8",
+      "level": 1
     },
     {
       "name_fr": "Andorre",
       "name": "Andorra",
       "flag": "https://flagcdn.com/ad.svg",
-      "id": "c8f5"
+      "id": "c8f5",
+      "level": 2
     },
     {
       "name_fr": "Érythrée",
       "name": "Eritrea",
       "flag": "https://flagcdn.com/er.svg",
-      "id": "f061"
+      "id": "f061",
+      "level": 2
     },
     {
       "name_fr": "Guinée-Bissau",
       "name": "Guinea-Bissau",
       "flag": "https://flagcdn.com/gw.svg",
-      "id": "20f7"
+      "id": "20f7",
+      "level": 2
     },
     {
       "name_fr": "Koweït",
       "name": "Kuwait",
       "flag": "https://flagcdn.com/kw.svg",
-      "id": "a342"
+      "id": "a342",
+      "level": 1
     },
     {
       "name_fr": "Gabon",
       "name": "Gabon",
       "flag": "https://flagcdn.com/ga.svg",
-      "id": "4222"
+      "id": "4222",
+      "level": 1
     },
     {
       "name_fr": "Yémen",
       "name": "Yemen",
       "flag": "https://flagcdn.com/ye.svg",
-      "id": "10a1"
+      "id": "10a1",
+      "level": 1
     },
     {
       "name_fr": "Îles Cocos",
       "name": "Cocos (Keeling) Islands",
       "flag": "https://flagcdn.com/cc.svg",
-      "id": "0beb"
+      "id": "0beb",
+      "level": 3
     },
     {
       "name_fr": "Timor oriental",
       "name": "Timor-Leste",
       "flag": "https://flagcdn.com/tl.svg",
-      "id": "caa4"
+      "id": "caa4",
+      "level": 2
     },
     {
       "name_fr": "Slovaquie",
       "name": "Slovakia",
       "flag": "https://flagcdn.com/sk.svg",
-      "id": "bb65"
+      "id": "bb65",
+      "level": 1
     },
     {
       "name_fr": "Rwanda",
       "name": "Rwanda",
       "flag": "https://flagcdn.com/rw.svg",
-      "id": "7332"
+      "id": "7332",
+      "level": 1
     },
     {
       "name_fr": "Antigua-et-Barbuda",
       "name": "Antigua and Barbuda",
       "flag": "https://flagcdn.com/ag.svg",
-      "id": "b95c"
+      "id": "b95c",
+      "level": 2
     },
     {
       "name_fr": "Togo",
       "name": "Togo",
       "flag": "https://flagcdn.com/tg.svg",
-      "id": "ef78"
+      "id": "ef78",
+      "level": 1
     },
     {
       "name_fr": "Syrie",
       "name": "Syria",
       "flag": "https://flagcdn.com/sy.svg",
-      "id": "44a2"
+      "id": "44a2",
+      "level": 1
     },
     {
       "name_fr": "Guadeloupe",
       "name": "Guadeloupe",
       "flag": "https://flagcdn.com/gp.svg",
-      "id": "b1b7"
+      "id": "b1b7",
+      "level": 2
     },
     {
       "name_fr": "Turkménistan",
       "name": "Turkmenistan",
       "flag": "https://flagcdn.com/tm.svg",
-      "id": "f8c2"
+      "id": "f8c2",
+      "level": 2
     },
     {
       "name_fr": "Sri Lanka",
       "name": "Sri Lanka",
       "flag": "https://flagcdn.com/lk.svg",
-      "id": "e339"
+      "id": "e339",
+      "level": 1
     },
     {
       "name_fr": "États-Unis",
       "name": "United States",
       "flag": "https://flagcdn.com/us.svg",
-      "id": "55ea"
+      "id": "55ea",
+      "level": 1
     },
     {
       "name_fr": "Argentine",
       "name": "Argentina",
       "flag": "https://flagcdn.com/ar.svg",
-      "id": "71fe"
+      "id": "71fe",
+      "level": 1
     },
     {
       "name_fr": "Soudan du Sud",
       "name": "South Sudan",
       "flag": "https://flagcdn.com/ss.svg",
-      "id": "8094"
+      "id": "8094",
+      "level": 2
     },
     {
       "name_fr": "Palestine",
       "name": "Palestine",
       "flag": "https://flagcdn.com/ps.svg",
-      "id": "d03d"
+      "id": "d03d",
+      "level": 1
     },
     {
       "name_fr": "Géorgie",
       "name": "Georgia",
       "flag": "https://flagcdn.com/ge.svg",
-      "id": "b024"
+      "id": "b024",
+      "level": 1
     },
     {
       "name_fr": "Japon",
       "name": "Japan",
       "flag": "https://flagcdn.com/jp.svg",
-      "id": "0216"
+      "id": "0216",
+      "level": 1
     },
     {
       "name_fr": "Suède",
       "name": "Sweden",
       "flag": "https://flagcdn.com/se.svg",
-      "id": "1688"
+      "id": "1688",
+      "level": 1
     },
     {
       "name_fr": "Chili",
       "name": "Chile",
       "flag": "https://flagcdn.com/cl.svg",
-      "id": "213f"
+      "id": "213f",
+      "level": 1
     },
     {
       "name_fr": "Saint-Kitts-et-Nevis",
       "name": "Saint Kitts and Nevis",
       "flag": "https://flagcdn.com/kn.svg",
-      "id": "8fe0"
+      "id": "8fe0",
+      "level": 3
     },
     {
       "name_fr": "Danemark",
       "name": "Denmark",
       "flag": "https://flagcdn.com/dk.svg",
-      "id": "7f07"
+      "id": "7f07",
+      "level": 1
     },
     {
       "name_fr": "Samoa américaines",
       "name": "American Samoa",
       "flag": "https://flagcdn.com/as.svg",
-      "id": "6d5c"
+      "id": "6d5c",
+      "level": 2
     },
     {
       "name_fr": "Anguilla",
       "name": "Anguilla",
       "flag": "https://flagcdn.com/ai.svg",
-      "id": "b333"
+      "id": "b333",
+      "level": 2
     },
     {
       "name_fr": "Philippines",
       "name": "Philippines",
       "flag": "https://flagcdn.com/ph.svg",
-      "id": "fe6a"
+      "id": "fe6a",
+      "level": 1
     },
     {
       "name_fr": "Bolivie",
       "name": "Bolivia",
       "flag": "https://flagcdn.com/bo.svg",
-      "id": "6e76"
+      "id": "6e76",
+      "level": 1
     },
     {
       "name_fr": "Sao Tomé-et-Principe",
       "name": "São Tomé and Príncipe",
       "flag": "https://flagcdn.com/st.svg",
-      "id": "0044"
+      "id": "0044",
+      "level": 2
     },
     {
       "name_fr": "Montserrat",
       "name": "Montserrat",
       "flag": "https://flagcdn.com/ms.svg",
-      "id": "e925"
+      "id": "e925",
+      "level": 2
     },
     {
       "name_fr": "Myanmar",
       "name": "Myanmar",
       "flag": "https://flagcdn.com/mm.svg",
-      "id": "c8c2"
+      "id": "c8c2",
+      "level": 2
     },
     {
       "name_fr": "Niué",
       "name": "Niue",
       "flag": "https://flagcdn.com/nu.svg",
-      "id": "0e62"
+      "id": "0e62",
+      "level": 2
     },
     {
       "name_fr": "Israël",
       "name": "Israel",
       "flag": "https://flagcdn.com/il.svg",
-      "id": "6a26"
+      "id": "6a26",
+      "level": 1
     },
     {
       "name_fr": "Comores",
       "name": "Comoros",
       "flag": "https://flagcdn.com/km.svg",
-      "id": "a50d"
+      "id": "a50d",
+      "level": 2
     },
     {
       "name_fr": "Saint-Vincent-et-les-Grenadines",
       "name": "Saint Vincent and the Grenadines",
       "flag": "https://flagcdn.com/vc.svg",
-      "id": "50cc"
+      "id": "50cc",
+      "level": 2
     },
     {
       "name_fr": "Vietnam",
       "name": "Vietnam",
       "flag": "https://flagcdn.com/vn.svg",
-      "id": "c491"
+      "id": "c491",
+      "level": 1
     },
     {
       "name_fr": "Antilles néerlandaises",
       "name": "Caribbean Netherlands",
       "flag": "https://flagcdn.com/bq.svg",
-      "id": "c833"
+      "id": "c833",
+      "level": 2
     },
     {
       "name_fr": "Jersey",
       "name": "Jersey",
       "flag": "https://flagcdn.com/je.svg",
-      "id": "c45d"
+      "id": "c45d",
+      "level": 2
     },
     {
       "name_fr": "Îles Malouines",
       "name": "Falkland Islands",
       "flag": "https://flagcdn.com/fk.svg",
-      "id": "496f"
+      "id": "496f",
+      "level": 2
     },
     {
       "name_fr": "Arménie",
       "name": "Armenia",
       "flag": "https://flagcdn.com/am.svg",
-      "id": "f338"
+      "id": "f338",
+      "level": 1
     },
     {
       "name_fr": "Kosovo",
       "name": "Kosovo",
       "flag": "https://flagcdn.com/xk.svg",
-      "id": "4fd8"
+      "id": "4fd8",
+      "level": 1
     },
     {
       "name_fr": "Venezuela",
       "name": "Venezuela",
       "flag": "https://flagcdn.com/ve.svg",
-      "id": "db2e"
+      "id": "db2e",
+      "level": 1
     },
     {
       "name_fr": "Belgique",
       "name": "Belgium",
       "flag": "https://flagcdn.com/be.svg",
-      "id": "fc85"
+      "id": "fc85",
+      "level": 1
     },
     {
       "name_fr": "Burkina Faso",
       "name": "Burkina Faso",
       "flag": "https://flagcdn.com/bf.svg",
-      "id": "54ef"
+      "id": "54ef",
+      "level": 1
     },
     {
       "name_fr": "Algérie",
       "name": "Algeria",
       "flag": "https://flagcdn.com/dz.svg",
-      "id": "0a7d"
+      "id": "0a7d",
+      "level": 1
     },
     {
       "name_fr": "France",
       "name": "France",
       "flag": "https://flagcdn.com/fr.svg",
-      "id": "82c8"
+      "id": "82c8",
+      "level": 1
     },
     {
       "name_fr": "Saint-Pierre-et-Miquelon",
       "name": "Saint Pierre and Miquelon",
       "flag": "https://flagcdn.com/pm.svg",
-      "id": "3596"
+      "id": "3596",
+      "level": 2
     },
     {
       "name_fr": "Pakistan",
       "name": "Pakistan",
       "flag": "https://flagcdn.com/pk.svg",
-      "id": "f989"
+      "id": "f989",
+      "level": 1
     },
     {
       "name_fr": "El Salvador",
       "name": "El Salvador",
       "flag": "https://flagcdn.com/sv.svg",
-      "id": "70d1"
+      "id": "70d1",
+      "level": 1
     },
     {
       "name_fr": "Macédoine du Nord",
       "name": "North Macedonia",
       "flag": "https://flagcdn.com/mk.svg",
-      "id": "e8ed"
+      "id": "e8ed",
+      "level": 2
     },
     {
       "name_fr": "Brunei",
       "name": "Brunei",
       "flag": "https://flagcdn.com/bn.svg",
-      "id": "62e2"
+      "id": "62e2",
+      "level": 2
     },
     {
       "name_fr": "République Centrafricaine",
       "name": "Central African Republic",
       "flag": "https://flagcdn.com/cf.svg",
-      "id": "c8db"
+      "id": "c8db",
+      "level": 2
     },
     {
       "name_fr": "Ouganda",
       "name": "Uganda",
       "flag": "https://flagcdn.com/ug.svg",
-      "id": "39a0"
+      "id": "39a0",
+      "level": 1
     },
     {
       "name_fr": "Wallis et Futuna",
       "name": "Wallis and Futuna",
       "flag": "https://flagcdn.com/wf.svg",
-      "id": "041d"
+      "id": "041d",
+      "level": 2
     },
     {
       "name_fr": "Allemagne",
       "name": "Germany",
       "flag": "https://flagcdn.com/de.svg",
-      "id": "90f1"
+      "id": "90f1",
+      "level": 1
     },
     {
       "name_fr": "Taïwan",
       "name": "Taiwan",
       "flag": "https://flagcdn.com/tw.svg",
-      "id": "1b84"
+      "id": "1b84",
+      "level": 1
     },
     {
       "name_fr": "Émirats Arabes Unis",
       "name": "United Arab Emirates",
       "flag": "https://flagcdn.com/ae.svg",
-      "id": "eea7"
+      "id": "eea7",
+      "level": 1
     },
-    {
     {
       "name_fr": "Namibie",
       "name": "Namibia",
       "flag": "https://flagcdn.com/na.svg",
-      "id": "d37c"
+      "id": "d37c",
+      "level": 1
     },
     {
       "name_fr": "Monaco",
       "name": "Monaco",
       "flag": "https://flagcdn.com/mc.svg",
-      "id": "88ec"
+      "id": "88ec",
+      "level": 1
     },
     {
       "name_fr": "Malawi",
       "name": "Malawi",
       "flag": "https://flagcdn.com/mw.svg",
-      "id": "b99f"
+      "id": "b99f",
+      "level": 2
     },
     {
       "name_fr": "Azerbaïdjan",
       "name": "Azerbaijan",
       "flag": "https://flagcdn.com/az.svg",
-      "id": "6245"
+      "id": "6245",
+      "level": 2
     },
     {
       "name_fr": "Mexique",
       "name": "Mexico",
       "flag": "https://flagcdn.com/mx.svg",
-      "id": "8018"
+      "id": "8018",
+      "level": 1
     },
     {
       "name_fr": "Irak",
       "name": "Iraq",
       "flag": "https://flagcdn.com/iq.svg",
-      "id": "438f"
+      "id": "438f",
+      "level": 1
     },
     {
       "name_fr": "Cambodge",
       "name": "Cambodia",
       "flag": "https://flagcdn.com/kh.svg",
-      "id": "8a15"
+      "id": "8a15",
+      "level": 1
     },
     {
       "name_fr": "Tuvalu",
       "name": "Tuvalu",
       "flag": "https://flagcdn.com/tv.svg",
-      "id": "16ae"
+      "id": "16ae",
+      "level": 2
     },
     {
       "name_fr": "Îles Cook",
       "name": "Cook Islands",
       "flag": "https://flagcdn.com/ck.svg",
-      "id": "1b08"
+      "id": "1b08",
+      "level": 2
     },
     {
       "name_fr": "Haïti",
       "name": "Haiti",
       "flag": "https://flagcdn.com/ht.svg",
-      "id": "929a"
+      "id": "929a",
+      "level": 2
     },
     {
       "name_fr": "Belize",
       "name": "Belize",
       "flag": "https://flagcdn.com/bz.svg",
-      "id": "37e6"
+      "id": "37e6",
+      "level": 2
     },
     {
       "name_fr": "Guyane Française",
       "name": "French Guiana",
       "flag": "https://flagcdn.com/gf.svg",
-      "id": "e617"
+      "id": "e617",
+      "level": 2
     },
     {
       "name_fr": "République Démocratique du Congo",
       "name": "DR Congo",
       "flag": "https://flagcdn.com/cd.svg",
-      "id": "ce0d"
+      "id": "ce0d",
+      "level": 2
     }
   ]
 }
