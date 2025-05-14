@@ -1,6 +1,15 @@
 <app-animated-background></app-animated-background>
 <h1 id="homepage__title">World Flags</h1>
 
+@if(isLoggedIn && username()) {
+<div class="homepage__user-info">
+  <span class="homepage__username">
+    Vous êtes connecté en tant que {{ username() }}</span
+  >
+  <span class="homepage__best-score">Meilleur score : {{ bestScore() }}</span>
+</div>
+}
+
 <div id="homepage__buttons">
   <app-button
     id="homepage__buttons__play"

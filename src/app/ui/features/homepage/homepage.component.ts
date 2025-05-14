@@ -4,6 +4,7 @@ import {
   computed,
   effect,
   inject,
+  signal,
   ViewEncapsulation,
 } from '@angular/core';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
@@ -38,6 +39,8 @@ export class HomepageComponent {
   protected modalService = inject(NotLoggedModalService);
   protected userService = inject(AuthService);
   protected authService = inject(GoogleAuthService);
+  protected username = computed(() => this.authService.username());
+  protected bestScore = computed(() => this.authService.bestScore());
 
   protected readonly shouldDisplayUsernameModal = computed(() => {
     return this.authService.showUsernameModal();

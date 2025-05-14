@@ -1,7 +1,7 @@
 app-homepage {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background-color: var(--background-color);
   width: 100vw;
@@ -26,12 +26,33 @@ app-homepage {
     width: 100vw;
   }
 
+  .homepage__user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+    font-size: 1.25rem;
+    color: var(--text-color);
+    text-align: center;
+    z-index: 3;
+
+    .homepage__username {
+      margin-bottom: .5rem;
+    }
+
+    .homepage__best-score {
+
+    }
+  }
+
+
+
   #homepage__buttons {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 5rem;
     z-index: 3;
   }
 

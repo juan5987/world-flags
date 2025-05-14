@@ -13,6 +13,10 @@ export class GoogleAuthService {
   #oAuthService = inject(OAuthService);
   #profile = signal<any>(null);
   #userService = inject(UserService);
+  #username = signal<string>('');
+  readonly username = computed(() => this.#username());
+  #bestScore = signal<number>(0);
+  readonly bestScore = computed(() => this.#bestScore());
 
   constructor() {
     this.initConfiguration();
@@ -29,6 +33,8 @@ export class GoogleAuthService {
             if (user) {
               console.log('GoogleAuthService - User found');
               this.#showUsernameModal.set(false);
+              this.#username.set(user.username);
+              this.#bestScore.set(user.bestScore);
             } else {
               console.log(
                 'GoogleAuthService - First time login, user must create a username'
