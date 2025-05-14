@@ -544,7 +544,7 @@
       "name": "Hong Kong",
       "flag": "https://flagcdn.com/hk.svg",
       "id": "c0ea",
-      "level": 1
+      "level": 2
     },
     {
       "name_fr": "Tchad",
@@ -1265,7 +1265,7 @@
       "name": "Philippines",
       "flag": "https://flagcdn.com/ph.svg",
       "id": "fe6a",
-      "level": 1
+      "level": 2
     },
     {
       "name_fr": "Bolivie",
@@ -1384,7 +1384,7 @@
       "name": "Burkina Faso",
       "flag": "https://flagcdn.com/bf.svg",
       "id": "54ef",
-      "level": 1
+      "level": 2
     },
     {
       "name_fr": "Algérie",
