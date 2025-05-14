@@ -28,6 +28,7 @@ export class PlayService {
   #answerResult = signal<boolean | undefined>(undefined);
   #excludedCountries = signal<string[]>([]);
   #allFlags = signal<Flag[]>([]);
+  #currentLevel = signal(1);
 
   constructor() {}
 
@@ -113,7 +114,7 @@ export class PlayService {
 
   public initializeGame(): void {
     this.#flagService
-      .getAllFlags()
+      .getFlagsByLevel(this.#currentLevel())
       .pipe(takeUntilDestroyed(this.#destroyRef))
       .subscribe({
         next: (flags) => {

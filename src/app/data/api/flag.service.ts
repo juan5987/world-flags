@@ -11,4 +11,8 @@ export class FlagService {
   public getAllFlags(): Observable<Flag[]> {
     return this.http.get<Flag[]>('api/flags');
   }
+
+  public getFlagsByLevel(level: number): Observable<Flag[]> {
+    return this.http.get<Flag[]>(`api/flags?level=${level}`);
+  }
 }
