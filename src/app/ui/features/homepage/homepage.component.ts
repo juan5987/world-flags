@@ -2,29 +2,26 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  effect,
   inject,
-  signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { ButtonComponent } from '../../../shared/components/button/button.component';
-import { AnimatedBackgroundComponent } from './animated-background/animated-background.component';
-import { Router } from '@angular/router';
-import { NotLoggedModalComponent } from '../../../shared/components/notLoggedModal/notLoggedModal.component';
-import { NotLoggedModalService } from '../../../data/services/notLoggedModal.service';
-import { AuthService } from '../../../data/services/auth.service';
-import { GoogleAuthService } from '../../../data/services/google-auth.service';
 import {
   NonNullableFormBuilder,
-  Validators,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../data/services/auth.service';
+import { GoogleAuthService } from '../../../data/services/google-auth.service';
+import { NotLoggedModalService } from '../../../data/services/notLoggedModal.service';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { NotLoggedModalComponent } from '../../../shared/components/notLoggedModal/notLoggedModal.component';
 
 @Component({
   selector: 'app-homepage',
   imports: [
     ButtonComponent,
-    AnimatedBackgroundComponent,
+    NotLoggedModalComponent,
     NotLoggedModalComponent,
     ReactiveFormsModule,
   ],

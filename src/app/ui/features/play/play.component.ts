@@ -4,13 +4,12 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { LoadingGameComponent } from './loading-game/loading-game.component';
-import { AnimatedBackgroundComponent } from '../homepage/animated-background/animated-background.component';
 import { QuizComponent } from '../quiz/quiz.component';
+import { LoadingGameComponent } from './loading-game/loading-game.component';
 
 @Component({
   selector: 'app-play',
-  imports: [LoadingGameComponent, AnimatedBackgroundComponent, QuizComponent],
+  imports: [LoadingGameComponent, QuizComponent],
   templateUrl: './play.component.html',
   styleUrl: './play.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
