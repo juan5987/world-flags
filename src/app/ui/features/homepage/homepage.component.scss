@@ -1,7 +1,7 @@
 app-homepage {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: var(--background-color);
   width: 100vw;
@@ -11,7 +11,6 @@ app-homepage {
   #homepage__title {
     color: var(--text-color);
     text-align: center;
-    margin-top: 20px;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 5rem;
@@ -35,6 +34,7 @@ app-homepage {
     font-size: 1.25rem;
     color: var(--text-color);
     text-align: center;
+    padding: 1rem;
     z-index: 3;
 
     .homepage__username {
