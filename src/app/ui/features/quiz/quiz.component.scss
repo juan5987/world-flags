@@ -9,6 +9,27 @@ app-quiz {
   padding: 2rem;
   z-index: 3;
 
+  .quit-button {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    background-color: transparent;
+    z-index: 5;
+    font-size: 1.5rem;
+    font-family: var(--font-family);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: var(--border-color);
+      color: var(--color-dark);
+    }
+  }
+
   header {
     display: flex;
     justify-content: space-between;
@@ -126,6 +147,7 @@ app-quiz {
       .best-score,
       .timer,
       .score {
+        margin-top: 3rem;
         font-size: 1.5rem;
       }
     }

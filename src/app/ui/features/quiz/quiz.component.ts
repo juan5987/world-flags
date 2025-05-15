@@ -2,14 +2,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  HostListener,
   inject,
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import {
-  NonNullableFormBuilder,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PlayService } from '../../../data/services/play.service';
 
 @Component({
@@ -22,6 +21,11 @@ import { PlayService } from '../../../data/services/play.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class QuizComponent {
+  @HostListener('window:blur', [])
+  onWindowBlur() {
+    this.#playService.selectNewRandomFlag();
+  }
+
   protected readonly bestScore = computed(() => this.#playService.bestScore);
   protected readonly timer = computed(() => this.#playService.timer);
   protected readonly actualScore = computed(
@@ -32,7 +36,10 @@ export class QuizComponent {
     () => this.#playService.answerResult
   );
   protected readonly lastAnswer = computed(
-    () => this.#playService.excludedCountries[this.#playService.excludedCountries.length - 2]
+    () =>
+      this.#playService.excludedCountries[
+        this.#playService.excludedCountries.length - 2
+      ]
   );
   protected showResult = signal(false);
   readonly #playService = inject(PlayService);
@@ -40,6 +47,7 @@ export class QuizComponent {
   readonly form = this.#fb.group({
     userInput: this.#fb.control(''),
   });
+  readonly #router = inject(Router);
 
   constructor() {
     this.#playService.initializeGame();
@@ -54,6 +62,11 @@ export class QuizComponent {
         this.showAnswerResult();
       }
     }
+  }
+
+  protected quitGame(): void {
+    this.#playService.resetGame();
+    this.#router.navigate(['/']);
   }
 
   private showAnswerResult(): void {
