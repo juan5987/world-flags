@@ -100,6 +100,7 @@ app-quiz {
 
   footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -109,6 +110,7 @@ app-quiz {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      margin-bottom: 2rem;
 
       .answer-input {
         width: 50vw;
@@ -156,6 +158,7 @@ app-quiz {
         margin: 0 auto;
         margin-bottom: 2rem;
         width: 100vw;
+        height: fit-content;
       }
     }
     footer {

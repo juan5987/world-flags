@@ -109,7 +109,9 @@ export class PlayService {
 
   public skipFlag(): void {
     this.selectNewRandomFlag();
-  }
+    if (this.#actualScore() > 0) {
+      this.#actualScore.update((score) => score - 1);
+    }  }
 
   public resetGame(): void {
     this.#actualScore.set(0);

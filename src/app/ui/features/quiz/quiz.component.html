@@ -38,4 +38,16 @@
       />
     </form>
   </div>
+  <div class="skip-button">
+    <app-button 
+      buttonText="Passer" 
+      fontSize="1.5rem" 
+      [mainColor]="isSkipDisabled() ? '#999' : 'white'" 
+      secondaryColor="orange" 
+      [width]="'150px'" 
+      (click)="skipFlag()"
+      [style.cursor]="isSkipDisabled() ? 'not-allowed' : 'pointer'"
+      [style.opacity]="isSkipDisabled() ? '0.5' : '1'"
+    ></app-button>
+  </div>
 </footer>

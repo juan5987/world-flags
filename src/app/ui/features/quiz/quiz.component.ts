@@ -10,10 +10,11 @@ import {
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PlayService } from '../../../data/services/play.service';
+import { ButtonComponent } from "../../../shared/components/button/button.component";
 
 @Component({
   selector: 'app-quiz',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ButtonComponent],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -42,6 +43,7 @@ export class QuizComponent {
       ]
   );
   protected showResult = signal(false);
+  protected isSkipDisabled = signal(false);
   readonly #playService = inject(PlayService);
   readonly #fb = inject(NonNullableFormBuilder);
   readonly form = this.#fb.group({
@@ -67,6 +69,20 @@ export class QuizComponent {
   protected quitGame(): void {
     this.#playService.resetGame();
     this.#router.navigate(['/']);
+  }
+
+  protected skipFlag(): void {
+    if (!this.isSkipDisabled()) {
+      this.isSkipDisabled.set(true);
+      this.#playService.skipFlag();
+      this.form.reset();
+      this.showAnswerResult();
+      
+      // Réactiver le bouton après 2 secondes
+      setTimeout(() => {
+        this.isSkipDisabled.set(false);
+      }, 1000);
+    }
   }
 
   private showAnswerResult(): void {
