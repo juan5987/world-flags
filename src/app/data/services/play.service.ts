@@ -1,13 +1,8 @@
-import {
-  inject,
-  Injectable,
-  signal,
-  WritableSignal,
-  DestroyRef,
-} from '@angular/core';
-import { FlagService } from '../api/flag.service';
-import { Flag } from '../../models/flag.model';
+import { DestroyRef, inject, Injectable, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Flag } from '../../models/flag.model';
+import { FlagService } from '../api/flag.service';
+import { FlagProxyService } from './flag-proxy.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +10,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class PlayService {
   #destroyRef = inject(DestroyRef);
   #flagService = inject(FlagService);
+  #flagProxyService = inject(FlagProxyService);
 
   // Score related signals
   #bestScore = signal(0);
@@ -23,6 +19,7 @@ export class PlayService {
   // Game state signals
   #timer = signal(60);
   #currentFlag = signal<Flag | null>(null);
+  #currentFlagImage = signal<string>('');
   #currentAnswer = signal('');
   #userInput = signal('');
   #answerResult = signal<boolean | undefined>(undefined);
@@ -36,24 +33,20 @@ export class PlayService {
     return this.#bestScore();
   }
 
-  get timer(): number {
-    return this.#timer();
-  }
-
-  get currentFlag(): Flag | null {
-    return this.#currentFlag();
-  }
-
   get actualScore(): number {
     return this.#actualScore();
   }
 
-  get currentAnswer(): string {
-    return this.#currentAnswer();
+  get timer(): number {
+    return this.#timer();
   }
 
-  get userInput(): string {
-    return this.#userInput();
+  get currentFlag(): { flag: string } | null {
+    return this.#currentFlag() ? { flag: this.#currentFlagImage() } : null;
+  }
+
+  get currentAnswer(): string {
+    return this.#currentAnswer();
   }
 
   get answerResult(): boolean | undefined {
@@ -100,6 +93,19 @@ export class PlayService {
       ...excluded,
       randomFlag.name_fr,
     ]);
+
+    // Load the flag image through the proxy
+    this.#flagProxyService
+      .getFlagAsBase64(randomFlag.flag)
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe({
+        next: (base64Image) => {
+          this.#currentFlagImage.set(base64Image);
+        },
+        error: (error) => {
+          console.error('Error loading flag image:', error);
+        },
+      });
   }
 
   public skipFlag(): void {
@@ -136,10 +142,6 @@ export class PlayService {
   }
 
   private normalizeString(str: string): string {
-    return str
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]/g, '');
+    return str.toLowerCase().trim();
   }
 }
