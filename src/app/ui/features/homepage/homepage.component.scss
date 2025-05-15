@@ -1,7 +1,7 @@
 app-homepage {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: var(--background-color);
   width: 100vw;
@@ -23,6 +23,7 @@ app-homepage {
     text-transform: uppercase;
     z-index: 3;
     width: 100vw;
+    margin-bottom: 4rem;
   }
 
   .homepage__user-info {
@@ -118,5 +119,13 @@ app-homepage {
         }
       }
     }
+  }
+}
+
+
+@media screen and (max-height: 800px) {
+  #homepage__title {
+    font-size: 3rem !important;
+    margin-bottom: 2rem !important;
   }
 }

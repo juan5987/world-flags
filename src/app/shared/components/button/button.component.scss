@@ -16,3 +16,11 @@ app-button {
     }
   }
 }
+
+
+@media screen and (max-height: 800px) {
+  .button {
+    font-size: 1rem !important;
+    width: 200px !important;
+  }
+}
