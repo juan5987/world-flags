@@ -21,7 +21,6 @@ export class PlayService {
   #currentFlag = signal<Flag | null>(null);
   #currentFlagImage = signal<string>('');
   #currentAnswer = signal('');
-  #userInput = signal('');
   #answerResult = signal<boolean | undefined>(undefined);
   #excludedCountries = signal<string[]>([]);
   #allFlags = signal<Flag[]>([]);
@@ -64,7 +63,7 @@ export class PlayService {
     this.#answerResult.set(isCorrect);
 
     if (isCorrect) {
-      this.#actualScore.update((score) => score + 1);
+      this.#actualScore.update((score) => score + 3);
     } else {
       if (this.#actualScore() > 0) {
         this.#actualScore.update((score) => score - 1);
