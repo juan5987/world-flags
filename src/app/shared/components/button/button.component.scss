@@ -10,8 +10,7 @@ app-button {
     cursor: pointer;
 
     &:hover {
-      background-color: var(--color-dark) !important;
-      color: var(--text-color) !important;
+      box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.75);
     }
   }
 }
