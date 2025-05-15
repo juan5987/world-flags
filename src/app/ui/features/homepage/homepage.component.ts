@@ -59,6 +59,10 @@ export class HomepageComponent {
     this.router.navigate(['/login']);
   }
 
+  protected navigateToRules() {
+    this.router.navigate(['/rules']);
+  }
+
   protected logout() {
     this.userService.logout();
     this.router.navigate(['/']);

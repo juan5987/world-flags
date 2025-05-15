@@ -23,6 +23,7 @@ app-homepage {
     text-transform: uppercase;
     z-index: 3;
     width: 100vw;
+    margin-bottom: 1rem;
   }
 
   .homepage__user-info {
@@ -36,7 +37,6 @@ app-homepage {
     text-align: center;
     padding: 1rem;
     z-index: 3;
-    margin: 1rem;
 
     .homepage__username {
       margin-bottom: .5rem;
@@ -55,6 +55,7 @@ app-homepage {
     justify-content: center;
     align-items: center;
     z-index: 3;
+    margin-top: 1rem;
   }
 
   .username-modal {

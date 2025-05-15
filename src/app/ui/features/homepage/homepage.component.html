@@ -2,9 +2,7 @@
 
 @if(isLoggedIn && username()) {
 <div class="homepage__user-info">
-  <span class="homepage__username">
-    Connecté en tant que {{ username() }}</span
-  >
+  <span class="homepage__username"> Connecté en tant que {{ username() }}</span>
   <span class="homepage__best-score">Meilleur score : {{ bestScore() }}</span>
 </div>
 }
@@ -29,7 +27,11 @@
     fontSize="2rem"
     >Classement</app-button
   >
-  <app-button id="homepage__buttons__rules" buttonText="Règles" fontSize="2rem"
+  <app-button
+    id="homepage__buttons__rules"
+    buttonText="Règles"
+    fontSize="2rem"
+    (click)="navigateToRules()"
     >Règles</app-button
   >
   @if(!isLoggedIn) {

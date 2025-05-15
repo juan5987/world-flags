@@ -22,4 +22,11 @@ export const routes: Routes = [
         (mod) => mod.LoginComponent
       ),
   },
+  {
+    path: 'rules',
+    loadComponent: () =>
+      import('./ui/features/rules/rules.component').then(
+        (mod) => mod.RulesComponent
+      ),
+  },
 ];
