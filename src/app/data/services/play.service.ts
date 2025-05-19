@@ -111,7 +111,10 @@ export class PlayService {
     this.selectNewRandomFlag();
     if (this.#actualScore() > 0) {
       this.#actualScore.update((score) => score - 1);
-    }  }
+    }  
+
+    this.#answerResult.set(false);
+  }
 
   public resetGame(): void {
     this.#actualScore.set(0);
@@ -143,6 +146,11 @@ export class PlayService {
   }
 
   private normalizeString(str: string): string {
-    return str.toLowerCase().trim();
+    return str
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '') // remove accents
+      .replace(/[^a-z0-9]/g, '') // remove special characters
+      .trim();
   }
 }
