@@ -11,9 +11,7 @@ export class GoogleAuthService {
   #oAuthService = inject(OAuthService);
   #userService = inject(UserService);
 
-  public username = signal<string>('');
-  public profile = signal<User | null>(null);
-  public bestScore = signal<number>(0);
+  public user = signal<User | null>(null);
   public showUsernameModal = signal(false);
 
   constructor() {
@@ -29,15 +27,13 @@ export class GoogleAuthService {
           next: (user: User | null) => {
             if (user) {
               console.log('GoogleAuthService - User found');
-              this.profile.set(user);
+              this.user.set(user);
               this.showUsernameModal.set(false);
-              this.username.set(user.username);
-              this.bestScore.set(user.bestScore);
             } else {
               console.log(
                 'GoogleAuthService - First time login, user must create a username'
               );
-              this.profile.set({
+              this.user.set({
                 userId: claims['sub'],
                 googleId: claims['sub'],
                 email: claims['email'],
@@ -46,7 +42,7 @@ export class GoogleAuthService {
                 bestScoreDate: new Date(),
                 createdAt: new Date(),
                 updatedAt: new Date(),
-                isActive: true
+                isActive: true,
               } as User);
               this.showUsernameModal.set(true);
             }
@@ -56,8 +52,6 @@ export class GoogleAuthService {
             this.showUsernameModal.set(true);
           },
         });
-      } else {
-        console.error('GoogleAuthService - No valid token');
       }
     });
   }
@@ -69,11 +63,12 @@ export class GoogleAuthService {
   public logout() {
     this.#oAuthService.revokeTokenAndLogout();
     this.#oAuthService.logOut();
-    this.profile.set(null);
+    this.user.set(null);
+    console.log('GoogleAuthService - Logged out');
   }
 
   public getProfile() {
-    return this.profile();
+    return this.user();
   }
 
   public createUser(username: string) {

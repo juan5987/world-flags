@@ -5,11 +5,13 @@ import {
   inject,
   signal,
   ViewEncapsulation,
+  computed
 } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PlayService } from '../../../data/services/play.service';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { GoogleAuthService } from '../../../data/services/google-auth.service';
 
 @Component({
   selector: 'app-quiz',
@@ -27,10 +29,11 @@ export class QuizComponent {
   }
 
   readonly #playService = inject(PlayService);
+  readonly #authService = inject(GoogleAuthService);
   readonly #fb = inject(NonNullableFormBuilder);
   readonly #router = inject(Router);
 
-  protected readonly bestScore = this.#playService.bestScore;
+  protected readonly bestScore = computed(() => this.#authService.user()?.bestScore || 0);
   protected readonly timer = this.#playService.timer;
   protected readonly actualScore = this.#playService.actualScore;
   protected readonly flag = this.#playService.currentFlagWithUrlImageEncoded;

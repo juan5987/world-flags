@@ -1,14 +1,11 @@
-import {
-  computed,
-  DestroyRef,
-  inject,
-  Injectable,
-  signal,
-} from '@angular/core';
+import { DestroyRef, inject, Injectable, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Flag } from '../../models/flag.model';
+import { User } from '../../models/user.model';
 import { FlagService } from '../api/flag.service';
 import { FlagProxyService } from './flag-proxy.service';
+import { GoogleAuthService } from './google-auth.service';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,9 +14,10 @@ export class PlayService {
   #destroyRef = inject(DestroyRef);
   #flagService = inject(FlagService);
   #flagProxyService = inject(FlagProxyService);
+  #googleAuthService = inject(GoogleAuthService);
+  #authService = inject(AuthService);
 
   // Score related signals
-  public readonly bestScore = signal(0);
   public readonly actualScore = signal(0);
 
   // Game state signals
@@ -32,7 +30,9 @@ export class PlayService {
   public readonly allFlags = signal<Flag[]>([]);
   public readonly currentLevel = signal(1);
 
+
   constructor() {}
+
 
   public getLastAnswer(): string | undefined {
     const countries = this.excludedCountries();
@@ -49,14 +49,6 @@ export class PlayService {
     return isCorrect;
   }
 
-  private updateScore(isCorrect: boolean): void {
-    if (isCorrect) {
-      this.actualScore.update((score) => score + 3);
-    } else if (this.actualScore() > 0) {
-      this.actualScore.update((score) => score - 1);
-    }
-  }
-
   public selectNewRandomFlag(): void {
     const filteredFlags = this.removeExcludedCountries(this.allFlags());
 
@@ -68,12 +60,6 @@ export class PlayService {
     const randomFlag = this.getRandomFlagFromList(filteredFlags);
     this.updateGameStateWithNewFlag(randomFlag);
     this.loadFlagImage(randomFlag);
-  }
-
-  private updateGameStateWithNewFlag(flag: Flag): void {
-    this.currentFlag.set(flag);
-    this.currentAnswer.set(flag.name_fr);
-    this.excludedCountries.update((excluded) => [...excluded, flag.name_fr]);
   }
 
   public resetGame(): void {
@@ -99,6 +85,12 @@ export class PlayService {
       });
   }
 
+  private updateGameStateWithNewFlag(flag: Flag): void {
+    this.currentFlag.set(flag);
+    this.currentAnswer.set(flag.name_fr);
+    this.excludedCountries.update((excluded) => [...excluded, flag.name_fr]);
+  }
+
   private removeExcludedCountries(flags: Flag[]): Flag[] {
     return flags.filter(
       (flag) => !this.excludedCountries().includes(flag.name_fr)
@@ -110,6 +102,14 @@ export class PlayService {
       this.normalizeString(answer) ===
       this.normalizeString(this.currentAnswer())
     );
+  }
+
+  private updateScore(isCorrect: boolean): void {
+    if (isCorrect) {
+      this.actualScore.update((score) => score + 3);
+    } else if (this.actualScore() > 0) {
+      this.actualScore.update((score) => score - 1);
+    }
   }
 
   private getRandomFlagFromList(flags: Flag[]): Flag {

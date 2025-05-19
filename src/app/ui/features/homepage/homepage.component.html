@@ -1,9 +1,9 @@
 <h1 id="homepage__title">World Flags</h1>
 
-@if(isLoggedIn && username()) {
+@if(isLoggedIn && username) {
 <div class="homepage__user-info">
-  <span class="homepage__username"> Connecté en tant que {{ username() }}</span>
-  <span class="homepage__best-score">Meilleur score : {{ bestScore() }}</span>
+  <span class="homepage__username"> Connecté en tant que {{ username }}</span>
+  <span class="homepage__best-score">Meilleur score : {{ bestScore }}</span>
 </div>
 }
 

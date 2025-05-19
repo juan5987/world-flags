@@ -36,8 +36,8 @@ export class HomepageComponent {
   protected modalService = inject(NotLoggedModalService);
   protected userService = inject(AuthService);
   protected authService = inject(GoogleAuthService);
-  protected username = computed(() => this.authService.username());
-  protected bestScore = computed(() => this.authService.bestScore());
+  protected username = this.authService.user()?.username || '';
+  protected bestScore = this.authService.user()?.bestScore || 0;
 
   protected readonly shouldDisplayUsernameModal = computed(() => {
     return this.authService.showUsernameModal();
@@ -64,7 +64,7 @@ export class HomepageComponent {
   }
 
   protected logout() {
-    this.userService.logout();
+    this.authService.logout();
     this.router.navigate(['/']);
   }
 
