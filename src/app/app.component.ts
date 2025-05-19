@@ -1,7 +1,7 @@
 import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { GoogleAuthService } from './data/services/google-auth.service';
-import { AnimatedBackgroundComponent } from "./ui/features/homepage/animated-background/animated-background.component";
+import { AnimatedBackgroundComponent } from "./ui/features/animated-background/animated-background.component";
 
 @Component({
   selector: 'app-root',
