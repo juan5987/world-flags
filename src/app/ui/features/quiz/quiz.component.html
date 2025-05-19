@@ -17,11 +17,13 @@
   <div class="question">
     <img [src]="flag()?.flag" class="flag" />
   </div>
-  @if(showResult()){ @if(answerResult() === false){
-  <span class="answer-result red">{{ lastAnswer() }}</span>
-  }@else if(answerResult() === true){
-  <span class="answer-result green">Correct</span>
-  } }
+  @if(showResult()) {
+    @if(answerResult()) {
+      <span class="answer-result green">Correct</span>
+    } @else {
+      <span class="answer-result red">{{ getLastAnswer() }}</span>
+    }
+  }
 </main>
 <footer>
   <div class="answer">

@@ -10,7 +10,7 @@ import {
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PlayService } from '../../../data/services/play.service';
-import { ButtonComponent } from "../../../shared/components/button/button.component";
+import { ButtonComponent } from '../../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-quiz',
@@ -26,25 +26,14 @@ export class QuizComponent {
   onWindowBlur() {
     this.#playService.selectNewRandomFlag();
   }
-
-  protected readonly bestScore = computed(() => this.#playService.bestScore);
-  protected readonly timer = computed(() => this.#playService.timer);
-  protected readonly actualScore = computed(
-    () => this.#playService.actualScore
-  );
-  protected readonly flag = computed(() => this.#playService.currentFlag);
-  protected readonly answerResult = computed(
-    () => this.#playService.answerResult
-  );
-  protected readonly lastAnswer = computed(
-    () =>
-      this.#playService.excludedCountries[
-        this.#playService.excludedCountries.length - 2
-      ]
-  );
+  readonly #playService = inject(PlayService);
+  protected readonly bestScore = this.#playService.bestScore;
+  protected readonly timer = this.#playService.timer;
+  protected readonly actualScore = this.#playService.actualScore;
+  protected readonly flag = this.#playService.currentFlagWithImage;
+  protected readonly answerResult = this.#playService.answerResult;
   protected showResult = signal(false);
   protected isSkipDisabled = signal(false);
-  readonly #playService = inject(PlayService);
   readonly #fb = inject(NonNullableFormBuilder);
   readonly form = this.#fb.group({
     userInput: this.#fb.control(''),
@@ -74,11 +63,11 @@ export class QuizComponent {
   protected skipFlag(): void {
     if (!this.isSkipDisabled()) {
       this.isSkipDisabled.set(true);
-      this.#playService.skipFlag();
+      this.#playService.checkAnswer("");
       this.form.reset();
       this.showAnswerResult();
-      
-      // Réactiver le bouton après 2 secondes
+
+      // reactivate the button after 2 seconds
       setTimeout(() => {
         this.isSkipDisabled.set(false);
       }, 1000);
@@ -90,5 +79,9 @@ export class QuizComponent {
     setTimeout(() => {
       this.showResult.set(false);
     }, 1000);
+  }
+
+  protected getLastAnswer(): string | undefined {
+    return this.#playService.getLastAnswer();
   }
 }
