@@ -6,10 +6,11 @@ import {
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleAuthService } from '../../../data/services/google-auth.service';
+import { ButtonComponent } from "../../../shared/components/button/button.component";
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, ButtonComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
