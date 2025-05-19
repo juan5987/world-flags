@@ -18,9 +18,9 @@
     <img [src]="flag()?.flag" class="flag" />
   </div>
   @if(showResult()){ @if(answerResult() === false){
-  <span class="answer-result red">Faux: {{ lastAnswer() }}</span>
+  <span class="answer-result red">{{ lastAnswer() }}</span>
   }@else if(answerResult() === true){
-  <span class="answer-result green">Correct: {{ lastAnswer() }}</span>
+  <span class="answer-result green">Correct</span>
   } }
 </main>
 <footer>
@@ -39,12 +39,12 @@
     </form>
   </div>
   <div class="skip-button">
-    <app-button 
-      buttonText="Passer" 
-      fontSize="1.5rem" 
+    <app-button
+      buttonText="Passer"
+      fontSize="1.5rem"
       mainColor="white"
-      secondaryColor="orange" 
-      [width]="'150px'" 
+      secondaryColor="orange"
+      [width]="'150px'"
       (click)="skipFlag()"
       [style.cursor]="isSkipDisabled() ? 'not-allowed' : 'pointer'"
       [style.opacity]="isSkipDisabled() ? '0.5' : '1'"
