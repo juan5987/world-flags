@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   HostListener,
   inject,
   signal,
@@ -26,19 +25,22 @@ export class QuizComponent {
   onWindowBlur() {
     this.#playService.selectNewRandomFlag();
   }
+
   readonly #playService = inject(PlayService);
+  readonly #fb = inject(NonNullableFormBuilder);
+  readonly #router = inject(Router);
+
   protected readonly bestScore = this.#playService.bestScore;
   protected readonly timer = this.#playService.timer;
   protected readonly actualScore = this.#playService.actualScore;
-  protected readonly flag = this.#playService.currentFlagWithImage;
+  protected readonly flag = this.#playService.currentFlagWithUrlImageEncoded;
   protected readonly answerResult = this.#playService.answerResult;
   protected showResult = signal(false);
   protected isSkipDisabled = signal(false);
-  readonly #fb = inject(NonNullableFormBuilder);
+
   readonly form = this.#fb.group({
     userInput: this.#fb.control(''),
   });
-  readonly #router = inject(Router);
 
   constructor() {
     this.#playService.initializeGame();
@@ -63,11 +65,10 @@ export class QuizComponent {
   protected skipFlag(): void {
     if (!this.isSkipDisabled()) {
       this.isSkipDisabled.set(true);
-      this.#playService.checkAnswer("");
+      this.#playService.checkAnswer('');
       this.form.reset();
       this.showAnswerResult();
 
-      // reactivate the button after 2 seconds
       setTimeout(() => {
         this.isSkipDisabled.set(false);
       }, 1000);

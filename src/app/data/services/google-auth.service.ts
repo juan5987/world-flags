@@ -1,22 +1,20 @@
-import { computed, inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { authConfig } from '../../config/auth-config';
-import { UserService } from '../api/user.service';
 import { User } from '../../models/user.model';
+import { UserService } from '../api/user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GoogleAuthService {
-  readonly #showUsernameModal = signal(false);
-  readonly showUsernameModal = computed(() => this.#showUsernameModal());
   #oAuthService = inject(OAuthService);
-  #profile = signal<any>(null);
   #userService = inject(UserService);
-  #username = signal<string>('');
-  readonly username = computed(() => this.#username());
-  #bestScore = signal<number>(0);
-  readonly bestScore = computed(() => this.#bestScore());
+
+  public username = signal<string>('');
+  public profile = signal<any>(null);
+  public bestScore = signal<number>(0);
+  public showUsernameModal = signal(false);
 
   constructor() {
     this.initConfiguration();
@@ -26,25 +24,25 @@ export class GoogleAuthService {
     this.#oAuthService.loadDiscoveryDocumentAndTryLogin().then(() => {
       if (this.#oAuthService.hasValidIdToken()) {
         const claims = this.#oAuthService.getIdentityClaims();
-        this.#profile.set(claims);
+        this.profile.set(claims);
 
-        this.#userService.getUserByGoogleId(this.#profile()?.sub).subscribe({
+        this.#userService.getUserByGoogleId(this.profile()?.sub).subscribe({
           next: (user: User | null) => {
             if (user) {
               console.log('GoogleAuthService - User found');
-              this.#showUsernameModal.set(false);
-              this.#username.set(user.username);
-              this.#bestScore.set(user.bestScore);
+              this.showUsernameModal.set(false);
+              this.username.set(user.username);
+              this.bestScore.set(user.bestScore);
             } else {
               console.log(
                 'GoogleAuthService - First time login, user must create a username'
               );
-              this.#showUsernameModal.set(true);
+              this.showUsernameModal.set(true);
             }
           },
           error: (error) => {
             console.error('GoogleAuthService - Error fetching user:', error);
-            this.#showUsernameModal.set(true);
+            this.showUsernameModal.set(true);
           },
         });
       } else {
@@ -60,11 +58,11 @@ export class GoogleAuthService {
   public logout() {
     this.#oAuthService.revokeTokenAndLogout();
     this.#oAuthService.logOut();
-    this.#profile.set(null);
+    this.profile.set(null);
   }
 
   public getProfile() {
-    return this.#profile();
+    return this.profile();
   }
 
   public createUser(username: string) {
@@ -91,7 +89,7 @@ export class GoogleAuthService {
   }
 
   public setShowUsernameModal(value: boolean) {
-    this.#showUsernameModal.set(value);
+    this.showUsernameModal.set(value);
   }
 
   private initConfiguration() {
@@ -99,7 +97,7 @@ export class GoogleAuthService {
     this.#oAuthService.setupAutomaticSilentRefresh();
     this.#oAuthService.loadDiscoveryDocumentAndTryLogin().then(() => {
       if (this.#oAuthService.hasValidIdToken()) {
-        this.#profile.set(this.#oAuthService.getIdentityClaims());
+        this.profile.set(this.#oAuthService.getIdentityClaims());
       }
     });
   }

@@ -25,31 +25,27 @@ export class PlayService {
   // Game state signals
   public readonly timer = signal(60);
   public readonly currentFlag = signal<Flag | null>(null);
-  public readonly currentFlagImage = signal<string>('');
+  public readonly currentFlagWithUrlImageEncoded = signal<Flag>({} as Flag);
   public readonly currentAnswer = signal('');
   public readonly answerResult = signal<boolean | undefined>(undefined);
   public readonly excludedCountries = signal<string[]>([]);
   public readonly allFlags = signal<Flag[]>([]);
   public readonly currentLevel = signal(1);
 
-  public readonly currentFlagWithImage = computed(() =>
-    this.currentFlag() ? { flag: this.currentFlagImage() } : null
-  );
+  constructor() {}
 
   public getLastAnswer(): string | undefined {
     const countries = this.excludedCountries();
     return countries[countries.length - 2];
   }
 
-  constructor() {}
-
   public checkAnswer(answer: string): boolean {
     const isCorrect = this.isAnswerCorrect(answer);
-    
+
     this.answerResult.set(isCorrect);
     this.updateScore(isCorrect);
     this.selectNewRandomFlag();
-    
+
     return isCorrect;
   }
 
@@ -133,7 +129,10 @@ export class PlayService {
       .pipe(takeUntilDestroyed(this.#destroyRef))
       .subscribe({
         next: (base64Image) => {
-          this.currentFlagImage.set(base64Image);
+          this.currentFlagWithUrlImageEncoded.set({
+            ...flag,
+            flag: base64Image,
+          });
         },
         error: (error) => {
           console.error('Error loading flag image:', error);
