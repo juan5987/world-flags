@@ -5,10 +5,10 @@ app-animated-background {
     overflow: auto;
     background: linear-gradient(
       315deg,
-      rgb(37, 109, 180) 33%,
-      rgb(48, 152, 238) 66%,
+      rgb(9, 75, 150) 38%,
+      rgb(65, 123, 179) 68%,
     );
-    animation: gradient 15s ease infinite;
+    animation: gradient 10s ease infinite;
     background-size: 400% 400%;
     background-attachment: fixed;
     height: 100vh;
