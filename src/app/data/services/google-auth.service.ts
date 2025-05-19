@@ -12,7 +12,7 @@ export class GoogleAuthService {
   #userService = inject(UserService);
 
   public username = signal<string>('');
-  public profile = signal<any>(null);
+  public profile = signal<User | null>(null);
   public bestScore = signal<number>(0);
   public showUsernameModal = signal(false);
 
@@ -24,12 +24,12 @@ export class GoogleAuthService {
     this.#oAuthService.loadDiscoveryDocumentAndTryLogin().then(() => {
       if (this.#oAuthService.hasValidIdToken()) {
         const claims = this.#oAuthService.getIdentityClaims();
-        this.profile.set(claims);
 
-        this.#userService.getUserByGoogleId(this.profile()?.sub).subscribe({
+        this.#userService.getUserByGoogleId(claims['sub']).subscribe({
           next: (user: User | null) => {
             if (user) {
               console.log('GoogleAuthService - User found');
+              this.profile.set(user);
               this.showUsernameModal.set(false);
               this.username.set(user.username);
               this.bestScore.set(user.bestScore);
@@ -37,6 +37,17 @@ export class GoogleAuthService {
               console.log(
                 'GoogleAuthService - First time login, user must create a username'
               );
+              this.profile.set({
+                userId: claims['sub'],
+                googleId: claims['sub'],
+                email: claims['email'],
+                username: '',
+                bestScore: 0,
+                bestScoreDate: new Date(),
+                createdAt: new Date(),
+                updatedAt: new Date(),
+                isActive: true
+              } as User);
               this.showUsernameModal.set(true);
             }
           },
@@ -68,15 +79,15 @@ export class GoogleAuthService {
   public createUser(username: string) {
     this.#userService
       .createUser({
-        userId: this.getProfile()?.sub,
+        userId: this.getProfile()?.googleId || '',
         bestScore: 0,
         bestScoreDate: new Date(),
         username: username,
         createdAt: new Date(),
         updatedAt: new Date(),
         isActive: true,
-        googleId: this.getProfile()?.sub,
-        email: this.getProfile()?.email,
+        googleId: this.getProfile()?.googleId || '',
+        email: this.getProfile()?.email || '',
       })
       .subscribe({
         next: () => {
@@ -97,7 +108,7 @@ export class GoogleAuthService {
     this.#oAuthService.setupAutomaticSilentRefresh();
     this.#oAuthService.loadDiscoveryDocumentAndTryLogin().then(() => {
       if (this.#oAuthService.hasValidIdToken()) {
-        this.profile.set(this.#oAuthService.getIdentityClaims());
+        this.initAfterRedirect();
       }
     });
   }
