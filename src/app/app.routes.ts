@@ -29,4 +29,11 @@ export const routes: Routes = [
         (mod) => mod.RulesComponent
       ),
   },
+  {
+    path: 'sign-up',
+    loadComponent: () =>
+      import('./ui/features/sign-up/sign-up.component').then(
+        (mod) => mod.SignUpComponent
+      ),
+  },
 ];
