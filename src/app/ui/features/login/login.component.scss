@@ -6,6 +6,28 @@ app-login {
   border-radius: 0.5rem;
   background-color: #fff;
 
+  .login-wrapper__form--back-button {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+
+    a {
+      background-color: transparent;
+      color: var(--color-light);
+      border: 0.25em solid var(--color-light);
+      border-radius: 0.75rem;
+      font-size: 1.25rem;
+      width: min-content;
+      margin-bottom: 0;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      background-color: var(--color-light) !important;
+      color: var(--color-dark) !important;
+    }
+  }
+
   .login-wrapper {
     z-index: 3;
 
@@ -53,7 +75,7 @@ app-login {
         right: -88px;
         top: -10px;
         font-family: var(--font-family);
-        font-size: .85rem;
+        font-size: 0.85rem;
         color: orange;
         text-align: right;
         cursor: pointer;
@@ -81,14 +103,11 @@ app-login {
         font-weight: light;
       }
 
-
-      
-
       .login-wrapper__google {
         display: flex;
         align-items: center;
-        padding: .5em 1em .5em .5em;
-        border-radius: .75em;
+        padding: 0.5em 1em 0.5em 0.5em;
+        border-radius: 0.75em;
         background-color: var(--color-dark);
 
         .google-icon {
