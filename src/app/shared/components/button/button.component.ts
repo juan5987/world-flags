@@ -5,10 +5,11 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-button',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
   standalone: true,
@@ -16,20 +17,14 @@ import { CommonModule } from '@angular/common';
   encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent {
-  @Input() buttonText: string = 'Button';
-  @Input() mainColor: string = '#363636';
-  @Input() secondaryColor: string = '#fff';
-  @Input() fontSize: string = '1.5rem';
-  @Input() width: string = '300px';
-  @Input() marginBottom: string = '1rem';
-
-  protected get buttonStyles() {
-    return {
-      'background-color': this.secondaryColor,
-      color: this.mainColor,
-      'font-size': this.fontSize,
-      width: this.width,
-      'margin-bottom': this.marginBottom,
-    };
-  }
+  @Input() routerLink: string = '';
+  @Input() buttonText: string = 'valider';
+  @Input() isDisabled: boolean = false;
+  @Input() buttonStyles: any = {
+    'background-color': 'var(--color-light)',
+    color: 'var(--color-dark)',
+    'font-size': '1.5rem',
+    width: '250px',
+    'margin-bottom': '1rem',
+  };
 }
