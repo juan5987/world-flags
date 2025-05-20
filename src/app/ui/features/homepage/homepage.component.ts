@@ -39,6 +39,11 @@ export class HomepageComponent {
   protected username = this.authService.user()?.username || '';
   protected bestScore = this.authService.user()?.bestScore || 0;
 
+  protected connectionButtonStyles = {
+    'background-color': 'var(--primary-color)',
+    color: 'var(--color-light)',
+  };
+
   protected readonly shouldDisplayUsernameModal = computed(() => {
     return this.authService.showUsernameModal();
   });
@@ -51,18 +56,6 @@ export class HomepageComponent {
     username: this.#usernameForm.control('', [Validators.required]),
   });
 
-  private navigateToPlay() {
-    this.router.navigate(['/play']);
-  }
-
-  protected navigateToLogin() {
-    this.router.navigate(['/login']);
-  }
-
-  protected navigateToRules() {
-    this.router.navigate(['/rules']);
-  }
-
   protected logout() {
     this.authService.logout();
     this.router.navigate(['/']);
@@ -70,7 +63,7 @@ export class HomepageComponent {
 
   protected checkIfLoggedIn() {
     if (this.isLoggedIn) {
-      this.navigateToPlay();
+      this.router.navigate(['/play']);
     } else {
       this.modalService.openModal();
     }

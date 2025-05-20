@@ -1,52 +1,57 @@
 <div class="wrapper">
-    <header>
-        <h1>Règles</h1>
-    </header>
+  <header>
+    <h1>Règles</h1>
+  </header>
 
-<main>
-  <h2>Objectif</h2>
+  <main>
+    <h2>Objectif</h2>
 
-  <p>
-    Le but du jeu est de deviner le plus de pays en fonction de leur drapeau en
-    60 secondes.
-  </p>
+    <p>
+      Le but du jeu est de deviner le plus de pays en fonction de leur drapeau
+      en 60 secondes.
+    </p>
 
-  <h2>Points</h2>
+    <h2>Points</h2>
 
-  <p>
-    Pour chaque réponse correcte, vous gagnez 3 points. Pour chaque réponse
-    incorrecte ou passée, vous perdez 1 point. Vous ne pouvez pas descendre en
-    dessous de 0 point.
-  </p>
+    <p>
+      Pour chaque réponse correcte, vous gagnez 3 points. Pour chaque réponse
+      incorrecte ou passée, vous perdez 1 point. Vous ne pouvez pas descendre en
+      dessous de 0 point.
+    </p>
 
-  <h2>Passer une question</h2>
+    <h2>Passer une question</h2>
 
-  <p>
-   Vous pouvez passer une question en appuyant sur le bouton "Passer" mais un délai de 1 seconde sera appliqué avant de pouvoir passer à nouveau.
-  </p>
+    <p>
+      Vous pouvez passer une question en appuyant sur le bouton "Passer" mais un
+      délai de 1 seconde sera appliqué avant de pouvoir passer à nouveau.
+    </p>
 
-  <h2>Orthographe</h2>
+    <h2>Orthographe</h2>
 
-  <p>
-    Les drapeaux sont orthographiés en français. Une tolérance est appliquée sur
-    les accents, les espaces,les majuscules et les tirets. Ainsi, le drapeau des
-    États-Unis peut être orthographié "Etats-Unis", "états-unis", "Etats unis"
-    etc. Par contre à la moindre erreur de lettre, la réponse est considérée
-    comme incorrecte. Par exemple "Etat-Unis" sera considéré comme incorrecte
-    car il manque un "s".
-  </p>
+    <p>
+      Les drapeaux sont orthographiés en français. Une tolérance est appliquée
+      sur les accents, les espaces,les majuscules et les tirets. Ainsi, le
+      drapeau des États-Unis peut être orthographié "Etats-Unis", "états-unis",
+      "Etats unis" etc. Par contre à la moindre erreur de lettre, la réponse est
+      considérée comme incorrecte. Par exemple "Etat-Unis" sera considéré comme
+      incorrecte car il manque un "s".
+    </p>
 
-  <h2>Classement</h2>
+    <h2>Classement</h2>
 
-  <p>
-    Si vous n'êtes pas connecté, votre score ne sera pas enregistré. Si vous
-    êtes connecté, votre score sera automatiquement enregistré à la fin d'une
-    partie à chaque fois que vous battez votre record personnel. Vous pourrez
-    voir le classement des 10 meilleurs joueurs en cliquant sur le bouton
-    "classement" dans la page d'accueil.
-  </p>
-</main>
-<footer>
-    <app-button buttonText="retour" fontSize="1.5rem" mainColor="white" secondaryColor="orange" (click)="navigateToHome()"></app-button>
-</footer>
+    <p>
+      Si vous n'êtes pas connecté, votre score ne sera pas enregistré. Si vous
+      êtes connecté, votre score sera automatiquement enregistré à la fin d'une
+      partie à chaque fois que vous battez votre record personnel. Vous pourrez
+      voir le classement des 10 meilleurs joueurs en cliquant sur le bouton
+      "classement" dans la page d'accueil.
+    </p>
+  </main>
+  <footer>
+    <app-button
+      buttonText="retour"
+      [buttonStyles]="backButtonStyles"
+      (click)="navigateToHome()"
+    ></app-button>
+  </footer>
 </div>

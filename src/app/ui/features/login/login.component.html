@@ -30,11 +30,8 @@
     >
     <app-button
       [buttonText]="'Connexion'"
-      secondaryColor="orange"
-      mainColor="white"
-      [width]="'100%'"
-      [marginBottom]="'0'"
-      [fontSize]="'1.25rem'"
+      [buttonStyles]="connectionButtonStyles"
+      [routerLink]="'login'"
     ></app-button>
     <div class="separator"></div>
     <span class="login-wrapper__form-group__separator-text"

@@ -1,12 +1,17 @@
 app-button {
   .button {
-    padding: 0.5em 1em;
+    display: block;
+    padding: 0.75em 1.25em;
     font-family: var(--font-family);
     text-align: center;
-    border: 0.25em solid var(--border-color);
     border-radius: 1em;
     max-width: 300px;
     cursor: pointer;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    font-size: 1.5rem;
+    width: 250px;
+    margin-bottom: 1rem;
 
     &:hover {
       box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.75);

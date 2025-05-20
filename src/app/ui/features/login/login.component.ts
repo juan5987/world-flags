@@ -21,6 +21,16 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
 export class LoginComponent {
   private authService = inject(GoogleAuthService);
 
+  protected connectionButtonStyles = {
+    'background-color': 'var(--primary-color)',
+    color: 'var(--color-light)',
+    'font-size': '1.25rem',
+    width: '100%',
+    'margin-bottom': '0',
+    border: 'none',
+    'border-radius': '.75rem',
+  };
+
   protected signInWithGoogle() {
     this.authService.login();
   }
