@@ -22,7 +22,7 @@ export class LoginComponent {
   private authService = inject(GoogleAuthService);
 
   protected connectionButtonStyles = {
-    'background-color': 'var(--primary-color)',
+    'background-color': 'var(--color-dark)',
     color: 'var(--color-light)',
     'font-size': '1.25rem',
     width: '100%',
