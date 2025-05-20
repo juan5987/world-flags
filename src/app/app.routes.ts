@@ -36,4 +36,11 @@ export const routes: Routes = [
         (mod) => mod.SignUpComponent
       ),
   },
+  {
+    path: 'forgot-password',
+    loadComponent: () =>
+      import('./ui/features/forgot-password/forgot-password.component').then(
+        (mod) => mod.ForgotPasswordComponent
+      ),
+  },
 ];
