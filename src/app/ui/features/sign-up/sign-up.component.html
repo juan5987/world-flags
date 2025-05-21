@@ -1,1 +1,75 @@
-<p>sign-up works!</p>
+<div class="sign-up">
+  <div class="sign-up__title">
+    <h1>Inscription</h1>
+  </div>
+  <form class="sign-up__form">
+    <div class="sign-up__form-group">
+      <label for="name" class="sign-up__form-group__label">Pseudo</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="saisir le nom d'utilisateur"
+        class="sign-up__form-group__input"
+      />
+    </div>
+    <div class="sign-up__form-group">
+      <label for="email" class="sign-up__form-group__label">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="saisir l'email"
+        class="sign-up__form-group__input"
+      />
+    </div>
+    <div class="sign-up__form-group">
+      <label for="confirm-email" class="sign-up__form-group__label"
+        >Confirmation de l'email</label
+      >
+      <input
+        type="email"
+        id="confirm-email"
+        name="confirm-email"
+        placeholder="saisir l'email"
+        class="sign-up__form-group__input"
+      />
+    </div>
+    <div class="sign-up__form-group">
+      <label for="password" class="sign-up__form-group__label"
+        >Mot de passe</label
+      >
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="saisir le mot de passe"
+        class="sign-up__form-group__input"
+      />
+    </div>
+    <div class="sign-up__form-group">
+      <label for="confirm-password" class="sign-up__form-group__label"
+        >Confirmation du mot de passe</label
+      >
+      <input
+        type="password"
+        id="confirm-password"
+        name="confirm-password"
+        placeholder="saisir le mot de passe"
+        class="sign-up__form-group__input"
+      />
+    </div>
+    <div class="sign-up__form-group__buttons">
+      <app-button
+        [buttonText]="'Annuler'"
+        [buttonStyles]="cancelButtonStyles"
+        [routerLink]="'../login'"
+      ></app-button>
+      <app-button
+        [buttonText]="'M\'inscrire'"
+        [buttonStyles]="connectionButtonStyles"
+        [routerLink]="'../login'"
+      ></app-button>
+    </div>
+  </form>
+</div>
