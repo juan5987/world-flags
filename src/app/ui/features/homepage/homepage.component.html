@@ -1,4 +1,7 @@
-<h1 id="homepage__title">World Flags</h1>
+<h1 id="homepage__title">
+  <span class="homepage__title__span">World </span>
+  <span class="homepage__title__span">Flags</span>
+</h1>
 
 @if(isLoggedIn && username) {
 <div class="homepage__user-info">
@@ -72,7 +75,7 @@
       class="username-modal__form__button"
       buttonText="valider"
       mainColor="white"
-      secondaryColor="orange"
+      secondaryColor="var(--primary-color)"
       fontSize="1.25rem"
       width="100%"
       (click)="createUser()"

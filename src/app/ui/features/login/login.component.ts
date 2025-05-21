@@ -32,7 +32,7 @@ export class LoginComponent {
   };
 
   protected cancelButtonStyles = {
-    'background-color': 'orange',
+    'background-color': 'var(--primary-color)',
     color: 'var(--color-light)',
     'font-size': '1.25rem',
     width: '140px',

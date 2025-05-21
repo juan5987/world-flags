@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Oi&display=swap');
+
 app-homepage {
   display: flex;
   flex-direction: column;
@@ -9,21 +11,25 @@ app-homepage {
   padding: 1rem;
 
   #homepage__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
     color: var(--text-color);
     text-align: center;
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 5rem;
+    font-family: "Bungee Spice", var(--font-family);
+    font-weight: lighter;
+    font-size: 8rem;
     text-align: center;
-    background-color: var(--color-dark);
-    padding: 2rem 4rem;
-    border-top: 0.5rem solid var(--border-color);
-    border-bottom: 0.5rem solid var(--border-color);
-    height: min-content;
+    background-color: tra;
+    padding: .25em .75em;
     text-transform: uppercase;
     z-index: 3;
-    width: 100vw;
     margin-bottom: 1rem;
+    border: 1rem solid var(--primary-color);
+    border-radius: .25em;
+    line-height: 0.7;
   }
 
   .homepage__user-info {
@@ -81,7 +87,7 @@ app-homepage {
 
       .username-modal__title {
         font-size: 1.5rem;
-        color: orange;
+        color: var(--primary-color);
         text-align: center;
         margin-bottom: 2rem;
       }
@@ -96,7 +102,7 @@ app-homepage {
       .username-modal__form__label {
         width: 100%;
         font-size: 1rem;
-        color: orange;
+        color: var(--primary-color);
         text-transform: uppercase;
         margin-bottom: 0.5rem;
       }
@@ -122,7 +128,16 @@ app-homepage {
 
 @media screen and (max-height: 800px) {
   #homepage__title {
-    font-size: 3rem !important;
+    font-size: 4rem !important;
     margin-bottom: 2rem !important;
+    border: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #homepage__title {
+    font-size: 20vw !important;
+    margin-bottom: 2rem !important;
+    border: none !important;
   }
 }

@@ -83,7 +83,7 @@ app-login {
         top: -10px;
         font-family: var(--font-family);
         font-size: 0.85rem;
-        color: orange;
+        color: var(--primary-color);
         text-align: right;
         cursor: pointer;
         text-decoration: underline;
@@ -105,7 +105,7 @@ app-login {
       }
 
       .login-wrapper__form-group__separator-text a {
-        color: orange;
+        color: var(--primary-color);
         text-decoration: underline;
         font-weight: light;
       }

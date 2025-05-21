@@ -53,7 +53,7 @@ export class ButtonComponent {
 
   protected formCancelStyle = {
     ...this.formButtonStyle,
-    'background-color': 'orange',
+    'background-color': 'var(--primary-color)',
   };
 
   protected formValidateStyle = {

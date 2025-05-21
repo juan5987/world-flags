@@ -23,7 +23,7 @@ app-rules {
         font-size: 2rem;
         font-weight: 600;
         margin-bottom: 1rem;
-        color: orange;
+        color: var(--primary-color);
         background-color: var(--color-dark);
         width: 100%;
         text-align: center;
@@ -42,7 +42,7 @@ app-rules {
       font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
-      color: orange;
+      color: var(--primary-color);
       text-align: left;
       width: 100%;
     }
