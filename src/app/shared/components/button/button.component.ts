@@ -7,9 +7,14 @@ import {
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-type ButtonStyles = 'form-cancel' | 'form-validate' | 'main-menu' | 'main-menu-login';
+type ButtonStyles =
+  | 'form-cancel'
+  | 'form-validate'
+  | 'main-menu'
+  | 'main-menu-login'
+  | 'form-light';
 
-@Component({  
+@Component({
   selector: 'app-button',
   imports: [CommonModule, RouterModule],
   templateUrl: './button.component.html',
@@ -33,6 +38,8 @@ export class ButtonComponent {
         return this.mainMenuStyle;
       case 'main-menu-login':
         return this.mainMenuLoginStyle;
+      case 'form-light':
+        return this.formLightStyle;
     }
   }
 
@@ -42,16 +49,8 @@ export class ButtonComponent {
     'border-radius': '.75rem',
     'font-size': '1.25rem',
     color: 'var(--color-light)',
-  }
+  };
 
-  protected mainMenuStyle = {
-    'background-color': 'var(--color-light)',
-    color: 'var(--color-dark)',
-    'font-size': '1.5rem',
-    width: '200px',
-    'margin-bottom': '1rem',
-    'border-radius': '.5em',
-  }
   protected formCancelStyle = {
     ...this.formButtonStyle,
     'background-color': 'orange',
@@ -60,6 +59,21 @@ export class ButtonComponent {
   protected formValidateStyle = {
     ...this.formButtonStyle,
     'background-color': 'var(--color-dark)',
+  };
+
+  protected formLightStyle = {
+    ...this.formButtonStyle,
+    'background-color': 'var(--color-light)',
+    color: 'var(--color-dark)',
+  };
+
+  protected mainMenuStyle = {
+    'background-color': 'var(--color-light)',
+    color: 'var(--color-dark)',
+    'font-size': '1.5rem',
+    width: '200px',
+    'margin-bottom': '1rem',
+    'border-radius': '.5em',
   };
 
   protected mainMenuLoginStyle = {

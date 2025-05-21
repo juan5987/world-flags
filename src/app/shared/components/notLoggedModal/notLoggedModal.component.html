@@ -10,14 +10,14 @@
     <div class="not-logged-modal-wrapper__buttons">
       <app-button
         class="not-logged-modal-wrapper__buttons__play"
-        buttonText="Ignorer et jouer"
+        buttonText="Ignorer"
+        [buttonStyle]="'form-light'"
         (click)="navigateToPlay()"
       ></app-button>
       <app-button
         class="not-logged-modal-wrapper__buttons__login"
         buttonText="Connexion"
-        mainColor="white"
-        secondaryColor="orange"
+        [buttonStyle]="'form-cancel'"
         (click)="navigateToLogin()"
       ></app-button>
     </div>
