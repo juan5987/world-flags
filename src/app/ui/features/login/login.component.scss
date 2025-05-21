@@ -51,6 +51,13 @@ app-login {
       justify-content: center;
       position: relative;
 
+      .login-wrapper__form-group__buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
       .login-wrapper__form-group {
         width: 100%;
         margin-bottom: 1rem;

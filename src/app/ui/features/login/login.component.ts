@@ -25,9 +25,18 @@ export class LoginComponent {
     'background-color': 'var(--color-dark)',
     color: 'var(--color-light)',
     'font-size': '1.25rem',
-    width: '100%',
+    width: '140px',
     'margin-bottom': '0',
     border: 'none',
+    'border-radius': '.75rem',
+  };
+
+  protected cancelButtonStyles = {
+    'background-color': 'orange',
+    color: 'var(--color-light)',
+    'font-size': '1.25rem',
+    width: '140px',
+    'margin-bottom': '0',
     'border-radius': '.75rem',
   };
 
