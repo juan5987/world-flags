@@ -24,9 +24,9 @@
       />
     </div>
     <div class="sign-up__form-group">
-      <label for="confirm-email" class="sign-up__form-group__label"
-        >Confirmation de l'email</label
-      >
+      <label for="confirm-email" class="sign-up__form-group__label">
+        Confirmation de l'email
+      </label>
       <input
         type="email"
         id="confirm-email"
@@ -36,9 +36,9 @@
       />
     </div>
     <div class="sign-up__form-group">
-      <label for="password" class="sign-up__form-group__label"
-        >Mot de passe</label
-      >
+      <label for="password" class="sign-up__form-group__label">
+        Mot de passe
+      </label>
       <input
         type="password"
         id="password"
@@ -48,9 +48,9 @@
       />
     </div>
     <div class="sign-up__form-group">
-      <label for="confirm-password" class="sign-up__form-group__label"
-        >Confirmation du mot de passe</label
-      >
+      <label for="confirm-password" class="sign-up__form-group__label">
+        Confirmation du mot de passe
+      </label>
       <input
         type="password"
         id="confirm-password"
@@ -62,12 +62,12 @@
     <div class="sign-up__form-group__buttons">
       <app-button
         [buttonText]="'Annuler'"
-        [buttonStyles]="cancelButtonStyles"
+        [buttonStyle]="'form-cancel'"
         [routerLink]="'../login'"
       ></app-button>
       <app-button
         [buttonText]="'M\'inscrire'"
-        [buttonStyles]="connectionButtonStyles"
+        [buttonStyle]="'form-validate'"
         [routerLink]="'../login'"
       ></app-button>
     </div>

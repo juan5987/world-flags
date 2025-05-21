@@ -19,19 +19,6 @@ import { Router } from '@angular/router';
 export class RulesComponent {
   protected router = inject(Router);
 
-  protected backButtonStyles = {
-    'background-color': 'var(--primary-color)',
-    color: 'var(--color-light)',
-    'font-size': '1.25rem',
-    width: '100%',
-    'border-radius': '0.5rem',
-    ':hover': {
-      'background-color': 'var(--primary-color-dark)',
-      transform: 'scale(1.02)',
-      transition: 'all 0.2s ease-in-out',
-    },
-  };
-
   navigateToHome() {
     this.router.navigate(['/']);
   }

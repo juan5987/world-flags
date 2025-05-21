@@ -16,7 +16,7 @@ app-rules {
     padding-top: 2rem;
     max-width: 50vw;
 
-    header{
+    header {
       width: 100%;
 
       h1 {
@@ -31,8 +31,6 @@ app-rules {
       }
     }
 
-
-
     main {
       display: flex;
       flex-direction: column;
@@ -43,7 +41,7 @@ app-rules {
     h2 {
       font-size: 1.25rem;
       font-weight: 600;
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
       color: orange;
       text-align: left;
       width: 100%;
@@ -60,11 +58,12 @@ app-rules {
       }
     }
 
-    footer{
+    footer {
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding-bottom: 1rem;
     }
   }
 }

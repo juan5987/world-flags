@@ -12,22 +12,26 @@
     id="homepage__buttons__play"
     buttonText="Jouer"
     (click)="checkIfLoggedIn()"
+    [buttonStyle]="'main-menu'"
     >Jouer</app-button
   >
   <app-button
     id="homepage__buttons__training"
     buttonText="Entrainement"
+    [buttonStyle]="'main-menu'"
     >Entrainement</app-button
   >
   <app-button
     id="homepage__buttons__ranking"
     buttonText="Classement"
+    [buttonStyle]="'main-menu'"
     >Classement</app-button
   >
   <app-button
     id="homepage__buttons__rules"
     buttonText="Règles"
     routerLink="/rules"
+    [buttonStyle]="'main-menu'"
     >Règles</app-button
   >
   @if(!isLoggedIn) {
@@ -35,14 +39,14 @@
     id="homepage__buttons__login"
     buttonText="Connexion"
     routerLink="/login"
-    [buttonStyles]="connectionButtonStyles"
+    [buttonStyle]="'main-menu-login'"
     >Connexion</app-button
   >
   } @else {
   <app-button
     id="homepage__buttons__logout"
     buttonText="Déconnexion"
-    [buttonStyles]="connectionButtonStyles"
+    [buttonStyle]="'main-menu-login'"
     >Déconnexion</app-button
   >
   }

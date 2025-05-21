@@ -1,13 +1,15 @@
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-@Component({
+type ButtonStyles = 'form-cancel' | 'form-validate' | 'main-menu' | 'main-menu-login';
+
+@Component({  
   selector: 'app-button',
   imports: [CommonModule, RouterModule],
   templateUrl: './button.component.html',
@@ -19,6 +21,50 @@ import { RouterModule } from '@angular/router';
 export class ButtonComponent {
   @Input() routerLink: string = '';
   @Input() buttonText: string = 'valider';
-  @Input() isDisabled: boolean = false;
-  @Input() buttonStyles: any = {};
+  @Input() buttonStyle: ButtonStyles = 'form-validate';
+
+  get buttonStyles() {
+    switch (this.buttonStyle) {
+      case 'form-cancel':
+        return this.formCancelStyle;
+      case 'form-validate':
+        return this.formValidateStyle;
+      case 'main-menu':
+        return this.mainMenuStyle;
+      case 'main-menu-login':
+        return this.mainMenuLoginStyle;
+    }
+  }
+
+  private formButtonStyle = {
+    width: '140px',
+    'margin-bottom': '0',
+    'border-radius': '.75rem',
+    'font-size': '1.25rem',
+    color: 'var(--color-light)',
+  }
+
+  protected mainMenuStyle = {
+    'background-color': 'var(--color-light)',
+    color: 'var(--color-dark)',
+    'font-size': '1.5rem',
+    width: '200px',
+    'margin-bottom': '1rem',
+    'border-radius': '.5em',
+  }
+  protected formCancelStyle = {
+    ...this.formButtonStyle,
+    'background-color': 'orange',
+  };
+
+  protected formValidateStyle = {
+    ...this.formButtonStyle,
+    'background-color': 'var(--color-dark)',
+  };
+
+  protected mainMenuLoginStyle = {
+    ...this.mainMenuStyle,
+    'background-color': 'var(--primary-color)',
+    color: 'var(--color-light)',
+  };
 }
