@@ -20,10 +20,10 @@ app-button {
 }
 
 .form {
-  width: 140px;
-  margin-bottom: 0;
-  border-radius: 0.75rem;
-  font-size: 1.25rem;
+  width: 140px!important;
+  margin-bottom: 0!important;
+  border-radius: 0.75rem!important;
+  font-size: 1.25rem!important;
   color: var(--color-light)!important;
 
   &-cancel {
@@ -56,6 +56,5 @@ app-button {
 @media screen and (max-height: 800px) {
   .button {
     font-size: 1rem !important;
-    width: 200px !important;
   }
 }

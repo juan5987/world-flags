@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Oi&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Oi&display=swap");
 
 app-homepage {
   display: flex;
@@ -23,12 +23,12 @@ app-homepage {
     font-size: 8rem;
     text-align: center;
     background-color: tra;
-    padding: .25em .75em;
+    padding: 0.25em 0.75em;
     text-transform: uppercase;
     z-index: 3;
     margin-bottom: 1rem;
     border: 1rem solid var(--primary-color);
-    border-radius: .25em;
+    border-radius: 0.25em;
     line-height: 0.7;
   }
 
@@ -45,11 +45,9 @@ app-homepage {
     z-index: 3;
 
     .homepage__username {
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
   }
-
-
 
   #homepage__buttons {
     display: flex;
@@ -125,19 +123,22 @@ app-homepage {
   }
 }
 
-
 @media screen and (max-height: 800px) {
-  #homepage__title {
-    font-size: 4rem !important;
-    margin-bottom: 2rem !important;
-    border: none !important;
+  app-homepage {
+    #homepage__title {
+      font-size: 4rem !important;
+      margin-bottom: 2rem !important;
+      border: none !important;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
-  #homepage__title {
-    font-size: 20vw !important;
-    margin-bottom: 2rem !important;
-    border: none !important;
+  app-homepage {
+    #homepage__title {
+      font-size: 20vw !important;
+      margin-bottom: 2rem !important;
+      border: none !important;
+    }
   }
 }
