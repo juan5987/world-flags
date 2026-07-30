@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
   styleUrl: './rules.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
 })
 export class RulesComponent {
   protected router = inject(Router);

@@ -22,22 +22,20 @@ import { NotLoggedModalComponent } from '../../../shared/components/notLoggedMod
   imports: [
     ButtonComponent,
     NotLoggedModalComponent,
-    NotLoggedModalComponent,
     ReactiveFormsModule,
   ],
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss'],
+  styleUrl: './homepage.component.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
 })
 export class HomepageComponent {
   protected router = inject(Router);
   protected modalService = inject(NotLoggedModalService);
   protected userService = inject(AuthService);
   protected authService = inject(GoogleAuthService);
-  protected username = this.authService.user()?.username || '';
-  protected bestScore = this.authService.user()?.bestScore || 0;
+  protected readonly username = computed(() => this.authService.user()?.username || '');
+  protected readonly bestScore = computed(() => this.authService.user()?.bestScore || 0);
 
   protected connectionButtonStyles = {
     'background-color': 'var(--primary-color)',

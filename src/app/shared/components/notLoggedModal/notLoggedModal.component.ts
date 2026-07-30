@@ -14,7 +14,6 @@ import { NotLoggedModalService } from '../../../data/services/notLoggedModal.ser
   templateUrl: './notLoggedModal.component.html',
   styleUrl: './notLoggedModal.component.scss',
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '(click)': 'closeModal()',

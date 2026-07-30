@@ -1,8 +1,9 @@
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
+  computed,
+  input,
   ViewEncapsulation,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -16,20 +17,19 @@ type ButtonStyles =
 
 @Component({
   selector: 'app-button',
-  imports: [CommonModule, RouterModule],
+  imports: [NgClass, RouterModule],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent {
-  @Input() routerLink: string = '';
-  @Input() buttonText: string = 'valider';
-  @Input() buttonStyle: ButtonStyles = 'form-validate';
+  routerLink = input('');
+  buttonText = input('valider');
+  buttonStyle = input<ButtonStyles>('form-validate');
 
-  get buttonStyles() {
-    switch (this.buttonStyle) {
+  buttonStyles = computed(() => {
+    switch (this.buttonStyle()) {
       case 'form-cancel':
         return 'form form-cancel';
       case 'form-validate':
@@ -41,5 +41,5 @@ export class ButtonComponent {
       case 'form-light':
         return 'form form-light';
     }
-  }
+  });
 }

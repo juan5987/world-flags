@@ -9,7 +9,6 @@ import {
   imports: [],
   templateUrl: './animated-background.component.html',
   styleUrl: './animated-background.component.scss',
-  standalone: true,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

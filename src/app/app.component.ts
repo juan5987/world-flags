@@ -9,13 +9,10 @@ import { AnimatedBackgroundComponent } from "./ui/features/animated-background/a
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
 })
 export class AppComponent {
   title = 'world-flags';
   private googleAuthService = inject(GoogleAuthService);
 
-  constructor() {
-    this.googleAuthService.initAfterRedirect();
-  }
+  constructor() {}
 }

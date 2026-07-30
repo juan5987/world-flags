@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  HostListener,
   inject,
   signal,
   ViewEncapsulation,
@@ -19,11 +18,10 @@ import { GoogleAuthService } from '../../../data/services/google-auth.service';
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   encapsulation: ViewEncapsulation.None,
+  host: { '(window:blur)': 'onWindowBlur()' },
 })
 export class QuizComponent {
-  @HostListener('window:blur', [])
   onWindowBlur() {
     this.#playService.selectNewRandomFlag();
   }

@@ -16,7 +16,6 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
   styleUrl: './login.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
 })
 export class LoginComponent {
   private authService = inject(GoogleAuthService);
