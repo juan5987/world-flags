@@ -1,7 +1,7 @@
 import { DestroyRef, inject, Injectable, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { OAuthService } from 'angular-oauth2-oidc';
-import { authConfig } from '../../config/auth-config';
+import { getAuthConfig } from '../../config/auth-config';
 import { AuthResponse } from '../../models/auth.model';
 import { User } from '../../models/user.model';
 import { UserService } from '../api/user.service';
@@ -94,7 +94,7 @@ export class GoogleAuthService {
   }
 
   private initConfiguration() {
-    this.#oAuthService.configure(authConfig);
+    this.#oAuthService.configure(getAuthConfig());
     this.#oAuthService
       .loadDiscoveryDocumentAndTryLogin()
       .then(() => {
