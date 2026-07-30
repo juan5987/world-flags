@@ -12,5 +12,7 @@ export function getAuthConfig(): AuthConfig {
     strictDiscoveryDocumentValidation: false,
     customQueryParams: { access_type: 'offline' },
     showDebugInformation: !environment.production,
+    usePkceWithAuthorizationCodeFlow: true,
+    requireHttps: false,
   };
 }
