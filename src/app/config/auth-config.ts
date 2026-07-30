@@ -11,4 +11,5 @@ export const authConfig: AuthConfig = {
   strictDiscoveryDocumentValidation: false,
   customQueryParams: { access_type: 'offline' },
   showDebugInformation: !environment.production,
+  dummyClientSecret: environment.googleClientSecret,
 };
