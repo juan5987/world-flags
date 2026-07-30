@@ -1,11 +1,20 @@
-import { DestroyRef, inject, Injectable, signal } from '@angular/core';
+import {
+  computed,
+  DestroyRef,
+  effect,
+  inject,
+  Injectable,
+  signal,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Flag } from '../../models/flag.model';
-import { User } from '../../models/user.model';
+import { ActiveGame } from '../../models/game.model';
 import { FlagService } from '../api/flag.service';
+import { GamesGateway } from '../gateways/games.gateway';
 import { FlagProxyService } from './flag-proxy.service';
 import { GoogleAuthService } from './google-auth.service';
-import { AuthService } from './auth.service';
+
+const TICK_INTERVAL_MS = 250;
 
 @Injectable({
   providedIn: 'root',
@@ -15,13 +24,14 @@ export class PlayService {
   #flagService = inject(FlagService);
   #flagProxyService = inject(FlagProxyService);
   #googleAuthService = inject(GoogleAuthService);
-  #authService = inject(AuthService);
+  #gamesGateway = inject(GamesGateway);
 
   // Score related signals
   public readonly actualScore = signal(0);
 
   // Game state signals
-  public readonly timer = signal(60);
+  public readonly isGameOver = signal(false);
+  public readonly scoreAccepted = signal<boolean | null>(null);
   public readonly currentFlag = signal<Flag | null>(null);
   public readonly currentFlagWithUrlImageEncoded = signal<Flag>({} as Flag);
   public readonly currentAnswer = signal('');
@@ -30,8 +40,33 @@ export class PlayService {
   public readonly allFlags = signal<Flag[]>([]);
   public readonly currentLevel = signal(1);
 
+  // Timer autoritatif serveur : la partie est ancrée sur l'horloge monotone
+  // (performance.now()) à la réception de POST /games. Le décompte est purement
+  // dérivé (computed) ; l'intervalle ne fait que rafraîchir le tick.
+  readonly #activeGame = signal<ActiveGame | null>(null);
+  readonly #nowTick = signal(0);
 
-  constructor() {}
+  public readonly timer = computed(() => {
+    const game = this.#activeGame();
+    if (!game) return 0;
+    const remainingMs = game.durationMs - (this.#nowTick() - game.anchorPerfMs);
+    return Math.max(0, Math.ceil(remainingMs / 1000));
+  });
+
+  #timerInterval: ReturnType<typeof setInterval> | null = null;
+  #ending = false;
+
+  constructor() {
+    // Déclenche la fin quand le décompte atteint 0 (garde d'idempotence via #ending).
+    effect(() => {
+      if (this.#activeGame() && this.timer() === 0) {
+        this.endGame();
+      }
+    });
+
+    // Nettoie l'intervalle à la destruction du service
+    this.#destroyRef.onDestroy(() => this.stopTimer());
+  }
 
 
   public getLastAnswer(): string | undefined {
@@ -40,6 +75,8 @@ export class PlayService {
   }
 
   public checkAnswer(answer: string): boolean {
+    if (this.isGameOver()) return false;
+
     const isCorrect = this.isAnswerCorrect(answer);
 
     this.answerResult.set(isCorrect);
@@ -63,12 +100,17 @@ export class PlayService {
   }
 
   public resetGame(): void {
+    this.stopTimer();
+    this.#activeGame.set(null);
+    this.#ending = false;
     this.actualScore.set(0);
     this.excludedCountries.set([]);
-    this.timer.set(60);
+    this.scoreAccepted.set(null);
+    this.isGameOver.set(false);
   }
 
   public initializeGame(): void {
+    this.resetGame();
     this.#flagService
       .getFlagsByLevel(this.currentLevel())
       .pipe(takeUntilDestroyed(this.#destroyRef))
@@ -77,12 +119,81 @@ export class PlayService {
           this.allFlags.set(flags);
           if (flags.length) {
             this.selectNewRandomFlag();
+            this.startGame();
           }
         },
         error: (error) => {
           console.error('Error fetching flags:', error);
         },
       });
+  }
+
+  public stopTimer(): void {
+    if (this.#timerInterval !== null) {
+      clearInterval(this.#timerInterval);
+      this.#timerInterval = null;
+    }
+  }
+
+  private startGame(): void {
+    this.#gamesGateway
+      .createGame()
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe({
+        next: ({ id, durationMs }) => {
+          this.#activeGame.set({
+            id,
+            durationMs,
+            anchorPerfMs: performance.now(),
+          });
+          this.startTicking();
+        },
+        error: (error) => {
+          console.error('PlayService - Could not create game:', error);
+        },
+      });
+  }
+
+  private startTicking(): void {
+    this.stopTimer();
+    this.#nowTick.set(performance.now());
+    this.#timerInterval = setInterval(() => {
+      this.#nowTick.set(performance.now());
+    }, TICK_INTERVAL_MS);
+  }
+
+  private endGame(): void {
+    if (this.#ending) return;
+    this.#ending = true;
+
+    this.stopTimer();
+    this.isGameOver.set(true);
+
+    const game = this.#activeGame();
+    if (!game) return;
+
+    this.#gamesGateway
+      .endGame(game.id, this.actualScore())
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe({
+        next: (result) => {
+          this.scoreAccepted.set(result.scoreAccepted);
+          this.applyServerBestScore(result.bestScore);
+        },
+        error: (error) => {
+          console.error('PlayService - Could not end game:', error);
+        },
+      });
+  }
+
+  private applyServerBestScore(bestScore: number): void {
+    const user = this.#googleAuthService.user();
+    if (!user || user.bestScore === bestScore) return;
+    this.#googleAuthService.user.set({
+      ...user,
+      bestScore,
+      bestScoreDate: new Date(),
+    });
   }
 
   private updateGameStateWithNewFlag(flag: Flag): void {
