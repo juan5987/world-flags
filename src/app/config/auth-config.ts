@@ -7,12 +7,11 @@ export function getAuthConfig(): AuthConfig {
     redirectUri: window.location.origin,
     postLogoutRedirectUri: window.location.origin,
     clientId: environment.googleClientId,
-    responseType: 'code',
+    responseType: 'id_token token',
     scope: 'openid profile email',
     strictDiscoveryDocumentValidation: false,
     customQueryParams: { access_type: 'offline' },
     showDebugInformation: !environment.production,
-    usePkceWithAuthorizationCodeFlow: true,
     requireHttps: false,
   };
 }
