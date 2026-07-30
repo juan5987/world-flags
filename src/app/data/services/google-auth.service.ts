@@ -49,7 +49,7 @@ export class GoogleAuthService {
   }
 
   public login() {
-    this.#oAuthService.initCodeFlow();
+    this.#oAuthService.initImplicitFlow();
   }
 
   public logout() {
