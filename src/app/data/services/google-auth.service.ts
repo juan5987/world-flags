@@ -103,10 +103,15 @@ export class GoogleAuthService {
       .then(() => {
         console.log('GoogleAuthService - loadDiscoveryDocumentAndTryLogin resolved');
         console.log('hasValidIdToken:', this.#oAuthService.hasValidIdToken());
+        console.log('getIdToken():', this.#oAuthService.getIdToken()?.substring(0, 30) + '...');
+        console.log('localStorage keys:', Object.keys(localStorage).filter(k => k.includes('token') || k.includes('id')));
+        console.log('localStorage.id_token:', localStorage.getItem('id_token'));
         if (this.#oAuthService.hasValidIdToken()) {
           console.log('✅ Valid ID token found, calling initAfterRedirect');
           this.initAfterRedirect();
           this.#oAuthService.setupAutomaticSilentRefresh();
+        } else {
+          console.log('❌ No valid ID token found');
         }
       })
       .catch((err) => {
