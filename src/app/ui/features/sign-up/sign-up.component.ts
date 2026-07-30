@@ -11,7 +11,6 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   encapsulation: ViewEncapsulation.None,
 })
 export class SignUpComponent {}

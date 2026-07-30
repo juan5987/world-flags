@@ -7,7 +7,6 @@ import { ButtonComponent } from "../../../shared/components/button/button.compon
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   encapsulation: ViewEncapsulation.None,
 })
 export class ForgotPasswordComponent { 

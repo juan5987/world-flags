@@ -3,10 +3,10 @@
   <span class="homepage__title__span">Flags</span>
 </h1>
 
-@if(isLoggedIn && username) {
+@if(isLoggedIn && username()) {
 <div class="homepage__user-info">
-  <span class="homepage__username"> Connecté en tant que {{ username }}</span>
-  <span class="homepage__best-score">Meilleur score : {{ bestScore }}</span>
+  <span class="homepage__username"> Connecté en tant que {{ username() }}</span>
+  <span class="homepage__best-score">Meilleur score : {{ bestScore() }}</span>
 </div>
 }
 

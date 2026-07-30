@@ -13,7 +13,6 @@ import { LoadingGameComponent } from './loading-game/loading-game.component';
   templateUrl: './play.component.html',
   styleUrl: './play.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   encapsulation: ViewEncapsulation.None,
 })
 export class PlayComponent {
