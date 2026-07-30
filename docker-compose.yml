@@ -1,0 +1,31 @@
+# Infrastructure de développement : PostgreSQL 16
+# Usage :
+#   docker compose up -d        démarrer la base
+#   docker compose down         arrêter (les données persistent dans le volume)
+#   docker compose down -v      arrêter + supprimer les données
+#
+# Les credentials sont lus depuis le .env à la racine du repo.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: world-flags-pg
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-world_flags}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-world_flags}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  postgres-data:
+    name: world-flags-pg-data
