@@ -119,8 +119,7 @@ export class GoogleAuthService {
       })
       .catch((err) => {
         console.error('GoogleAuthService - Discovery/login failed:', err);
-        const body = err?.error ?? err?.message ?? err;
-        console.error('GoogleAuthService - Google error body:', body);
+        console.error('Error details:', err?.error, err?.message, err?.status);
         // Nettoie le code périmé de l'URL pour éviter une boucle d'échange
         if (window.location.search.includes('code=')) {
           window.history.replaceState(null, '', window.location.pathname);
