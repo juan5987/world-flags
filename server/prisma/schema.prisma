@@ -1,0 +1,49 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum GameStatus {
+  ACTIVE
+  ENDED
+}
+
+model User {
+  id           String     @id @default(cuid())
+  userId       String     @unique
+  username     String
+  email        String
+  password     String?
+  googleId     String?    @unique
+  bestScore    Int        @default(0)
+  bestScoreDate DateTime?
+  isActive     Boolean    @default(true)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  games        Game[]
+}
+
+model Game {
+  id         String     @id @default(cuid())
+  userId     String
+  user       User       @relation(fields: [userId], references: [id])
+  startedAt  DateTime   @default(now())
+  durationMs Int
+  endedAt    DateTime?
+  score      Int        @default(0)
+  status     GameStatus @default(ACTIVE)
+  suspicious Boolean    @default(false)
+  createdAt  DateTime   @default(now())
+}
+
+model Flag {
+  id      String @id @default(cuid())
+  name    String
+  name_fr String
+  flag    String
+  level   Int    @default(1)
+}

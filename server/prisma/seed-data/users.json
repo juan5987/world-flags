@@ -1,0 +1,13 @@
+[
+  { "userId": "1", "bestScore": 47, "bestScoreDate": "2024-03-15", "username": "Cloud Strife", "email": "cloud@fakemail.com", "createdAt": "2024-01-10", "updatedAt": "2024-03-15", "isActive": true, "id": "da33" },
+  { "userId": "2", "bestScore": 35, "bestScoreDate": "2024-03-12", "username": "Tifa Lockhart", "email": "tifa@fakemail.com", "createdAt": "2024-01-15", "updatedAt": "2024-03-12", "isActive": true, "id": "a2e0" },
+  { "userId": "3", "bestScore": 42, "bestScoreDate": "2024-03-10", "username": "Squall Leonhart", "email": "squall@fakemail.com", "createdAt": "2024-02-01", "updatedAt": "2024-03-10", "isActive": true, "id": "5237" },
+  { "userId": "4", "bestScore": 28, "bestScoreDate": "2024-03-08", "username": "Aerith Gainsborough", "email": "aerith@fakemail.com", "createdAt": "2024-01-20", "updatedAt": "2024-03-08", "isActive": false, "id": "aa96" },
+  { "userId": "5", "bestScore": 50, "bestScoreDate": "2024-03-14", "username": "Zidane Tribal", "email": "zidane@fakemail.com", "createdAt": "2024-02-15", "updatedAt": "2024-03-14", "isActive": true, "id": "09c1" },
+  { "userId": "6", "bestScore": 31, "bestScoreDate": "2024-03-11", "username": "Yuna", "email": "yuna@fakemail.com", "createdAt": "2024-02-10", "updatedAt": "2024-03-11", "isActive": true, "id": "eed7" },
+  { "userId": "7", "bestScore": 45, "bestScoreDate": "2024-03-13", "username": "Lightning", "email": "lightning@fakemail.com", "createdAt": "2024-01-25", "updatedAt": "2024-03-13", "isActive": true, "id": "6188" },
+  { "userId": "8", "bestScore": 39, "bestScoreDate": "2024-03-09", "username": "Vivi Ornitier", "email": "vivi@fakemail.com", "createdAt": "2024-02-05", "updatedAt": "2024-03-09", "isActive": true, "id": "3d13" },
+  { "userId": "9", "bestScore": 33, "bestScoreDate": "2024-03-07", "username": "Tidus", "email": "tidus@fakemail.com", "createdAt": "2024-01-30", "updatedAt": "2024-03-07", "isActive": true, "id": "8fd9" },
+  { "userId": "10", "bestScore": 44, "bestScoreDate": "2024-03-06", "username": "Rinoa Heartilly", "email": "rinoa@fakemail.com", "createdAt": "2024-02-20", "updatedAt": "2024-03-06", "isActive": true, "id": "3b89" },
+  { "id": "dbb1", "userId": "100640043042655934792", "bestScore": 12, "bestScoreDate": "2025-05-13T15:12:32.327Z", "username": "Juanito", "createdAt": "2025-05-13T15:12:32.327Z", "updatedAt": "2025-05-13T15:12:32.327Z", "isActive": true, "googleId": "100640043042655934792", "email": "juan.machado.5987@gmail.com" }
+]
