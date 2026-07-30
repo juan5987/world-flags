@@ -26,9 +26,7 @@ export class GoogleAuthService {
   }
 
   public initAfterRedirect() {
-    console.log('👉 initAfterRedirect called');
     const idToken = this.#oAuthService.getIdToken();
-    console.log('idToken:', idToken?.substring(0, 20) + '...');
 
     this.#authGateway
       .exchangeGoogleIdToken(idToken)
@@ -97,18 +95,15 @@ export class GoogleAuthService {
 
   private initConfiguration() {
     const config = getAuthConfig();
-    console.log('GoogleAuthService - initConfiguration started');
     this.#oAuthService.configure(config);
 
     const idTokenFromUrl = this.extractIdTokenFromUrl();
     if (idTokenFromUrl) {
-      console.log('✅ Found id_token in URL fragment, using it directly');
       this.#authGateway
         .exchangeGoogleIdToken(idTokenFromUrl)
         .pipe(takeUntilDestroyed(this.#destroyRef))
         .subscribe({
           next: (response: AuthResponse) => {
-            console.log('✅ Backend exchange successful');
             this.#authTokenStore.set(response.accessToken);
             this.user.set(response.user);
             this.showUsernameModal.set(!response.user.username);
