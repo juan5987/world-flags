@@ -96,8 +96,12 @@ export class GoogleAuthService {
   }
 
   private initConfiguration() {
-    this.#oAuthService.configure(getAuthConfig());
+    const config = getAuthConfig();
     console.log('GoogleAuthService - initConfiguration started');
+    console.log('redirectUri:', config.redirectUri);
+    console.log('currentUrl:', window.location.href);
+    console.log('urlFragment:', window.location.hash);
+    this.#oAuthService.configure(config);
     this.#oAuthService
       .loadDiscoveryDocumentAndTryLogin()
       .then(() => {
