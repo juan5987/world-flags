@@ -26,7 +26,9 @@ export class GoogleAuthService {
   }
 
   public initAfterRedirect() {
+    console.log('👉 initAfterRedirect called');
     const idToken = this.#oAuthService.getIdToken();
+    console.log('idToken:', idToken?.substring(0, 20) + '...');
 
     this.#authGateway
       .exchangeGoogleIdToken(idToken)
@@ -95,10 +97,14 @@ export class GoogleAuthService {
 
   private initConfiguration() {
     this.#oAuthService.configure(getAuthConfig());
+    console.log('GoogleAuthService - initConfiguration started');
     this.#oAuthService
       .loadDiscoveryDocumentAndTryLogin()
       .then(() => {
+        console.log('GoogleAuthService - loadDiscoveryDocumentAndTryLogin resolved');
+        console.log('hasValidIdToken:', this.#oAuthService.hasValidIdToken());
         if (this.#oAuthService.hasValidIdToken()) {
+          console.log('✅ Valid ID token found, calling initAfterRedirect');
           this.initAfterRedirect();
           this.#oAuthService.setupAutomaticSilentRefresh();
         }
