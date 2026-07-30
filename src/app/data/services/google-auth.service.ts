@@ -98,32 +98,45 @@ export class GoogleAuthService {
   private initConfiguration() {
     const config = getAuthConfig();
     console.log('GoogleAuthService - initConfiguration started');
-    console.log('redirectUri:', config.redirectUri);
-    console.log('currentUrl:', window.location.href);
-    console.log('urlFragment:', window.location.hash);
     this.#oAuthService.configure(config);
-    this.#oAuthService
-      .loadDiscoveryDocumentAndTryLogin()
-      .then(() => {
-        console.log('GoogleAuthService - loadDiscoveryDocumentAndTryLogin resolved');
-        console.log('hasValidIdToken:', this.#oAuthService.hasValidIdToken());
-        console.log('hasIdToken:', !!this.#oAuthService.getIdToken());
-        console.log('idTokenStoredInLocalStorage:', !!localStorage.getItem('id_token'));
-        if (this.#oAuthService.hasValidIdToken()) {
-          console.log('✅ Valid ID token found, calling initAfterRedirect');
-          this.initAfterRedirect();
-          this.#oAuthService.setupAutomaticSilentRefresh();
-        } else {
-          console.log('❌ No valid ID token found');
-        }
-      })
-      .catch((err) => {
-        console.error('GoogleAuthService - Discovery/login failed:', err);
-        console.error('Error details:', err?.error, err?.message, err?.status);
-        // Nettoie le code périmé de l'URL pour éviter une boucle d'échange
-        if (window.location.search.includes('code=')) {
-          window.history.replaceState(null, '', window.location.pathname);
-        }
-      });
+
+    const idTokenFromUrl = this.extractIdTokenFromUrl();
+    if (idTokenFromUrl) {
+      console.log('✅ Found id_token in URL fragment, using it directly');
+      this.#authGateway
+        .exchangeGoogleIdToken(idTokenFromUrl)
+        .pipe(takeUntilDestroyed(this.#destroyRef))
+        .subscribe({
+          next: (response: AuthResponse) => {
+            console.log('✅ Backend exchange successful');
+            this.#authTokenStore.set(response.accessToken);
+            this.user.set(response.user);
+            this.showUsernameModal.set(!response.user.username);
+            window.history.replaceState(null, '', window.location.pathname);
+          },
+          error: (error) => {
+            console.error('GoogleAuthService - Error exchanging id_token:', error);
+            this.showUsernameModal.set(true);
+          },
+        });
+    } else {
+      this.#oAuthService
+        .loadDiscoveryDocumentAndTryLogin()
+        .then(() => {
+          if (this.#oAuthService.hasValidIdToken()) {
+            this.initAfterRedirect();
+            this.#oAuthService.setupAutomaticSilentRefresh();
+          }
+        })
+        .catch((err) => {
+          console.error('GoogleAuthService - loadDiscoveryDocumentAndTryLogin failed:', err);
+        });
+    }
+  }
+
+  private extractIdTokenFromUrl(): string | null {
+    const fragment = window.location.hash.substring(1);
+    const params = new URLSearchParams(fragment);
+    return params.get('id_token');
   }
 }
