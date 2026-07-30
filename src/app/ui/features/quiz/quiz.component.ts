@@ -36,6 +36,8 @@ export class QuizComponent {
   protected readonly actualScore = this.#playService.actualScore;
   protected readonly flag = this.#playService.currentFlagWithUrlImageEncoded;
   protected readonly answerResult = this.#playService.answerResult;
+  protected readonly isGameOver = this.#playService.isGameOver;
+  protected readonly scoreAccepted = this.#playService.scoreAccepted;
   protected showResult = signal(false);
   protected isSkipDisabled = signal(false);
 
@@ -59,6 +61,15 @@ export class QuizComponent {
   }
 
   protected quitGame(): void {
+    this.#playService.resetGame();
+    this.#router.navigate(['/']);
+  }
+
+  protected replay(): void {
+    this.#playService.initializeGame();
+  }
+
+  protected goHome(): void {
     this.#playService.resetGame();
     this.#router.navigate(['/']);
   }

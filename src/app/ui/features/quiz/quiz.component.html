@@ -1,52 +1,86 @@
 <button class="quit-button" (click)="quitGame()">Quitter</button>
-<header>
-  <div class="best-score">
-    <span class="best-score__label">Meilleur score</span>
-    <span>{{ bestScore() }}</span>
+
+@if (isGameOver()) {
+  <div class="game-over">
+    <h1 class="game-over__title">Partie terminée</h1>
+    <div class="game-over__score">
+      <span class="game-over__score-label">Votre score</span>
+      <span class="game-over__score-value">{{ actualScore() }}</span>
+    </div>
+    @if (scoreAccepted() === false) {
+      <span class="game-over__rejected">Score non validé par le serveur</span>
+    } @else if (actualScore() > bestScore()) {
+      <span class="game-over__new-best">Nouveau meilleur score !</span>
+    } @else {
+      <span class="game-over__best">Meilleur score : {{ bestScore() }}</span>
+    }
+    <div class="game-over__buttons">
+      <app-button
+        buttonText="Rejouer"
+        fontSize="1.5rem"
+        mainColor="white"
+        secondaryColor="var(--primary-color)"
+        (click)="replay()"
+      ></app-button>
+      <app-button
+        buttonText="Accueil"
+        fontSize="1.5rem"
+        mainColor="white"
+        secondaryColor="var(--color-dark)"
+        (click)="goHome()"
+      ></app-button>
+    </div>
   </div>
-  <div class="timer">
-    <span class="timer__label">Temps</span>
-    <span>{{ timer() }}</span>
-  </div>
-  <div class="score">
-    <span class="score__label">Score actuel</span>
-    <span>{{ actualScore() }}</span>
-  </div>
-</header>
-<main>
-  <div class="question">
-    <img [src]="flag().flag" class="flag" />
-  </div>
-  @if(showResult()) { @if(answerResult()) {
-  <span class="answer-result green">Correct</span>
-  } @else {
-  <span class="answer-result red">{{ getLastAnswer() }}</span>
-  } }
-</main>
-<footer>
-  <div class="answer">
-    <span class="answer-instruction"
-      >Appuyer sur la touche Entrée pour valider</span
-    >
-    <form [formGroup]="form">
-      <input
-        type="text"
-        placeholder="saisissez votre réponse"
-        class="answer-input"
-        formControlName="userInput"
-        (keydown)="handleKeydown($event)"
-      />
-    </form>
-  </div>
-  <div class="skip-button">
-    <app-button
-      buttonText="Passer"
-      fontSize="1.5rem"
-      mainColor="white"
-      secondaryColor="var(--primary-color)"
-      (click)="skipFlag()"
-      [style.cursor]="isSkipDisabled() ? 'not-allowed' : 'pointer'"
-      [style.opacity]="isSkipDisabled() ? '0.5' : '1'"
-    ></app-button>
-  </div>
-</footer>
+} @else {
+  <header>
+    <div class="best-score">
+      <span class="best-score__label">Meilleur score</span>
+      <span>{{ bestScore() }}</span>
+    </div>
+    <div class="timer">
+      <span class="timer__label">Temps</span>
+      <span>{{ timer() }}</span>
+    </div>
+    <div class="score">
+      <span class="score__label">Score actuel</span>
+      <span>{{ actualScore() }}</span>
+    </div>
+  </header>
+  <main>
+    <div class="question">
+      <img [src]="flag().flag" class="flag" />
+    </div>
+    @if(showResult()) { @if(answerResult()) {
+    <span class="answer-result green">Correct</span>
+    } @else {
+    <span class="answer-result red">{{ getLastAnswer() }}</span>
+    } }
+  </main>
+  <footer>
+    <div class="answer">
+      <span class="answer-instruction"
+        >Appuyer sur la touche Entrée pour valider</span
+      >
+      <form [formGroup]="form">
+        <input
+          type="text"
+          placeholder="saisissez votre réponse"
+          class="answer-input"
+          formControlName="userInput"
+          (keydown)="handleKeydown($event)"
+        />
+      </form>
+    </div>
+    <div class="skip-button">
+      <app-button
+        buttonText="Passer"
+        fontSize="1.5rem"
+        mainColor="white"
+        secondaryColor="var(--primary-color)"
+        (click)="skipFlag()"
+        [style.cursor]="isSkipDisabled() ? 'not-allowed' : 'pointer'"
+        [style.opacity]="isSkipDisabled() ? '0.5' : '1'"
+      ></app-button>
+    </div>
+  </footer>
+}
