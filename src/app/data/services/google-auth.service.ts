@@ -2,8 +2,11 @@ import { DestroyRef, inject, Injectable, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { authConfig } from '../../config/auth-config';
+import { AuthResponse } from '../../models/auth.model';
 import { User } from '../../models/user.model';
 import { UserService } from '../api/user.service';
+import { AuthGateway } from '../gateways/auth.gateway';
+import { AuthTokenStore } from './auth-token-store';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +14,8 @@ import { UserService } from '../api/user.service';
 export class GoogleAuthService {
   #oAuthService = inject(OAuthService);
   #userService = inject(UserService);
+  #authGateway = inject(AuthGateway);
+  #authTokenStore = inject(AuthTokenStore);
   #destroyRef = inject(DestroyRef);
 
   public user = signal<User | null>(null);
@@ -21,39 +26,24 @@ export class GoogleAuthService {
   }
 
   public initAfterRedirect() {
-    const claims = this.#oAuthService.getIdentityClaims();
+    const idToken = this.#oAuthService.getIdToken();
 
-    this.#userService.getUserByGoogleId(claims['sub'])
+    this.#authGateway
+      .exchangeGoogleIdToken(idToken)
       .pipe(takeUntilDestroyed(this.#destroyRef))
       .subscribe({
-      next: (user: User | null) => {
-        if (user) {
-          console.log('GoogleAuthService - User found');
-          this.user.set(user);
-          this.showUsernameModal.set(false);
-        } else {
-          console.log(
-            'GoogleAuthService - First time login, user must create a username'
-          );
-          this.user.set({
-            userId: claims['sub'],
-            googleId: claims['sub'],
-            email: claims['email'],
-            username: '',
-            bestScore: 0,
-            bestScoreDate: new Date(),
-            createdAt: new Date(),
-            updatedAt: new Date(),
-            isActive: true,
-          } as User);
+        next: (response: AuthResponse) => {
+          this.#authTokenStore.set(response.accessToken);
+          this.user.set(response.user);
+          // Le serveur assigne toujours un username (name/email Google) à l'upsert.
+          // Le modal ne s'affiche que si l'utilisateur n'en a pas encore choisi un.
+          this.showUsernameModal.set(!response.user.username);
+        },
+        error: (error) => {
+          console.error('GoogleAuthService - Error exchanging id_token:', error);
           this.showUsernameModal.set(true);
-        }
-      },
-      error: (error) => {
-        console.error('GoogleAuthService - Error fetching user:', error);
-        this.showUsernameModal.set(true);
-      },
-    });
+        },
+      });
   }
 
   public login() {
@@ -61,8 +51,13 @@ export class GoogleAuthService {
   }
 
   public logout() {
-    this.#oAuthService.revokeTokenAndLogout();
+    // logOut() nettoie le stockage local de façon synchrone et fiable.
+    // On évite revokeTokenAndLogout() (async, peu robuste avec Google OIDC)
+    // pour garantir que l'utilisateur est déconnecté de l'app quoi qu'il arrive.
+    this.#oAuthService.logOut();
+    this.#authTokenStore.clear();
     this.user.set(null);
+    this.showUsernameModal.set(false);
     console.log('GoogleAuthService - Logged out');
   }
 
@@ -108,8 +103,14 @@ export class GoogleAuthService {
           this.#oAuthService.setupAutomaticSilentRefresh();
         }
       })
-      .catch((err) =>
-        console.error('GoogleAuthService - Discovery/login failed:', err)
-      );
+      .catch((err) => {
+        console.error('GoogleAuthService - Discovery/login failed:', err);
+        const body = err?.error ?? err?.message ?? err;
+        console.error('GoogleAuthService - Google error body:', body);
+        // Nettoie le code périmé de l'URL pour éviter une boucle d'échange
+        if (window.location.search.includes('code=')) {
+          window.history.replaceState(null, '', window.location.pathname);
+        }
+      });
   }
 }
