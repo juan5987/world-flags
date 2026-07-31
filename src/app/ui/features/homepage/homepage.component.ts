@@ -10,7 +10,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../data/services/auth.service';
 import { GoogleAuthService } from '../../../data/services/google-auth.service';
 import { NotLoggedModalService } from '../../../data/services/notLoggedModal.service';
@@ -23,9 +23,10 @@ import { NotLoggedModalComponent } from '../../../shared/components/notLoggedMod
     ButtonComponent,
     NotLoggedModalComponent,
     ReactiveFormsModule,
+    RouterLink,
   ],
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.scss',
+  styleUrl: './homepage.component.local.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -1,86 +1,110 @@
-<h1 id="homepage__title">
-  <span class="homepage__title__span">World </span>
-  <span class="homepage__title__span">Flags</span>
-</h1>
+<div class="homepage-shell">
+  <header class="homepage-topbar">
+    <a class="homepage-wordmark" routerLink="/" aria-label="World Flags, accueil">
+      <span class="homepage-wordmark__dot"></span>
+      WORLD FLAGS
+    </a>
 
-@if(isLoggedIn && username()) {
-<div class="homepage__user-info">
-  <span class="homepage__username"> Connecté en tant que {{ username() }}</span>
-  <span class="homepage__best-score">Meilleur score : {{ bestScore() }}</span>
-</div>
-}
+    @if (isLoggedIn && username()) {
+      <div class="homepage-profile">
+        <span class="homepage-profile__label">Explorateur</span>
+        <strong>{{ username() }}</strong>
+        <span class="homepage-profile__score">Record · {{ bestScore() }} pts</span>
+      </div>
+    } @else {
+      <span class="homepage-guest">Prêt à explorer ?</span>
+    }
+  </header>
 
-<div id="homepage__buttons">
-  <app-button
-    id="homepage__buttons__play"
-    buttonText="Jouer"
-    (click)="checkIfLoggedIn()"
-    [buttonStyle]="'main-menu'"
-    >Jouer</app-button
-  >
-  <app-button
-    id="homepage__buttons__training"
-    buttonText="Entrainement"
-    [buttonStyle]="'main-menu'"
-    >Entrainement</app-button
-  >
-  <app-button
-    id="homepage__buttons__ranking"
-    buttonText="Classement"
-    [buttonStyle]="'main-menu'"
-    >Classement</app-button
-  >
-  <app-button
-    id="homepage__buttons__rules"
-    buttonText="Règles"
-    routerLink="/rules"
-    [buttonStyle]="'main-menu'"
-    >Règles</app-button
-  >
-  @if(!isLoggedIn) {
-  <app-button
-    id="homepage__buttons__login"
-    buttonText="Connexion"
-    routerLink="/login"
-    [buttonStyle]="'main-menu-login'"
-    >Connexion</app-button
-  >
-  } @else {
-  <app-button
-    id="homepage__buttons__logout"
-    buttonText="Déconnexion"
-    [buttonStyle]="'main-menu-login'"
-    (click)="logout()"
-    >Déconnexion</app-button
-  >
-  }
+  <main class="homepage-mission">
+    <div class="homepage-compass" aria-hidden="true">
+      <svg viewBox="0 0 220 220" fill="none" focusable="false">
+        <circle cx="110" cy="110" r="96" />
+        <circle cx="110" cy="110" r="72" stroke-dasharray="2 9" />
+        <path d="M110 8v24M110 188v24M8 110h24M188 110h24" />
+        <path d="m145 75-20 50-50 20 20-50 50-20Z" />
+        <circle cx="110" cy="110" r="5" />
+        <path d="M110 37 116 49 110 61 104 49 110 37ZM110 159l6 12-6 12-6-12 6-12Z" />
+      </svg>
+      <span class="homepage-compass__coordinate homepage-compass__coordinate--north">48° 51′ N</span>
+      <span class="homepage-compass__coordinate homepage-compass__coordinate--east">2° 21′ E</span>
+    </div>
+
+    <section class="homepage-copy" aria-labelledby="homepage__title">
+      <p class="homepage-eyebrow">LE QUIZ QUI FAIT VOYAGER</p>
+      <h1 id="homepage__title">
+        <span>World</span>
+        <span>Flags</span>
+      </h1>
+      <p class="homepage-lead">Lis les couleurs, reconnais les horizons et fais parler ta mémoire géographique.</p>
+    </section>
+
+    <nav id="homepage__buttons" aria-label="Menu principal">
+      <app-button
+        id="homepage__buttons__play"
+        buttonText="Lancer une partie"
+        (click)="checkIfLoggedIn()"
+        [buttonStyle]="'main-menu'"
+      ></app-button>
+      <div class="homepage-secondary-actions">
+        <app-button
+          id="homepage__buttons__training"
+          buttonText="Entraînement"
+          [buttonStyle]="'main-menu'"
+        ></app-button>
+        <app-button
+          id="homepage__buttons__ranking"
+          buttonText="Classement"
+          [buttonStyle]="'main-menu'"
+        ></app-button>
+        <app-button
+          id="homepage__buttons__rules"
+          buttonText="Guide du jeu"
+          routerLink="/rules"
+          [buttonStyle]="'main-menu'"
+        ></app-button>
+      </div>
+      @if (!isLoggedIn) {
+        <app-button
+          id="homepage__buttons__login"
+          buttonText="Me connecter"
+          routerLink="/login"
+          [buttonStyle]="'main-menu-login'"
+        ></app-button>
+      } @else {
+        <app-button
+          id="homepage__buttons__logout"
+          buttonText="Se déconnecter"
+          [buttonStyle]="'main-menu-login'"
+          (click)="logout()"
+        ></app-button>
+      }
+    </nav>
+  </main>
 </div>
 
 @if (modalService.isModalOpen()) {
-<app-not-logged-modal></app-not-logged-modal>
-} @if(shouldDisplayUsernameModal()) {
-<div class="username-modal">
-  <form class="username-modal__form" [formGroup]="usernameForm">
-    <h2 class="username-modal__title">Bienvenue sur World Flags</h2>
-    <p class="username-modal__text">
-      Il s'agit de votre première connexion, veuillez entrer un nom
-      d'utilisateur
-    </p>
-    <input
-      class="username-modal__form__input"
-      type="text"
-      formControlName="username"
-      placeholder="saisissez votre nom d'utilisateur"
-    />
-    <app-button
-      class="username-modal__form__button"
-      buttonText="valider"
-      mainColor="white"
-      secondaryColor="var(--primary-color)"
-      fontSize="1.25rem"
-      width="100%"
-      (click)="createUser()"
-    ></app-button>
-  </form>
-</div>
+  <app-not-logged-modal></app-not-logged-modal>
+}
+
+@if (shouldDisplayUsernameModal()) {
+  <div class="username-modal">
+    <form class="username-modal__form" [formGroup]="usernameForm">
+      <p class="username-modal__eyebrow">BIENVENUE À BORD</p>
+      <h2 class="username-modal__title">Choisis ton nom d’explorateur</h2>
+      <p class="username-modal__text">C’est sous ce nom que tes futurs records apparaîtront dans le classement.</p>
+      <input
+        class="username-modal__form__input"
+        type="text"
+        formControlName="username"
+        placeholder="Ton pseudo"
+        aria-label="Nom d'utilisateur"
+      />
+      <app-button
+        class="username-modal__form__button"
+        buttonText="Enregistrer mon nom"
+        (click)="createUser()"
+      ></app-button>
+    </form>
+  </div>
 }

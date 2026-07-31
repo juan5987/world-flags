@@ -1,144 +1,115 @@
-@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Oi&display=swap");
-
 app-homepage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--background-color);
-  width: 100vw;
-  height: 100vh;
-  padding: 1rem;
+  --atlas-cyan: #62d8e7;
+  --atlas-gold: #f5b72f;
+  --atlas-mist: #f4f8fc;
+  --atlas-muted: #afc1d4;
 
-  #homepage__title {
+  display: block;
+  min-height: 100vh;
+  color: var(--atlas-mist);
+  font-family: system-ui, sans-serif;
+
+  .homepage-shell {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    color: var(--text-color);
-    text-align: center;
-    font-family: "Bungee Spice", var(--font-family);
-    font-weight: lighter;
-    font-size: 8rem;
-    text-align: center;
-    background-color: tra;
-    padding: 0.25em 0.75em;
-    text-transform: uppercase;
-    z-index: 3;
-    margin-bottom: 1rem;
-    border: 1rem solid var(--primary-color);
-    border-radius: 0.25em;
-    line-height: 0.7;
+    min-height: 100vh;
+    padding: clamp(1.25rem, 4vw, 3rem);
   }
 
-  .homepage__user-info {
+  .homepage-topbar {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-family: var(--font-family);
-    font-size: 1.25rem;
-    color: var(--text-color);
-    text-align: center;
-    padding: 1rem;
-    z-index: 3;
-
-    .homepage__username {
-      margin-bottom: 0.5rem;
-    }
+    justify-content: space-between;
+    width: min(100%, 76rem);
+    margin: 0 auto;
   }
 
-  #homepage__buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .homepage-wordmark {
+    display: inline-flex;
     align-items: center;
-    z-index: 3;
-    margin-top: 1rem;
+    gap: 0.55rem;
+    color: var(--atlas-mist);
+    font-size: 0.75rem;
+    font-weight: 780;
+    letter-spacing: 0.16em;
+    text-decoration: none;
   }
 
-  .username-modal {
-    display: flex;
-    flex-direction: column;
+  .homepage-wordmark__dot { width: 0.58rem; height: 0.58rem; border-radius: 50%; background: var(--atlas-gold); box-shadow: 0 0 1rem rgba(245, 183, 47, 0.7); }
+  .homepage-guest { color: var(--atlas-muted); font-size: 0.86rem; }
+
+  .homepage-profile { display: grid; grid-template-columns: auto auto; column-gap: 0.45rem; align-items: baseline; color: var(--atlas-mist); font-size: 0.85rem; }
+  .homepage-profile__label { color: var(--atlas-cyan); font-size: 0.62rem; font-weight: 760; letter-spacing: 0.11em; text-transform: uppercase; }
+  .homepage-profile__score { grid-column: 1 / -1; margin-top: 0.2rem; color: var(--atlas-muted); font-size: 0.76rem; }
+
+  .homepage-mission {
+    display: grid;
+    grid-template-columns: minmax(13rem, 0.8fr) minmax(18rem, 1.15fr) minmax(16rem, 0.8fr);
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    color: var(--color-dark);
-    background-color: rgba(0, 0, 0, 0.5);
-    font-family: var(--font-family);
+    gap: clamp(1.5rem, 4vw, 5rem);
+    width: min(100%, 76rem);
+    margin: auto;
+  }
 
-    .username-modal__form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--color-dark);
-      padding: 1rem;
-      border-radius: 0.5rem;
-      width: 350px;
+  .homepage-compass { position: relative; width: min(100%, 18rem); justify-self: center; color: var(--atlas-cyan); filter: drop-shadow(0 0 2rem rgba(98, 216, 231, 0.16)); animation: homepage-drift 7s ease-in-out infinite alternate; }
+  .homepage-compass svg { width: 100%; stroke: currentColor; stroke-width: 1.25; }
+  .homepage-compass svg path:nth-of-type(3) { fill: rgba(98, 216, 231, 0.2); }
+  .homepage-compass__coordinate { position: absolute; color: var(--atlas-muted); font-size: 0.59rem; font-weight: 650; letter-spacing: 0.1em; }
+  .homepage-compass__coordinate--north { top: 0.3rem; left: 50%; transform: translateX(-50%); }
+  .homepage-compass__coordinate--east { top: 50%; right: -1.75rem; transform: rotate(90deg); }
 
-      .username-modal__title {
-        font-size: 1.5rem;
-        color: var(--primary-color);
-        text-align: center;
-        margin-bottom: 2rem;
-      }
+  .homepage-copy { text-align: center; }
+  .homepage-eyebrow { margin: 0 0 0.8rem; color: var(--atlas-cyan); font-size: 0.67rem; font-weight: 780; letter-spacing: 0.16em; }
+  #homepage__title { display: flex; flex-direction: column; margin: 0; color: var(--atlas-mist); font-size: clamp(4rem, 9vw, 7.5rem); font-weight: 830; letter-spacing: -0.085em; line-height: 0.72; }
+  #homepage__title span:last-child { margin-left: 0.23em; color: var(--atlas-gold); }
+  .homepage-lead { max-width: 24rem; margin: 1.65rem auto 0; color: var(--atlas-muted); font-size: 1rem; line-height: 1.6; }
 
-      .username-modal__text {
-        font-size: 1rem;
-        color: var(--text-color);
-        text-align: center;
-        margin-bottom: 2rem;
-      }
+  #homepage__buttons { display: grid; gap: 0.75rem; width: min(100%, 17rem); justify-self: center; }
+  #homepage__buttons app-button .button { width: 100%; max-width: none; margin: 0; border-radius: 0.85rem; font-family: system-ui, sans-serif; font-size: 0.96rem; font-weight: 720; transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease; }
+  #homepage__buttons app-button .button:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.26); }
+  #homepage__buttons app-button .button:focus-visible { outline: 3px solid var(--atlas-cyan); outline-offset: 3px; }
+  #homepage__buttons__play .button { padding-block: 1rem; color: #10263f; background: linear-gradient(135deg, #f5b72f, #e99b15); box-shadow: 0 0.8rem 2rem rgba(245, 183, 47, 0.22); }
+  .homepage-secondary-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; }
+  .homepage-secondary-actions app-button .button { padding: 0.67rem 0.35rem; color: var(--atlas-muted); background: rgba(7, 26, 51, 0.36); border: 1px solid rgba(180, 228, 240, 0.22); font-size: 0.68rem; }
+  #homepage__buttons__login .button, #homepage__buttons__logout .button { color: var(--atlas-cyan); background: transparent; border: 1px solid rgba(98, 216, 231, 0.42); }
 
-      .username-modal__form__label {
-        width: 100%;
-        font-size: 1rem;
-        color: var(--primary-color);
-        text-transform: uppercase;
-        margin-bottom: 0.5rem;
-      }
+  .username-modal { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 1rem; background: rgba(3, 15, 31, 0.72); backdrop-filter: blur(9px) saturate(120%); }
+  .username-modal__form { width: min(100%, 26rem); padding: 2rem; color: var(--atlas-mist); text-align: center; background: linear-gradient(145deg, rgba(14, 44, 79, 0.96), rgba(5, 22, 44, 0.98)); border: 1px solid rgba(180, 228, 240, 0.22); border-top-color: rgba(205, 239, 247, 0.42); border-radius: 1.35rem; box-shadow: 0 24px 60px rgba(1, 11, 25, 0.6); }
+  .username-modal__eyebrow { margin: 0 0 0.5rem; color: var(--atlas-cyan); font-size: 0.65rem; font-weight: 760; letter-spacing: 0.14em; }
+  .username-modal__title { margin: 0; font-size: 1.7rem; letter-spacing: -0.04em; }
+  .username-modal__text { margin: 0.8rem 0 1.35rem; color: var(--atlas-muted); font-size: 0.92rem; line-height: 1.55; }
+  .username-modal__form__input { width: 100%; margin-bottom: 0.85rem; padding: 0.85rem 1rem; color: var(--atlas-mist); font: inherit; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(180, 228, 240, 0.24); border-radius: 0.8rem; outline: none; }
+  .username-modal__form__input:focus { border-color: var(--atlas-cyan); box-shadow: 0 0 0 3px rgba(98, 216, 231, 0.16); }
+  .username-modal__form__input::placeholder { color: rgba(175, 193, 212, 0.65); }
+  .username-modal__form__button .button { width: 100%; max-width: none; margin: 0; border-radius: 0.8rem; color: #10263f; background: linear-gradient(135deg, #f5b72f, #e99b15); font-family: system-ui, sans-serif; font-size: 0.95rem; font-weight: 750; }
+}
 
-      .username-modal__form__input {
-        width: 100%;
-        padding: 0.5em 1em;
-        border-radius: 0.5em;
-        border: 1px solid var(--border-color);
-        color: var(--color-dark);
-        text-align: center;
-        text-transform: uppercase;
-        margin-bottom: 1rem;
+@keyframes homepage-drift { from { transform: translateY(-0.45rem); } to { transform: translateY(0.45rem); } }
 
-        &::placeholder {
-          color: rgb(220, 220, 220);
-        }
-      }
-    }
+@media (max-width: 900px) {
+  app-homepage {
+    .homepage-mission { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 2rem; }
+    .homepage-compass { width: 11rem; grid-row: 2; }
+    .homepage-copy { grid-row: 1; }
+    #homepage__buttons { grid-row: 3; width: min(100%, 23rem); }
   }
 }
 
-@media screen and (max-height: 800px) {
+@media (max-width: 480px) {
   app-homepage {
-    #homepage__title {
-      font-size: 4rem !important;
-      margin-bottom: 2rem !important;
-      border: none !important;
-    }
+    .homepage-shell { padding: 1.15rem; }
+    .homepage-topbar { align-items: flex-start; }
+    .homepage-guest { display: none; }
+    #homepage__title { font-size: clamp(3.9rem, 21vw, 5.4rem); }
+    .homepage-lead { margin-top: 1.35rem; font-size: 0.92rem; }
+    .homepage-compass { width: 9.5rem; }
+    .homepage-compass__coordinate--east { right: -1.55rem; }
+    .username-modal__form { padding: 1.5rem 1.25rem; }
   }
 }
 
-@media screen and (max-width: 768px) {
-  app-homepage {
-    #homepage__title {
-      font-size: 20vw !important;
-      margin-bottom: 2rem !important;
-      border: none !important;
-    }
-  }
+@media (prefers-reduced-motion: reduce) {
+  app-homepage .homepage-compass { animation: none; }
 }
