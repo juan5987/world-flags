@@ -78,7 +78,10 @@
 
     <footer class="quiz-dock">
       <div class="answer">
-        <label class="answer-instruction" for="quiz-answer">Ta réponse</label>
+        <div class="answer-meta">
+          <label class="answer-instruction" for="quiz-answer">Ta réponse</label>
+          <span class="answer-hint">Entrée pour valider</span>
+        </div>
         <form [formGroup]="form">
           <input
             id="quiz-answer"
@@ -89,7 +92,6 @@
             (keydown)="handleKeydown($event)"
           />
         </form>
-        <span class="answer-hint">Entrée pour valider</span>
       </div>
       <div class="skip-button">
         <app-button
