@@ -344,16 +344,16 @@ app-quiz {
   .quiz-timer {
     display: grid;
     place-items: center;
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 9rem;
+    height: 9rem;
     border: 1px solid rgba(98, 216, 231, 0.56);
     border-radius: 50%;
     background: radial-gradient(circle, rgba(98, 216, 231, 0.16), rgba(98, 216, 231, 0.025) 66%, transparent 67%);
     box-shadow: 0 0 2rem rgba(98, 216, 231, 0.12), inset 0 0 1.25rem rgba(98, 216, 231, 0.1);
 
-    &__label { margin-top: 0.85rem; color: var(--atlas-muted); font-size: 0.64rem; font-weight: 760; letter-spacing: 0.12em; text-transform: uppercase; }
-    strong { margin-block: -0.6rem; color: var(--atlas-mist); font-size: 2.85rem; font-weight: 800; letter-spacing: -0.08em; }
-    &__unit { margin-bottom: 0.75rem; color: var(--atlas-cyan); font-size: 0.64rem; }
+    &__label { margin-top: 1rem; color: var(--atlas-muted); font-size: 0.68rem; font-weight: 760; letter-spacing: 0.12em; text-transform: uppercase; }
+    strong { margin-block: -0.7rem; color: var(--atlas-mist); font-size: 3.45rem; font-weight: 800; letter-spacing: -0.1em; }
+    &__unit { margin-bottom: 0.9rem; color: var(--atlas-cyan); font-size: 0.68rem; }
   }
 
   .quiz-stage {
@@ -477,8 +477,8 @@ app-quiz {
     padding: 0.85rem;
     .quiz-shell { min-height: calc(100dvh - 1.7rem); }
     .quiz-hud { grid-template-columns: 1fr auto 1fr; }
-    .quiz-timer { width: 6rem; height: 6rem; }
-    .quiz-timer strong { font-size: 2.25rem; }
+    .quiz-timer { width: 7.25rem; height: 7.25rem; }
+    .quiz-timer strong { font-size: 2.8rem; }
     .quiz-stat { min-width: 0; padding: 0.45rem 0.55rem; }
     .quiz-stat strong { font-size: 1.15rem; }
     .quiz-stage { padding-top: 1.2rem; }
