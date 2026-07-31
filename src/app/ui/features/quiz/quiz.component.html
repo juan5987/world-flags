@@ -40,55 +40,66 @@
     </div>
   </section>
 } @else {
-  <header>
-    <div class="best-score">
-      <span class="best-score__label">Meilleur score</span>
-      <span>{{ bestScore() }}</span>
-    </div>
-    <div class="timer">
-      <span class="timer__label">Temps</span>
-      <span>{{ timer() }}</span>
-    </div>
-    <div class="score">
-      <span class="score__label">Score actuel</span>
-      <span>{{ actualScore() }}</span>
-    </div>
-  </header>
-  <main>
-    <div class="question">
-      <img [src]="flag().flag" class="flag" />
-    </div>
-    @if(showResult()) { @if(answerResult()) {
-    <span class="answer-result green">Correct</span>
-    } @else {
-    <span class="answer-result red">{{ getLastAnswer() }}</span>
-    } }
-  </main>
-  <footer>
-    <div class="answer">
-      <span class="answer-instruction"
-        >Appuyer sur la touche Entrée pour valider</span
-      >
-      <form [formGroup]="form">
-        <input
-          type="text"
-          placeholder="saisissez votre réponse"
-          class="answer-input"
-          formControlName="userInput"
-          (keydown)="handleKeydown($event)"
-        />
-      </form>
-    </div>
-    <div class="skip-button">
-      <app-button
-        buttonText="Passer"
-        fontSize="1.5rem"
-        mainColor="white"
-        secondaryColor="var(--primary-color)"
-        (click)="skipFlag()"
-        [style.cursor]="isSkipDisabled() ? 'not-allowed' : 'pointer'"
-        [style.opacity]="isSkipDisabled() ? '0.5' : '1'"
-      ></app-button>
-    </div>
-  </footer>
+  <div class="quiz-shell">
+    <header class="quiz-hud">
+      <div class="quiz-stat quiz-stat--record">
+        <span class="quiz-stat__label">Record</span>
+        <strong>{{ bestScore() }}</strong>
+      </div>
+      <div class="quiz-timer" aria-label="Temps restant">
+        <span class="quiz-timer__label">Temps</span>
+        <strong>{{ timer() }}</strong>
+        <span class="quiz-timer__unit">secondes</span>
+      </div>
+      <div class="quiz-stat quiz-stat--score">
+        <span class="quiz-stat__label">Score</span>
+        <strong>{{ actualScore() }}</strong>
+      </div>
+    </header>
+
+    <main class="quiz-stage">
+      <p class="quiz-stage__eyebrow">IDENTIFIE LE DRAPEAU</p>
+      <div class="quiz-stage__radar" aria-hidden="true"><span></span></div>
+      <div class="quiz-flag-frame">
+        <div class="quiz-flag-frame__corner quiz-flag-frame__corner--top-left"></div>
+        <div class="quiz-flag-frame__corner quiz-flag-frame__corner--top-right"></div>
+        <div class="quiz-flag-frame__corner quiz-flag-frame__corner--bottom-left"></div>
+        <div class="quiz-flag-frame__corner quiz-flag-frame__corner--bottom-right"></div>
+        <img [src]="flag().flag" class="flag" alt="Drapeau à identifier" />
+      </div>
+      @if (showResult()) {
+        @if (answerResult()) {
+          <span class="answer-result green" role="status">Correct !</span>
+        } @else {
+          <span class="answer-result red" role="status">{{ getLastAnswer() }}</span>
+        }
+      }
+    </main>
+
+    <footer class="quiz-dock">
+      <div class="answer">
+        <label class="answer-instruction" for="quiz-answer">Ta réponse</label>
+        <form [formGroup]="form">
+          <input
+            id="quiz-answer"
+            type="text"
+            placeholder="Saisis le nom du pays"
+            class="answer-input"
+            formControlName="userInput"
+            (keydown)="handleKeydown($event)"
+          />
+        </form>
+        <span class="answer-hint">Entrée pour valider</span>
+      </div>
+      <div class="skip-button">
+        <app-button
+          buttonText="Passer"
+          [buttonStyle]="'main-menu'"
+          (click)="skipFlag()"
+          [style.cursor]="isSkipDisabled() ? 'not-allowed' : 'pointer'"
+          [style.opacity]="isSkipDisabled() ? '0.5' : '1'"
+        ></app-button>
+      </div>
+    </footer>
+  </div>
 }
