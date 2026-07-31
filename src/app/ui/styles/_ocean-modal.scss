@@ -1,0 +1,220 @@
+// Style partagé "verre océan" utilisé par les modales rules / login / sign-up.
+
+.ocean-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: radial-gradient(
+    120% 120% at 50% 0%,
+    rgba(12, 58, 110, 0.55),
+    rgba(4, 18, 36, 0.75)
+  );
+
+  @supports (backdrop-filter: blur(4px)) {
+    backdrop-filter: blur(6px) saturate(120%);
+  }
+}
+
+.ocean-modal-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 440px;
+  color: var(--text-color);
+  background: linear-gradient(
+    165deg,
+    rgba(14, 52, 94, 0.85) 0%,
+    rgba(7, 28, 54, 0.94) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-top-color: rgba(255, 255, 255, 0.32);
+  border-radius: 1.5rem;
+  box-shadow:
+    0 24px 60px rgba(3, 12, 24, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(160%);
+  animation: ocean-modal-card-in 220ms ease-out both;
+
+  &--wide {
+    max-width: 600px;
+  }
+}
+
+.ocean-modal-header {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 3.5rem;
+
+  h1 {
+    margin: 0;
+    font-family: var(--font-family);
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--primary-color);
+  }
+}
+
+.ocean-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  transition:
+    opacity 180ms ease,
+    background-color 180ms ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.ocean-modal-wave {
+  display: block;
+  width: 100%;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.ocean-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  label {
+    font-family: var(--font-family);
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: rgba(238, 238, 238, 0.75);
+  }
+}
+
+.ocean-field-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0.75rem;
+  padding: 0 0.75rem;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+
+  &:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(240, 160, 11, 0.2);
+  }
+
+  svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+    color: rgba(238, 238, 238, 0.55);
+  }
+
+  input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0.65rem 0.6rem;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    font-size: 1rem;
+
+    &::placeholder {
+      color: rgba(238, 238, 238, 0.4);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.ocean-toggle-visibility {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: rgba(238, 238, 238, 0.55);
+  cursor: pointer;
+  border-radius: 0.5rem;
+
+  svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  &:hover {
+    color: var(--text-color);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+}
+
+@keyframes ocean-modal-card-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .ocean-modal-header {
+    padding: 1rem 3rem;
+
+    h1 {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ocean-modal-card {
+    animation: none;
+  }
+}
