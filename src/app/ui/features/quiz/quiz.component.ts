@@ -16,7 +16,7 @@ import { GoogleAuthService } from '../../../data/services/google-auth.service';
   selector: 'app-quiz',
   imports: [ReactiveFormsModule, ButtonComponent],
   templateUrl: './quiz.component.html',
-  styleUrl: './quiz.component.scss',
+  styleUrl: './quiz.component.local.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: { '(window:blur)': 'onWindowBlur()' },

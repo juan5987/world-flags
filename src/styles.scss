@@ -3,6 +3,7 @@
 @use "./app/ui/styles/ocean-modal.scss" as *;
 @use "./app/ui/features/login/login.component.scss" as *;
 @use "./app/ui/features/homepage/homepage.component.scss" as *;
+@use "./app/ui/features/quiz/quiz.component.scss" as *;
 html,
 body {
   height: 100%;

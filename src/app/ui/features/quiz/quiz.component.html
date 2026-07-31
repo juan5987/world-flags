@@ -1,36 +1,44 @@
 <button class="quit-button" (click)="quitGame()">Quitter</button>
 
 @if (isGameOver()) {
-  <div class="game-over">
-    <h1 class="game-over__title">Partie terminée</h1>
-    <div class="game-over__score">
-      <span class="game-over__score-label">Votre score</span>
-      <span class="game-over__score-value">{{ actualScore() }}</span>
+  <section class="game-over" aria-labelledby="game-over-title">
+    <div class="game-over__mark" aria-hidden="true">
+      <svg viewBox="0 0 48 48" fill="none" focusable="false">
+        <circle cx="24" cy="24" r="17" />
+        <path d="m29.5 18.5-3.1 7.9-7.9 3.1 3.1-7.9 7.9-3.1Z" />
+        <path d="M24 4v5M24 39v5M4 24h5M39 24h5" />
+      </svg>
     </div>
-    @if (scoreAccepted() === false) {
-      <span class="game-over__rejected">Score non validé par le serveur</span>
-    } @else if (actualScore() > bestScore()) {
-      <span class="game-over__new-best">Nouveau meilleur score !</span>
-    } @else {
-      <span class="game-over__best">Meilleur score : {{ bestScore() }}</span>
-    }
+    <p class="game-over__eyebrow">EXPÉDITION TERMINÉE</p>
+    <h1 id="game-over-title" class="game-over__title">Destination atteinte.</h1>
+    <p class="game-over__intro">Voici le score de ton voyage autour du monde.</p>
+    <div class="game-over__score">
+      <span class="game-over__score-label">SCORE FINAL</span>
+      <span class="game-over__score-value">{{ actualScore() }}</span>
+      <span class="game-over__score-unit">points</span>
+    </div>
+    <div class="game-over__status" role="status">
+      @if (scoreAccepted() === false) {
+        <span class="game-over__rejected">Score non validé par le serveur</span>
+      } @else if (actualScore() > bestScore()) {
+        <span class="game-over__new-best">Nouveau meilleur score !</span>
+      } @else {
+        <span class="game-over__best">Meilleur score · {{ bestScore() }} points</span>
+      }
+    </div>
     <div class="game-over__buttons">
       <app-button
         buttonText="Rejouer"
-        fontSize="1.5rem"
-        mainColor="white"
-        secondaryColor="var(--primary-color)"
+        [buttonStyle]="'main-menu'"
         (click)="replay()"
       ></app-button>
       <app-button
         buttonText="Accueil"
-        fontSize="1.5rem"
-        mainColor="white"
-        secondaryColor="var(--color-dark)"
+        [buttonStyle]="'main-menu'"
         (click)="goHome()"
       ></app-button>
     </div>
-  </div>
+  </section>
 } @else {
   <header>
     <div class="best-score">
