@@ -1,57 +1,194 @@
-<div class="wrapper">
-  <header>
-    <h1>Règles</h1>
-  </header>
+<div class="backdrop">
+  <div class="card" role="dialog" aria-labelledby="rules-title" aria-modal="true">
+    <header class="card-header">
+      <h1 id="rules-title">Règles du jeu</h1>
 
-  <main>
-    <h2>Objectif</h2>
+      <button
+        type="button"
+        class="close-button"
+        aria-label="Fermer"
+        (click)="navigateToHome()"
+      >
+        <svg
+          class="close-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </header>
 
-    <p>
-      Le but du jeu est de deviner le plus de pays en fonction de leur drapeau
-      en 60 secondes.
-    </p>
+    <svg class="wave-divider" viewBox="0 0 600 24" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path
+        d="M0 12 C 75 24, 150 0, 225 12 C 300 24, 375 0, 450 12 C 525 24, 570 12, 600 12 L 600 24 L 0 24 Z"
+        fill="var(--primary-color)"
+        opacity="0.22"
+      />
+    </svg>
 
-    <h2>Points</h2>
+    <main class="card-body">
+      <section class="row">
+        <span class="badge" aria-hidden="true">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            focusable="false"
+          >
+            <circle cx="12" cy="12" r="9" />
+            <circle cx="12" cy="12" r="5" />
+            <circle cx="12" cy="12" r="1" />
+          </svg>
+        </span>
+        <div class="row-content">
+          <h2>Objectif</h2>
+          <p>
+            Le but du jeu est de deviner le plus de pays en fonction de leur
+            drapeau en 60 secondes.
+          </p>
+        </div>
+      </section>
 
-    <p>
-      Pour chaque réponse correcte, vous gagnez 3 points. Pour chaque réponse
-      incorrecte ou passée, vous perdez 1 point. Vous ne pouvez pas descendre en
-      dessous de 0 point.
-    </p>
+      <hr class="divider" />
 
-    <h2>Passer une question</h2>
+      <section class="row">
+        <span class="badge" aria-hidden="true">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            focusable="false"
+          >
+            <polygon
+              points="12 2 15 9 22 9.5 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.5 9 9"
+            />
+          </svg>
+        </span>
+        <div class="row-content">
+          <h2>Points</h2>
+          <p>
+            Pour chaque réponse correcte, vous gagnez 3 points. Pour chaque
+            réponse incorrecte ou passée, vous perdez 1 point. Vous ne pouvez pas
+            descendre en dessous de 0 point.
+          </p>
+        </div>
+      </section>
 
-    <p>
-      Vous pouvez passer une question en appuyant sur le bouton "Passer" mais un
-      délai de 1 seconde sera appliqué avant de pouvoir passer à nouveau.
-    </p>
+      <hr class="divider" />
 
-    <h2>Orthographe</h2>
+      <section class="row">
+        <span class="badge" aria-hidden="true">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            focusable="false"
+          >
+            <polygon points="4 4 12 12 4 20 4 4" />
+            <polygon points="13 4 21 12 13 20 13 4" />
+          </svg>
+        </span>
+        <div class="row-content">
+          <h2>Passer une question</h2>
+          <p>
+            Vous pouvez passer une question en appuyant sur le bouton "Passer"
+            mais un délai de 1 seconde sera appliqué avant de pouvoir passer à
+            nouveau.
+          </p>
+        </div>
+      </section>
 
-    <p>
-      Les drapeaux sont orthographiés en français. Une tolérance est appliquée
-      sur les accents, les espaces,les majuscules et les tirets. Ainsi, le
-      drapeau des États-Unis peut être orthographié "Etats-Unis", "états-unis",
-      "Etats unis" etc. Par contre à la moindre erreur de lettre, la réponse est
-      considérée comme incorrecte. Par exemple "Etat-Unis" sera considéré comme
-      incorrecte car il manque un "s".
-    </p>
+      <hr class="divider" />
 
-    <h2>Classement</h2>
+      <section class="row">
+        <span class="badge" aria-hidden="true">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            focusable="false"
+          >
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+          </svg>
+        </span>
+        <div class="row-content">
+          <h2>Orthographe</h2>
+          <p>
+            Les drapeaux sont orthographiés en français. Une tolérance est
+            appliquée sur les accents, les espaces,les majuscules et les tirets.
+            Ainsi, le drapeau des États-Unis peut être orthographié "Etats-Unis",
+            "états-unis", "Etats unis" etc. Par contre à la moindre erreur de
+            lettre, la réponse est considérée comme incorrecte. Par exemple
+            "Etat-Unis" sera considéré comme incorrecte car il manque un "s".
+          </p>
+        </div>
+      </section>
 
-    <p>
-      Si vous n'êtes pas connecté, votre score ne sera pas enregistré. Si vous
-      êtes connecté, votre score sera automatiquement enregistré à la fin d'une
-      partie à chaque fois que vous battez votre record personnel. Vous pourrez
-      voir le classement des 10 meilleurs joueurs en cliquant sur le bouton
-      "classement" dans la page d'accueil.
-    </p>
-  </main>
-  <footer>
-    <app-button
-      buttonText="retour"
-      [buttonStyle]="'form-cancel'"
-      (click)="navigateToHome()"
-    ></app-button>
-  </footer>
+      <hr class="divider" />
+
+      <section class="row">
+        <span class="badge" aria-hidden="true">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            focusable="false"
+          >
+            <path d="M8 21h8" />
+            <path d="M12 17v4" />
+            <path d="M7 4h10v5a5 5 0 0 1-10 0Z" />
+            <path d="M7 5H4v2a3 3 0 0 0 3 3" />
+            <path d="M17 5h3v2a3 3 0 0 1-3 3" />
+          </svg>
+        </span>
+        <div class="row-content">
+          <h2>Classement</h2>
+          <p>
+            Si vous n'êtes pas connecté, votre score ne sera pas enregistré. Si
+            vous êtes connecté, votre score sera automatiquement enregistré à la
+            fin d'une partie à chaque fois que vous battez votre record
+            personnel. Vous pourrez voir le classement des 10 meilleurs joueurs
+            en cliquant sur le bouton "classement" dans la page d'accueil.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="card-footer">
+      <app-button
+        buttonText="retour"
+        [buttonStyle]="'form-cancel'"
+        (click)="navigateToHome()"
+      ></app-button>
+    </footer>
+  </div>
 </div>
