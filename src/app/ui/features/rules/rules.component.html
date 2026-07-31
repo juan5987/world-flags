@@ -1,16 +1,15 @@
-<div class="backdrop">
-  <div class="card" role="dialog" aria-labelledby="rules-title" aria-modal="true">
-    <header class="card-header">
+<div class="ocean-modal-backdrop">
+  <div class="ocean-modal-card ocean-modal-card--wide" role="dialog" aria-labelledby="rules-title" aria-modal="true">
+    <header class="ocean-modal-header">
       <h1 id="rules-title">Règles du jeu</h1>
 
       <button
         type="button"
-        class="close-button"
+        class="ocean-modal-close"
         aria-label="Fermer"
         (click)="navigateToHome()"
       >
         <svg
-          class="close-icon"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -26,7 +25,7 @@
       </button>
     </header>
 
-    <svg class="wave-divider" viewBox="0 0 600 24" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <svg class="ocean-modal-wave" viewBox="0 0 600 24" preserveAspectRatio="none" aria-hidden="true" focusable="false">
       <path
         d="M0 12 C 75 24, 150 0, 225 12 C 300 24, 375 0, 450 12 C 525 24, 570 12, 600 12 L 600 24 L 0 24 Z"
         fill="var(--primary-color)"

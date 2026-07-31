@@ -1,106 +1,7 @@
 app-rules {
-  .backdrop {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    background: radial-gradient(
-      120% 120% at 50% 0%,
-      rgba(12, 58, 110, 0.55),
-      rgba(4, 18, 36, 0.75)
-    );
-
-    @supports (backdrop-filter: blur(6px)) {
-      backdrop-filter: blur(6px) saturate(120%);
-    }
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 600px;
+  .ocean-modal-card {
     max-height: 85vh;
-    background: linear-gradient(
-      165deg,
-      rgba(14, 52, 94, 0.85) 0%,
-      rgba(7, 28, 54, 0.94) 100%
-    );
-    color: var(--text-color);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-top-color: rgba(255, 255, 255, 0.32);
-    border-radius: 1.25rem;
     overflow: hidden;
-    box-shadow:
-      0 24px 60px rgba(3, 12, 24, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px) saturate(160%);
-    animation: rules-card-in 220ms ease-out both;
-  }
-
-  .card-header {
-    position: relative;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.25rem 3.5rem;
-
-    h1 {
-      margin: 0;
-      font-family: var(--font-family);
-      font-size: 2rem;
-      //font-weight: 600;
-      text-align: center;
-      color: var(--primary-color);
-    }
-  }
-
-  .close-button {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    border: none;
-    border-radius: 0.75rem;
-    background-color: transparent;
-    color: var(--text-color);
-    cursor: pointer;
-    transition:
-      opacity 180ms ease,
-      background-color 180ms ease;
-
-    &:hover {
-      background-color: rgba(238, 238, 238, 0.12);
-      opacity: 0.85;
-    }
-
-    &:focus-visible {
-      outline: 3px solid var(--primary-color);
-      outline-offset: 2px;
-    }
-
-    .close-icon {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-  }
-
-  .wave-divider {
-    display: block;
-    width: 100%;
-    height: 14px;
-    flex-shrink: 0;
   }
 
   .card-body {
@@ -141,7 +42,6 @@ app-rules {
       margin: 0 0 0.5rem;
       font-family: var(--font-family);
       font-size: 1.25rem;
-      //font-weight: 600;
       text-align: left;
       color: var(--primary-color);
     }
@@ -176,21 +76,9 @@ app-rules {
   }
 }
 
-@keyframes rules-card-in {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 @media (max-width: 768px) {
   app-rules {
-    .card-header {
+    .ocean-modal-header {
       padding: 1rem 3.25rem;
 
       h1 {
@@ -224,22 +112,14 @@ app-rules {
 
 @media (max-width: 480px) {
   app-rules {
-    .backdrop {
+    .ocean-modal-backdrop {
       padding: 0.5rem;
     }
 
-    .card {
+    .ocean-modal-card {
       max-height: 92vh;
       border-width: 1px;
       border-radius: 1rem;
-    }
-
-    .card-header {
-      padding: 0.875rem 3rem;
-
-      h1 {
-        font-size: 1.5rem;
-      }
     }
 
     .card-body {
@@ -267,11 +147,5 @@ app-rules {
     .divider {
       margin: 1rem 0;
     }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  app-rules .card {
-    animation: none;
   }
 }
