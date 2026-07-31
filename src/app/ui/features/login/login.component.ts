@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
+  signal,
   ViewEncapsulation,
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,26 +21,13 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
 export class LoginComponent {
   private authService = inject(GoogleAuthService);
 
-  protected connectionButtonStyles = {
-    'background-color': 'var(--color-dark)',
-    color: 'var(--color-light)',
-    'font-size': '1.25rem',
-    width: '140px',
-    'margin-bottom': '0',
-    border: 'none',
-    'border-radius': '.75rem',
-  };
-
-  protected cancelButtonStyles = {
-    'background-color': 'var(--primary-color)',
-    color: 'var(--color-light)',
-    'font-size': '1.25rem',
-    width: '140px',
-    'margin-bottom': '0',
-    'border-radius': '.75rem',
-  };
+  protected showPassword = signal(false);
 
   protected signInWithGoogle() {
     this.authService.login();
+  }
+
+  protected togglePasswordVisibility() {
+    this.showPassword.set(!this.showPassword());
   }
 }
