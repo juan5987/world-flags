@@ -461,8 +461,10 @@ app-quiz {
   .quiz-dock .answer .answer-input { width: 100%; height: auto; padding: 0.85rem 1rem; color: var(--atlas-mist); background: rgba(7, 26, 51, 0.63); border: 1px solid rgba(180, 228, 240, 0.3); border-radius: 0.8rem; font-family: system-ui, sans-serif; font-size: 1rem; text-align: left; text-transform: none; transition: border-color 180ms ease, box-shadow 180ms ease; }
   .quiz-dock .answer .answer-input:focus { border-color: var(--atlas-cyan); outline: none; box-shadow: 0 0 0 3px rgba(98, 216, 231, 0.16); }
   .quiz-dock .answer .answer-input::placeholder { color: rgba(175, 193, 212, 0.6); }
-  .skip-button app-button .button { width: 100%; min-width: 0; margin: 0; padding: 0.85rem 1rem; color: var(--atlas-cyan); background: transparent; border: 1px solid rgba(98, 216, 231, 0.42); border-radius: 0.8rem; font-family: system-ui, sans-serif; font-size: 0.93rem; font-weight: 720; }
-  .skip-button app-button .button:hover { color: var(--atlas-mist); background: rgba(98, 216, 231, 0.12); }
+  .quiz-skip-button { width: 100%; min-width: 0; margin: 0; padding: 0.85rem 1rem; color: var(--atlas-cyan); background: transparent; border: 1px solid rgba(98, 216, 231, 0.42); border-radius: 0.8rem; cursor: pointer; font-family: system-ui, sans-serif; font-size: 0.93rem; font-weight: 720; }
+  .quiz-skip-button:hover:not(:disabled) { color: var(--atlas-mist); background: rgba(98, 216, 231, 0.12); }
+  .quiz-skip-button:disabled { cursor: not-allowed; opacity: 0.5; }
+  .quiz-skip-button:focus-visible { outline: 3px solid var(--atlas-cyan); outline-offset: 3px; }
 }
 
 @keyframes radar-pulse { 0%, 100% { transform: scale(0.97); opacity: 0.42; } 50% { transform: scale(1.02); opacity: 0.9; } }
@@ -493,7 +495,7 @@ app-quiz {
     .quiz-dock { grid-template-columns: minmax(0, 1fr) 6.5rem; }
     .answer-meta { gap: 0.5rem; }
     .answer-hint { font-size: 0.65rem; }
-    .skip-button app-button .button { font-size: 0.82rem; }
+    .quiz-skip-button { font-size: 0.82rem; }
   }
 }
 
