@@ -64,7 +64,7 @@ app-homepage {
   .homepage-eyebrow { margin: 0 0 0.8rem; color: var(--atlas-cyan); font-size: 0.67rem; font-weight: 780; letter-spacing: 0.16em; }
   #homepage__title { display: flex; flex-direction: column; margin: 0; color: var(--atlas-mist); font-size: clamp(4rem, 9vw, 7.5rem); font-weight: 830; letter-spacing: -0.085em; line-height: 0.72; }
   #homepage__title span:last-child { margin-left: 0.23em; color: var(--atlas-gold); }
-  .homepage-lead { max-width: 24rem; margin: 1.65rem auto 0; color: var(--atlas-muted); font-size: 1rem; line-height: 1.6; }
+  .homepage-lead { max-width: 24rem; margin: clamp(2rem, 3vw, 2.6rem) auto 0; color: var(--atlas-muted); font-size: 1rem; line-height: 1.6; }
 
   #homepage__buttons { display: grid; gap: 0.75rem; width: min(100%, 17rem); justify-self: center; }
   #homepage__buttons app-button .button { width: 100%; max-width: none; margin: 0; border-radius: 0.85rem; font-family: system-ui, sans-serif; font-size: 0.96rem; font-weight: 720; transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease; }
@@ -104,7 +104,7 @@ app-homepage {
     .homepage-topbar { align-items: flex-start; }
     .homepage-guest { display: none; }
     #homepage__title { font-size: clamp(3.9rem, 21vw, 5.4rem); }
-    .homepage-lead { margin-top: 1.35rem; font-size: 0.92rem; }
+    .homepage-lead { margin-top: 1.8rem; font-size: 0.92rem; }
     .homepage-compass { width: 9.5rem; }
     .homepage-compass__coordinate--east { right: -1.55rem; }
     .homepage-secondary-actions { grid-template-columns: 1fr; }
