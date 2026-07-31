@@ -14,7 +14,7 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
   selector: 'app-login',
   imports: [FormsModule, ReactiveFormsModule, ButtonComponent, RouterModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrl: './login.component.local.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })

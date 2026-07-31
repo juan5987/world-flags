@@ -1,80 +1,49 @@
 app-animated-background {
   .wrapper {
-    margin: auto;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    overflow: auto;
-    background: linear-gradient(
-      315deg,
-      rgb(9, 75, 150) 38%,
-      rgb(65, 123, 179) 68%,
-    );
-    animation: gradient 10s ease infinite;
-    background-size: 400% 400%;
-    background-attachment: fixed;
-    height: 100vh;
+    isolation: isolate;
+    overflow: hidden;
     width: 100vw;
+    height: 100vh;
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% -20%, rgba(61, 159, 203, 0.34), transparent 42%),
+      linear-gradient(145deg, #071a33 8%, #0c2c51 54%, #071a33 100%);
   }
 
-  @keyframes gradient {
-    0% {
-      background-position: 0% 0%;
-    }
-    50% {
-      background-position: 100% 100%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
+  .atlas-grid {
+    position: absolute;
+    inset: -18%;
+    opacity: 0.34;
+    background-image:
+      linear-gradient(rgba(154, 229, 241, 0.17) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(154, 229, 241, 0.17) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
+    transform: perspective(680px) rotateX(58deg) scale(1.4) translateY(15%);
+    transform-origin: center bottom;
   }
 
-  .wave {
-    background: rgb(255 255 255 / 25%);
-    border-radius: 1000% 1000% 0 0;
-    position: fixed;
-    width: 200%;
-    height: 12em;
-    animation: wave 10s -3s linear infinite;
-    transform: translate3d(0, 0, 0);
-    opacity: 0.8;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
+  .atlas-orb {
+    position: absolute;
+    width: min(46vw, 38rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    filter: blur(18px);
+    opacity: 0.35;
+    animation: atlas-drift 18s ease-in-out infinite alternate;
   }
 
-  .wave:nth-of-type(2) {
-    bottom: -1.25em;
-    animation: wave 18s linear reverse infinite;
-    opacity: 0.8;
+  .atlas-orb--cyan { top: -18%; left: -10%; background: #36c6df; }
+  .atlas-orb--gold { right: -12%; bottom: -24%; width: min(36vw, 28rem); background: #f5b72f; animation-delay: -8s; }
+  .atlas-orb--blue { top: 18%; right: 14%; width: min(24vw, 19rem); background: #2e6ca5; animation-delay: -13s; }
+
+  @keyframes atlas-drift {
+    from { transform: translate3d(-3%, -2%, 0) scale(0.94); }
+    to { transform: translate3d(7%, 6%, 0) scale(1.08); }
   }
 
-  .wave:nth-of-type(3) {
-    bottom: -2.5em;
-    animation: wave 20s -1s reverse infinite;
-    opacity: 0.9;
-  }
-
-  @keyframes wave {
-    2% {
-      transform: translateX(1);
-    }
-
-    25% {
-      transform: translateX(-25%);
-    }
-
-    50% {
-      transform: translateX(-50%);
-    }
-
-    75% {
-      transform: translateX(-25%);
-    }
-
-    100% {
-      transform: translateX(1);
-    }
+  @media (prefers-reduced-motion: reduce) {
+    .atlas-orb { animation: none; }
   }
 }
