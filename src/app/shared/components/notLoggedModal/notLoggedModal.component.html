@@ -1,22 +1,35 @@
 <div class="not-logged-modal-wrapper">
   <div
     class="not-logged-modal-wrapper__content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="not-logged-title"
+    aria-describedby="not-logged-description"
     (click)="$event.stopPropagation()"
   >
-    <h2 class="not-logged-modal-wrapper__title">Vous n'êtes pas connecté</h2>
-    <p class="not-logged-modal-wrapper__text">
-      Votre score ne sera pas sauvegardé et ne figurera pas dans le classement
+    <div class="not-logged-modal-wrapper__mark" aria-hidden="true">
+      <svg viewBox="0 0 48 48" fill="none" focusable="false">
+        <circle cx="24" cy="24" r="17" />
+        <path d="m29.5 18.5-3.1 7.9-7.9 3.1 3.1-7.9 7.9-3.1Z" />
+        <path d="M24 4v5M24 39v5M4 24h5M39 24h5" />
+      </svg>
+    </div>
+    <p class="not-logged-modal-wrapper__eyebrow">WORLD FLAGS · MODE INVITÉ</p>
+    <h2 id="not-logged-title" class="not-logged-modal-wrapper__title">Prêt pour le départ ?</h2>
+    <p id="not-logged-description" class="not-logged-modal-wrapper__text">
+      Sans compte, ton score ne sera ni sauvegardé ni affiché dans le classement.
     </p>
+    <div class="not-logged-modal-wrapper__route" aria-hidden="true"><span></span><i></i><span></span></div>
     <div class="not-logged-modal-wrapper__buttons">
       <app-button
         class="not-logged-modal-wrapper__buttons__play"
-        buttonText="Ignorer"
+        buttonText="Continuer sans compte"
         [buttonStyle]="'form-light'"
         (click)="navigateToPlay()"
       ></app-button>
       <app-button
         class="not-logged-modal-wrapper__buttons__login"
-        buttonText="Connexion"
+        buttonText="Me connecter"
         [buttonStyle]="'form-cancel'"
         (click)="navigateToLogin()"
       ></app-button>
