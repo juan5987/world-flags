@@ -65,6 +65,7 @@ export class QuizComponent {
   }
 
   protected replay(): void {
+    this.form.reset();
     this.#playService.initializeGame();
   }
 
