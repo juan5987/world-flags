@@ -9,12 +9,11 @@ import {
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PlayService } from '../../../data/services/play.service';
-import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { GoogleAuthService } from '../../../data/services/google-auth.service';
 
 @Component({
   selector: 'app-quiz',
-  imports: [ReactiveFormsModule, ButtonComponent],
+  imports: [ReactiveFormsModule],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.local.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

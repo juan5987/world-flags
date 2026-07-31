@@ -27,16 +27,8 @@
       }
     </div>
     <div class="game-over__buttons">
-      <app-button
-        buttonText="Rejouer"
-        [buttonStyle]="'main-menu'"
-        (click)="replay()"
-      ></app-button>
-      <app-button
-        buttonText="Accueil"
-        [buttonStyle]="'main-menu'"
-        (click)="goHome()"
-      ></app-button>
+      <button type="button" class="game-over__action game-over__action--replay" (click)="replay()">Rejouer</button>
+      <button type="button" class="game-over__action game-over__action--home" (click)="goHome()">Accueil</button>
     </div>
   </section>
 } @else {

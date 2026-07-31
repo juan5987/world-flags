@@ -257,9 +257,10 @@ app-quiz {
     &__best { text-shadow: none; }
 
     &__buttons { display: grid; grid-template-columns: 1fr 1fr; width: 100%; gap: 0.65rem; margin: 0; }
-    &__buttons app-button .button { width: 100%; max-width: none; margin: 0; border-radius: 0.8rem; font-family: system-ui, sans-serif; font-size: 0.93rem; font-weight: 720; }
-    &__buttons app-button:first-child .button { color: #10263f; background: linear-gradient(135deg, #f5b72f, #e99b15); }
-    &__buttons app-button:last-child .button { color: var(--atlas-cyan); background: transparent; border: 1px solid rgba(98, 216, 231, 0.42); }
+    &__action { width: 100%; max-width: none; margin: 0; padding: 0.78rem 1rem; border: 0; border-radius: 0.8rem; cursor: pointer; font-family: system-ui, sans-serif; font-size: 0.93rem; font-weight: 720; }
+    &__action:focus-visible { outline: 3px solid var(--atlas-cyan); outline-offset: 3px; }
+    &__action--replay { color: #10263f; background: linear-gradient(135deg, #f5b72f, #e99b15); }
+    &__action--home { color: var(--atlas-cyan); background: transparent; border: 1px solid rgba(98, 216, 231, 0.42); }
   }
 }
 
