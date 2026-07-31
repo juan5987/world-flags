@@ -97,36 +97,38 @@ export class GoogleAuthService {
     const config = getAuthConfig();
     this.#oAuthService.configure(config);
 
-    const idTokenFromUrl = this.extractIdTokenFromUrl();
-    if (idTokenFromUrl) {
-      this.#authGateway
-        .exchangeGoogleIdToken(idTokenFromUrl)
-        .pipe(takeUntilDestroyed(this.#destroyRef))
-        .subscribe({
-          next: (response: AuthResponse) => {
-            this.#authTokenStore.set(response.accessToken);
-            this.user.set(response.user);
-            this.showUsernameModal.set(!response.user.username);
-            window.history.replaceState(null, '', window.location.pathname);
-          },
-          error: (error) => {
-            console.error('GoogleAuthService - Error exchanging id_token:', error);
-            this.showUsernameModal.set(true);
-          },
-        });
-    } else {
-      this.#oAuthService
-        .loadDiscoveryDocumentAndTryLogin()
-        .then(() => {
-          if (this.#oAuthService.hasValidIdToken()) {
-            this.initAfterRedirect();
-            this.#oAuthService.setupAutomaticSilentRefresh();
-          }
-        })
-        .catch((err) => {
-          console.error('GoogleAuthService - loadDiscoveryDocumentAndTryLogin failed:', err);
-        });
-    }
+    this.#oAuthService
+      .loadDiscoveryDocument()
+      .then(() => {
+        const idTokenFromUrl = this.extractIdTokenFromUrl();
+        if (idTokenFromUrl) {
+          this.#authGateway
+            .exchangeGoogleIdToken(idTokenFromUrl)
+            .pipe(takeUntilDestroyed(this.#destroyRef))
+            .subscribe({
+              next: (response: AuthResponse) => {
+                this.#authTokenStore.set(response.accessToken);
+                this.user.set(response.user);
+                this.showUsernameModal.set(!response.user.username);
+                window.history.replaceState(null, '', window.location.pathname);
+              },
+              error: (error) => {
+                console.error('GoogleAuthService - Error exchanging id_token:', error);
+                this.showUsernameModal.set(true);
+              },
+            });
+        } else {
+          this.#oAuthService.tryLogin().then(() => {
+            if (this.#oAuthService.hasValidIdToken()) {
+              this.initAfterRedirect();
+              this.#oAuthService.setupAutomaticSilentRefresh();
+            }
+          });
+        }
+      })
+      .catch((err) => {
+        console.error('GoogleAuthService - loadDiscoveryDocument failed:', err);
+      });
   }
 
   private extractIdTokenFromUrl(): string | null {
