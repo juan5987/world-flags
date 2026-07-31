@@ -71,8 +71,9 @@ app-homepage {
   #homepage__buttons app-button .button:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.26); }
   #homepage__buttons app-button .button:focus-visible { outline: 3px solid var(--atlas-cyan); outline-offset: 3px; }
   #homepage__buttons__play .button { padding-block: 1rem; color: #10263f; background: linear-gradient(135deg, #f5b72f, #e99b15); box-shadow: 0 0.8rem 2rem rgba(245, 183, 47, 0.22); }
-  .homepage-secondary-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; }
-  .homepage-secondary-actions app-button .button { padding: 0.67rem 0.35rem; color: var(--atlas-muted); background: rgba(7, 26, 51, 0.36); border: 1px solid rgba(180, 228, 240, 0.22); font-size: 0.68rem; }
+  .homepage-secondary-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .homepage-secondary-actions app-button:last-child { grid-column: 1 / -1; }
+  .homepage-secondary-actions app-button .button { padding: 0.72rem 0.5rem; color: var(--atlas-muted); background: rgba(7, 26, 51, 0.36); border: 1px solid rgba(180, 228, 240, 0.22); font-size: 0.76rem; }
   #homepage__buttons__login .button, #homepage__buttons__logout .button { color: var(--atlas-cyan); background: transparent; border: 1px solid rgba(98, 216, 231, 0.42); }
 
   .username-modal { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 1rem; background: rgba(3, 15, 31, 0.72); backdrop-filter: blur(9px) saturate(120%); }
@@ -106,6 +107,8 @@ app-homepage {
     .homepage-lead { margin-top: 1.35rem; font-size: 0.92rem; }
     .homepage-compass { width: 9.5rem; }
     .homepage-compass__coordinate--east { right: -1.55rem; }
+    .homepage-secondary-actions { grid-template-columns: 1fr; }
+    .homepage-secondary-actions app-button:last-child { grid-column: auto; }
     .username-modal__form { padding: 1.5rem 1.25rem; }
   }
 }
